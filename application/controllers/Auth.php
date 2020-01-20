@@ -20,25 +20,25 @@ class Auth extends CI_Controller
     $data['barang'] = $this->M_barang->get_limit();
 
     $data['kategori'] = $this->M_kategori->get_all();
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('Vhome', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function ktg($id_kategori)
   {
     //
     $data['barang'] = $this->M_barang->get_result_by_id_kategori($id_kategori);
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vkat_barang', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function login()
   {
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_a/Vlogin');
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   //data yang akan di ubah dimasukkan ke array
@@ -85,7 +85,7 @@ class Auth extends CI_Controller
 
   public function register()
   {
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/V_pelanggan');
   }
 
@@ -110,9 +110,9 @@ class Auth extends CI_Controller
 
   public function lKonsumen()
   {
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('lKonsumen');
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function log_out()

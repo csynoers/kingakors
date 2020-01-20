@@ -14,18 +14,18 @@ class  Chome extends CI_Controller {
   {
 		$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
     $data['barang']=$this->M_barang->get_limit();
-    $this->load->view('kerangka/header', $data);
+    $this->load->view('kerangka/Header', $data);
     $this->load->view('Vhome', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function ktg($id_kategori)
   {
     //
     $data['barang'] = $this->M_barang->get_result_by_id_kategori($id_kategori);
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vkat_barang', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function detailbarang($idbarang)
@@ -33,16 +33,16 @@ class  Chome extends CI_Controller {
     $data['barang'] = $this->M_barang->get_by_id($idbarang);
     // var_dump($this->m_barang->get_by_id($idbarang));
     // die();
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vdetail_barang',$data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function profil_akors()
   {
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('Vprofil_akors');
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function add_keranjang()
