@@ -19,15 +19,15 @@ class Clogin extends CI_Controller
     $data['status_login'] = $this->session->userdata('status_login');
     $data['username'] = $this->session->userdata('username');
     $data['kategori'] = $this->M_kategori->get_all();
-    $this->load->view('kerangka/header');
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Header');
+    $this->load->view('kerangka/Footer');
   }
 
   public function login()
   {
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_a/Vlogin');
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   //data yang akan di ubah dimasukkan ke array
@@ -40,9 +40,9 @@ class Clogin extends CI_Controller
       'required' => 'Password tidak boleh kosong'
     ]);
     if ($this->form_validation->run() == false) {
-      $this->load->view('kerangka/header');
+      $this->load->view('kerangka/Header');
       $this->load->view('menu_a/Vlogin');
-      $this->load->view('kerangka/footer');
+      $this->load->view('kerangka/Footer');
     } else {
       $this->_logP();
     }
@@ -93,9 +93,9 @@ class Clogin extends CI_Controller
 
   public function register()
   {
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/v_pelanggan');
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function send()
@@ -169,9 +169,9 @@ class Clogin extends CI_Controller
     $data['update']='update';
     $data['pelanggan'] = $this->Mpelanggan->get_all();
     $data['data_update'] = $this->Mpelanggan->get_by_id($id_pelanggan);
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vprofil', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function update_action1()

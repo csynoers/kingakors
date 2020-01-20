@@ -11,9 +11,9 @@ class Cpelanggan extends CI_Controller {
    	public function index()
    	{
       $data['pelanggan'] = $this->Mpelanggan->get_all();
-   		$this->load->view('template/header');
+   		$this->load->view('template/Header');
    		$this->load->view('menu_pelanggan/Vpelanggan', $data);
-   		$this->load->view('template/footer');
+   		$this->load->view('template/Footer');
    	}
 
   public function update($id_pelanggan)
@@ -21,9 +21,9 @@ class Cpelanggan extends CI_Controller {
     $data['update']='update';
     $data['pelanggan'] = $this->Mpelanggan->get_all();
     $data['data_update'] = $this->Mpelanggan->get_by_id($id_pelanggan);
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_pelanggan/Vpelanggan', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Footer');
   }
 	public function insert_action()
 	{

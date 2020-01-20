@@ -25,9 +25,9 @@ class cprofil extends CI_Controller
      $data['kota'] = $this->Mkota->get_join_all();
     $data['provinsi'] = $this->Mprov->get_all();
     $data['alamat_pengiriman'] = $this->Malamatpen->get_all_by_id($this->session->userdata('id_pelanggan'));
-    $this->load->view('kerangka/header', $data);
+    $this->load->view('kerangka/Header', $data);
     $this->load->view('menu_p/Vprofil', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function update($id_pelanggan)
@@ -36,9 +36,9 @@ class cprofil extends CI_Controller
     $data['data_update'] = $this->Mpelanggan->get_by_id($id_pelanggan);
     $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($id_pelanggan);
     $data['pemesanan'] = $this->Mpemesanan->get_riwayat($this->session->userdata('id_pelanggan'));
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vprofil', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function update_action()
@@ -61,17 +61,17 @@ class cprofil extends CI_Controller
   		public function datakota()
   		{
           $data['kota'] = $this->Mkota->get_all();
-          $this->load->view('kerangka/header');
+          $this->load->view('kerangka/Header');
           $this->load->view('menu_p/Vprofil', $data);
-          $this->load->view('kerangka/footer');
+          $this->load->view('kerangka/Footer');
       }
 
   		public function dataprov()
   		{
   			$data['provinsi'] = $this->Mprov->get_all();
-  			$this->load->view('kerangka/header');
+  			$this->load->view('kerangka/Header');
   			$this->load->view('menu_p/Vprofil', $data);
-  			$this->load->view('kerangka/footer');
+  			$this->load->view('kerangka/Footer');
   	}
 
   		public function cari_kota_ajax()
@@ -113,9 +113,9 @@ class cprofil extends CI_Controller
   				$data['kota'] = $this->Mkota->get_all();
       		$data['kecamatan'] = $this->Mkecamatan->get_all();
   				$data['alamat_pengiriman'] = $this->Malamatpen->get_join_all();
-      			$this->load->view('kerangka/header');
+      			$this->load->view('kerangka/Header');
       			$this->load->view('menu_p/Vprofil', $data);
-      			$this->load->view('kerangka/footer');
+      			$this->load->view('kerangka/Footer');
      	}
 
       	public function update_action1(){

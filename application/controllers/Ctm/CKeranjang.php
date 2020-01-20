@@ -37,9 +37,9 @@
 
 			$data['alamat'] = $alamat_pengiriman;
 			// var_dump($data['keranjang']);die();
-			$this->load->view('kerangka/header', $data);
+			$this->load->view('kerangka/Header', $data);
 			$this->load->view('menu_p/vkeranjangku', $data);
-			$this->load->view('kerangka/footer');
+			$this->load->view('kerangka/Footer');
 		}
 
 		public function checkout($iddetailpemesanan)
@@ -67,9 +67,9 @@
 				$total_ongkir = ($data_peng_kec->jarak * $data_peng_kec->harga) + $data_peng_kota->biaya;
 				$data['total_ongkir'] = $total_ongkir;
 
-				$this->load->view('kerangka/header', $data);
+				$this->load->view('kerangka/Header', $data);
 				$this->load->view('menu_p/Vcheckoutbarang', $data);
-				$this->load->view('kerangka/footer');
+				$this->load->view('kerangka/Footer');
 			} else {
 				redirect(base_url('Ctm/Calamatpen'));
 			}
@@ -252,9 +252,9 @@
 				$total_ongkir = (@$data_peng_kec->jarak * @$data_peng_kec->harga) + @$data_peng_kota->biaya;
 				$data['total_ongkir'] = @$total_ongkir;
 
-				$this->load->view('kerangka/header', $data);
+				$this->load->view('kerangka/Header', $data);
 				$this->load->view('menu_p/Vcheckout', $data);
-				$this->load->view('kerangka/footer');
+				$this->load->view('kerangka/Footer');
 			} else {
 				redirect(base_url('Ctm/Cprofil'));
 			}

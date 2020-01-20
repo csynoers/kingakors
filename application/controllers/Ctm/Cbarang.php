@@ -36,9 +36,9 @@ class Cbarang extends CI_Controller {
     }
     // var_dump($data);
 		$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
-    $this->load->view('kerangka/header', $data);
+    $this->load->view('kerangka/Header', $data);
     $this->load->view('menu_p/V_barang', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
     // echo $this->idKategori."akwejflkj";
   }
 
@@ -47,9 +47,9 @@ class Cbarang extends CI_Controller {
     $data['barang'] = $this->M_barang->get_by_id($idbarang);
     // var_dump($this->m_barang->get_by_id($idbarang));
     // die();
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vdetail_barang',$data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
   public function add_cart()

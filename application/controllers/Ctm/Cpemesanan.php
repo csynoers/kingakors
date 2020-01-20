@@ -23,9 +23,9 @@ class Cpemesanan extends CI_Controller {
 	{
 		$data['pemesanan'] = $this->Mpemesanan->get_all_by_id($this->session->userdata('id_pelanggan'));
 		// var_dump($data['pemesanan']);die();
-		$this->load->view('kerangka/header');
+		$this->load->view('kerangka/Header');
 		$this->load->view('menu_p/vpemesanan',$data);
-		$this->load->view('kerangka/footer');
+		$this->load->view('kerangka/Footer');
 	}
 
 	public function checkout($pemesanan)
@@ -36,9 +36,9 @@ class Cpemesanan extends CI_Controller {
 		// var_dump(	$data["data_update"]);
 		// die();
 		$data['alamat_pengiriman'] = $this->Malamatpen->get_all();
-			$this->load->view('kerangka/header');
+			$this->load->view('kerangka/Header');
 			$this->load->view('menu_p/Vcheckout', $data);
-			$this->load->view('kerangka/footer');
+			$this->load->view('kerangka/Footer');
 }
 	public function update_action()
 	{

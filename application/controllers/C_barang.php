@@ -12,9 +12,9 @@ class c_barang extends CI_Controller {
   public function index()
   {
     $data['barang'] = $this->M_barang->get_alls();
-    $this->load->view('kerangka/header');
+    $this->load->view('kerangka/Header');
     $this->load->view('Vbarang', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
     public function detailbarang($idbarang)
@@ -22,9 +22,9 @@ class c_barang extends CI_Controller {
       $data['barang'] = $this->M_barang->get_by_id($idbarang);
       // var_dump($this->m_barang->get_by_id($idbarang));
       // die();
-      $this->load->view('kerangka/header');
+      $this->load->view('kerangka/Header');
       $this->load->view('menu_p/Vdetail_barang',$data);
-      $this->load->view('kerangka/footer');
+      $this->load->view('kerangka/Footer');
     }
 
     public function add_cart()

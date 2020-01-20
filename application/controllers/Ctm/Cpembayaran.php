@@ -32,9 +32,9 @@ class Cpembayaran extends CI_Controller
 		}
 		$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
-		$this->load->view('kerangka/header', $data);
+		$this->load->view('kerangka/Header', $data);
 		$this->load->view('menu_p/vdetailpembayaran', $data);
-		$this->load->view('kerangka/footer');
+		$this->load->view('kerangka/Footer');
 	}
 
 	public function update($id_pembayaran)
@@ -42,9 +42,9 @@ class Cpembayaran extends CI_Controller
 		$data['update'] = 'update';
 		$data['pembayaran'] = $this->Mpembayaran->get_all();
 		$data['data_update'] = $this->Mpembayaran->get_join_by_id($id_pembayaran, 'pembayaran');
-		$this->load->view('kerangka/header');
+		$this->load->view('kerangka/Header');
 		$this->load->view('menu_p/vdetailpembayaran', $data);
-		$this->load->view('kerangka/footer');
+		$this->load->view('kerangka/Footer');
 	}
 
 	public function update_action()
@@ -96,8 +96,8 @@ class Cpembayaran extends CI_Controller
 		}
 		$data["pembayaran"] = $this->Mpembayaran->get_join_by_id($id_pembayaran, 'pembayaran');
 		// var_dump($data);die();
-		$this->load->view('kerangka/header');
+		$this->load->view('kerangka/Header');
 		$this->load->view('menu_p/Vkonfirmasi_pem', $data);
-		$this->load->view('kerangka/footer');
+		$this->load->view('kerangka/Footer');
 	}
 }

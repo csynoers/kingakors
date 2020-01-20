@@ -19,9 +19,9 @@ class Criw extends CI_Controller
     $data['pemesanan'] = $this->Mpemesanan->get_riwayat($this->session->userdata('id_pelanggan'));
     // var_dump($data['pemesanan']);
     // die();
-    $this->load->view('kerangka/header', $data);
+    $this->load->view('kerangka/Header', $data);
     $this->load->view('menu_p/Vriw_pesan', $data);
-    $this->load->view('kerangka/footer');
+    $this->load->view('kerangka/Footer');
   }
 
 
