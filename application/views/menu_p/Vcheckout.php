@@ -62,7 +62,7 @@
                             <li><span>Total:</span> <span>Rp. <?= number_format($total_harga + $total_ongkir);?></span></li>
                         </ul>
                         <div class="cart-btn mt-100">
-                            <button class="btn amado-btn w-100" onclick="simpan_alamat_pengiriman()" >Place Order</button>
+                            <button class="btn amado-btn w-100" onclick="simpan_alamat_pengiriman()" >Place Order A</button>
                         </div>
                     </div>
                 </div>
