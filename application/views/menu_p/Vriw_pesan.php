@@ -65,18 +65,18 @@
                     <td class="cart_product_desc">
                       <h5><?php echo $data_pemesanan->verifikasi; ?></h5>
                     </td>
-                    <td>
+                    <!-- <td>
                       <form class="" action="<?php echo base_url("Ctm/Cpembayaran/detail_pembayaran"); ?>" method="post">
                         <input type="hidden" name="id" value="<?php echo $data_pemesanan->id_pembayaran; ?>">
 
                         <button type="submit" class="btn btn-danger"
                         <?php
                             //jika bukti transfer sudah di info pembayaran tidak bisa di lihat
-                            if ($data_pemesanan->bukti_transfer != null || $data_pemesanan->verifikasi == 'expired') {
-                              echo "disabled";
-                            } ?>>Info Pembayaran</button>
+                            // if ($data_pemesanan->bukti_transfer != null || $data_pemesanan->verifikasi == 'expired') {
+                            //   echo "disabled";
+                            // } ?>>Info Pembayaran</button>
                       </form>
-                    </td>
+                    </td> -->
                     <td>
                       <form class="" action="<?php echo base_url('Ctm/Cpemesanan/delete_relasi') ?>" method="post">
                         <input type="hidden" name="id_pesan" value="<?php echo $data_pemesanan->id_pesan; ?>">
