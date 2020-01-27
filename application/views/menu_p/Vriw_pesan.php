@@ -141,7 +141,7 @@ function modalDetail(id) {
 $("#id_pesan").val(id);
 $.ajax({
   url: '<?php echo base_url("Ctm/Criw/getDetailRiwayat/") ?>',
-  type: "POST",
+  type: "GET",
   data: {
     id_pesan: id
   },
