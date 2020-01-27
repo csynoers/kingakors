@@ -6,7 +6,7 @@ class A_log extends CI_Controller {
   public function index()
   {
     $this->load->view('kerangka/Header');
-    $this->load->view('menu_a/Vlogin');
+    $this->load->view('menu_a/VLogin');
     $this->load->view('kerangka/Footer');
   }
 }
