@@ -40,7 +40,7 @@
                                             <h5><?= $data_pemesanan->alamat_lengkap; ?></h5>
                                         </td>
                                         <td class="cart_product_desc">
-                                            <h5><?= date("Y-m-d", $data_pemesanan->tgl_pesan); ?></h5>
+                                            <h5><?= $data_pemesanan->tgl_pesan ?></h5>
                                         </td>
                                     </tr>
                                 <?php } ?>
