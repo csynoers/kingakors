@@ -127,7 +127,7 @@ $.ajax({
         data: {
             id_al_peng : id_al_peng,
             id_det_pem : id_det_pem,
-            id_met_pem : id_met_pem,
+            // id_met_pem : id_met_pem,
             ongkir : ongkir,
             total_harga : total_harga,
             total_harga_barang : total_harga_barang,
