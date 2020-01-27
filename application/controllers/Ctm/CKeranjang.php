@@ -62,7 +62,7 @@
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
 			echo '<pre>';
-			print_r($data);
+			print_r($data['cart']->num_rows);
 			echo '</pre>';
 			die();
 
