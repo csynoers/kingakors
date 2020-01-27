@@ -118,13 +118,17 @@ date_default_timezone_set('Asia/jakarta');
                 </tr>
                 ';
         foreach ($pesanan as $key) {
+            $metodePembayaran= "-";
+            if ( $key->nama_peng=='diproses' ) {
+                $metodePembayaran = $this->get_from_invoice( $this->getInvoice($key->external_id) );
+            }
             print_r($key);
             $out .= '<tr>
                 <td>' . $key->nama_pel . '</td>
                 <td>' . $key->alamat_lengkap . '</td>
                 <td class="text-center">' . $jml . '</td>
                 <td>Rp.' . number_format($key->jumlah_uang) . '</td>
-                <td class="text-center"><img src="' . base_url('assets/uploads/') . $key->bukti_transfer . '" class="img img-thumbnail img-rounded"></td>
+                <td class="text-center">'.$metodePembayaran.'</td>
                 <td>' . $key->tgl_pesan . '</td>
                 </tr>';
         }
