@@ -18,7 +18,7 @@ class CadminDashboard extends CI_Controller {
     //memanggil fungsi jumlah_pelanggan dari model Mpelanggan
     $data['jumlah_pelanggan'] = $this->Mpelanggan->jumlah_pelanggan();
 
-      $this->load->view('template/Headers');
+      $this->load->view('template/Header');
       // $this->load->view('template/Footer');
 
 }
