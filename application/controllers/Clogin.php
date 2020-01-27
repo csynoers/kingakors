@@ -93,7 +93,7 @@ class Clogin extends CI_Controller
     $get_login_by_username = $this->Mpelanggan->login_username($username);
     $get_login = $this->Mpelanggan->login($username, $password);
     $get_cart = $this->Mdetailpemesanan->get_null_id_pesan($get_login->id_pelanggan);
-    var_dump(count($get_cart));
+    // var_dump(count($get_cart));
     if (count($get_login) != null) {
 
       //data session
