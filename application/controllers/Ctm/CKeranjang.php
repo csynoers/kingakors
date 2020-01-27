@@ -105,17 +105,6 @@
 				$dataMod['paymentConfig']['email'],
 				$dataMod['paymentConfig']['keterangan']
 			);
-			 
-			// print_r(
-			// 	$dataMod
-			// 	// $this->createInvoice(
-			// 	// 	$nomor_pesanan,
-			// 	// 	( $this->input->post('total_harga_barang')+$this->input->post('ongkir') ),
-			// 	// 	$pelanggan->email,
-			// 	// 	$this->input->post('keterangan')
-			// 	// ) 
-			// );
-			// die();
 
 			$data = array(
 				'id_pesan' => $nomor_pesanan,
@@ -127,6 +116,9 @@
 				'external_id' => $dataMod['payment']['external_id'],
 				'invoice_url' => $dataMod['payment']['invoice_url']
 			);
+
+			print_r($data);
+			die();
 			$insert = $this->Mpemesanan->insert($data);
 			$data_id = (object) $insert;
 
