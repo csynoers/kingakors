@@ -35,10 +35,9 @@ class Cbarang extends CI_Controller {
     }
     // var_dump($data);
     $data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
-    print_r($data);
-    // $this->load->view('kerangka/Header', $data);
-    // $this->load->view('menu_p/V_barang', $data);
-    // $this->load->view('kerangka/Footer');
+    $this->load->view('kerangka/Header', $data);
+    $this->load->view('menu_p/V_barang', $data);
+    $this->load->view('kerangka/Footer');
     // echo $this->idKategori."akwejflkj";
   }
 

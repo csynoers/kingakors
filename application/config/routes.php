@@ -52,5 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['ctm/Cbarang/(:num)'] = "ctm/Cbarang/setKategori/$1";
+$route['ctm/Cbarang'] = "Ctm/Cbarang";
 
 $route['translate_uri_dashes'] = TRUE;
