@@ -90,7 +90,7 @@
                           <li><span>total:</span> <span><?= "Rp.".number_format($total) ?></span></li>
                       </ul>
                       <div class="cart-btn mt-50">
-                          <a href="<?= base_url('Ctm/Ckeranjang/lanjutkan_pembelanjaan/');?>" class="btn amado-btn w-100">Checkout</a>
+                          <a href="<?= base_url('Ctm/CKeranjang/lanjutkan_pembelanjaan/');?>" class="btn amado-btn w-100">Checkout</a>
                       </div>
                   </div>
               </div>
