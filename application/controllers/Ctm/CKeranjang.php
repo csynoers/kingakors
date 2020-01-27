@@ -9,7 +9,6 @@
 		public function __construct()
 		{
 			parent::__construct();
-			ob_start();
 			// $this->load->model('Mdetailpemesanan');
 			// $this->load->model('Mpemesanan');
 			// $this->load->model('Malamatpen');
