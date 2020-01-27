@@ -61,7 +61,7 @@
 			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
-			if ( $cart->num_rows() < 1 ) {
+			if ( ! $cart ) {
 				redirect(base_url('Ctm/Ckeranjang'));
 				die();
 			}
