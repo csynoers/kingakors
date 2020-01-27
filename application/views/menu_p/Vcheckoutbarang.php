@@ -134,8 +134,9 @@ $.ajax({
         },
         async: true,
         success: function (arr) {
+            location.href = arr;
             // console.log(arr);
-            window.open(arr, '_blank');
+            // window.open(arr, '_blank');
             // console.log(arr.status);
             // text = JSON.stringify(arr);
             // console.log(text);
