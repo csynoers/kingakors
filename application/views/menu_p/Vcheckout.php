@@ -124,7 +124,7 @@
         $.ajax({
           url: '<?= base_url("Ctm/CKeranjang/lakukan_pemesanan/") ?>',
           type: "POST",
-          dataType: "json",
+          // dataType: "json",
           data: {
             id_al_peng : id_al_peng,
             // id_met_pem : id_met_pem,
