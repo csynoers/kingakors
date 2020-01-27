@@ -3,9 +3,10 @@
     class Payment extends CI_Controller {
         function __construct () {
             parent::__construct();
-            echo $this->internet_check();
+            $this->load->Model('Mpayment');
+            // echo $this->internet_check();
             /* create config mode debuging SET $this->debug to TRUE OR FALSE*/
-            $this->debug = TRUE ;
+            $this->debug = FALSE ;
 
             $this->data = [];
 
@@ -63,19 +64,24 @@
                 # get data id for WHERE condition to change field tabel in your database
                 $this->data['id']               = $this->data['responseDecode']->id;
 
-                switch ( $this->data['responseDecode']->status ) {
-                    case 'PAID':
-                        # code controller paid payment here...
-                        break;
+                $this->Mpayment->data = $this->data;
 
-                    case 'EXPIRED':
-                        # code controller expired payment here...
-                        break;
+                $this->Mpayment->store_payment();
+
+                // switch ( $this->data['responseDecode']->status ) {
+                //     case 'PAID':
+                //         $this->Mpayment->store_
+                //         # code controller paid payment here...
+                //         break;
+
+                //     case 'EXPIRED':
+                //         # code controller expired payment here...
+                //         break;
                     
-                    default:
-                        # code...
-                        break;
-                }
+                //     default:
+                //         # code...
+                //         break;
+                // }
                 
                 print_r("\n\{$this->data['response']} contains the updated invoice data \n\n");
                 print_r($this->data['response']);

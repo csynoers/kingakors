@@ -113,7 +113,7 @@
 				'ongkir' => $this->input->post('ongkir'),
 				'total_harga_barang' => $this->input->post('total_harga_barang'),
 				'id_pelanggan' => $this->session->userdata('id_pelanggan'),
-				'external_id' => $dataMod['payment']['external_id'],
+				'external_id' => $dataMod['payment']['id'],
 				'invoice_url' => $dataMod['payment']['invoice_url']
 			);
 
@@ -208,7 +208,7 @@
 				'ongkir' => $this->input->post('ongkir'),
 				'total_harga_barang' => $this->input->post('total_harga_barang'),
 				'id_pelanggan' => $this->session->userdata('id_pelanggan'),
-				'external_id' => $dataMod['payment']['external_id'],
+				'external_id' => $dataMod['payment']['id'],
 				'invoice_url' => $dataMod['payment']['invoice_url']
 			);
 			$insert = $this->Mpemesanan->insert($data);
