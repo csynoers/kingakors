@@ -117,10 +117,10 @@
 				'invoice_url' => $dataMod['payment']['invoice_url']
 			);
 
-			print_r($data);
-			die();
 			$insert = $this->Mpemesanan->insert($data);
 			$data_id = (object) $insert;
+			print_r($insert);
+			die();
 
 			//update id_pesan
 			$data_update_pemesanan = array(
