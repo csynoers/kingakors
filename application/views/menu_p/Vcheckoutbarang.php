@@ -52,7 +52,7 @@
                             </a></button>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class='d-none'>
                         <td class="cart_product_desc">
                             <label for="">Metode Pembayaran</label>
                         </td>
