@@ -166,7 +166,7 @@
 				// 	$nomor_pesanan
 				// 	// 'link' => "Ctm"."\/Cpembayaran"."\/detail_pembayaran"."\/".$nomor_pesanan
 				// );
-				echo json_encode($dataMod['payment']['invoice_url']);
+				echo $dataMod['payment']['invoice_url'];
 			} else {
 				echo json_encode(array(
 					'status' => 'nosukses'
