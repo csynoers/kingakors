@@ -45,6 +45,10 @@
 			$data['data_peng_kota']=$data_peng_kota;
 			$data['data_peng_kec']=$data_peng_kec;
 			$data['alamat'] = $alamat_pengiriman;
+			echo '<pre>';
+			print_r($data);
+			echo '</pre>';
+			die();
 			$this->load->view('kerangka/Header', $data);
 			$this->load->view('menu_p/Vkeranjangku', $data);
 			$this->load->view('kerangka/Footer');

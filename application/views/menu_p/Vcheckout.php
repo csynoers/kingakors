@@ -32,7 +32,8 @@
                                   </div>
                               </div>
                               <div class="col-12 mb-3">
-                            <select class="w-100" id="id_met_pem" >
+                                <hr>
+                            <select class="w-100 d-none" id="id_met_pem" >
                                 <option value="" >Pilih Metode Pembayaran</option>
                                 <?php
                                   foreach ($metode_pembayaran as $dataMetPem) {
