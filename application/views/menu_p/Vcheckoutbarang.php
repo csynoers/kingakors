@@ -122,7 +122,7 @@ if ( ongkir == '' || total_harga == '' || total_harga_barang == '') {
       alert('Form masih ada yang kosong');
     } else {
 $.ajax({
-        url: '<?php echo base_url("Ctm/Ckeranjang/lakukan_pemesanan_satuan/") ?>',
+        url: '<?php echo base_url("Ctm/CKeranjang/lakukan_pemesanan_satuan/") ?>',
         type: "POST",
         data: {
             id_al_peng : id_al_peng,

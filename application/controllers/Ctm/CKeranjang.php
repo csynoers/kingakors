@@ -71,6 +71,8 @@
 
 		public function lakukan_pemesanan_satuan()
 		{
+			print_r($_REQUEST);
+			die();
 			$lastinsert = $this->Mpemesanan->get_last_pesan();
 
 			$no_urut = (int) substr($lastinsert->id_pemesanan, 12, 3);
