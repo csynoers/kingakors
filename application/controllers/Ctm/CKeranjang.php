@@ -82,10 +82,21 @@
 			$nomor_pesanan = "FNR" . date("mdY") . "-" . sprintf("%03s", $tambah_no_urut);
 
 			// $_REQUEST['nomor_pemesanan'] = $nomor_pesanan;
-			// $payment = $this->createInvoice($this->input->post('id'),$this->input->post('amount'),$this->input->post('email'),$this->input->post('keterangan'));
+			// $payment = ;
 
-			// $pelanggan
-			print_r($this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') ) );
+			$pelanggan = $this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') );
+			print_r(
+				[
+					$this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') )->email,
+					$this->Mdetailpemesanan->get_by_id( $this->input->post('id_det_pem') )
+				]
+				// $this->createInvoice(
+				// 	$nomor_pesanan,
+				// 	( $this->input->post('total_harga_barang')+$this->input->post('ongkir') ),
+				// 	$pelanggan->email,
+				// 	$this->input->post('keterangan')
+				// ) 
+			);
 			die();
 
 			$data = array(
