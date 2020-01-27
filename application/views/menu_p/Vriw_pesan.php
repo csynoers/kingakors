@@ -66,8 +66,8 @@
                       <h5><?php echo $data_pemesanan->verifikasi; ?></h5>
                     </td>
                     <!-- <td>
-                      <form class="" action="<?php echo base_url("Ctm/Cpembayaran/detail_pembayaran"); ?>" method="post">
-                        <input type="hidden" name="id" value="<?php echo $data_pemesanan->id_pembayaran; ?>">
+                      <form class="" action="<?php //echo base_url("Ctm/Cpembayaran/detail_pembayaran"); ?>" method="post">
+                        <input type="hidden" name="id" value="<?php //echo $data_pemesanan->id_pembayaran; ?>">
 
                         <button type="submit" class="btn btn-danger"
                         <?php
@@ -84,6 +84,7 @@
                       <?php
                         if ( $data_pemesanan->verifikasi=='belum bayar' ) {
                           ?>
+                            <a href='<?= $data_pemesanan->invoice_url ?>' class="btn btn-info" target='_blank' >Bayar Sekarang</a>
                             <form class="" action="<?php echo base_url('Ctm/Cpemesanan/delete_relasi') ?>" method="post">
                               <input type="hidden" name="id_pesan" value="<?php echo $data_pemesanan->id_pesan; ?>">
                               <input type="hidden" name="id_pembayaran" value="<?php echo $data_pemesanan->id_pembayaran; ?>">
