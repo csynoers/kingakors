@@ -71,13 +71,15 @@
 
 		public function lakukan_pemesanan_satuan()
 		{
-			print_r($_REQUEST);
-			die();
 			$lastinsert = $this->Mpemesanan->get_last_pesan();
 
 			$no_urut = (int) substr($lastinsert->id_pemesanan, 12, 3);
 			$tambah_no_urut = $no_urut + 1;
 			$nomor_pesanan = "FNR" . date("mdY") . "-" . sprintf("%03s", $tambah_no_urut);
+
+			$_REQUEST['nomor_pemesanan'] = $nomor_pesanan;
+			print_r($_REQUEST);
+			die();
 
 			$data = array(
 				'id_pesan' => $nomor_pesanan,
@@ -322,4 +324,41 @@
 			// echo "data terhapus";
 			redirect("Ctm/Ckeranjang");
 		}
+
+		/* START PAYMENT */
+		function createInvoice ($external_id, $amount, $payer_email, $description, $invoice_options = null) {
+            $curl = curl_init();
+
+            $headers = array();
+            $headers[] = 'Content-Type: application/json';
+
+            $end_point = $this->server_domain.'/v2/invoices';
+
+            $data['external_id'] = $external_id;
+            $data['amount'] = (int)$amount;
+            $data['payer_email'] = $payer_email;
+            $data['description'] = $description;
+
+            if ( is_array($invoice_options) ) {
+                foreach ( $invoice_options as $key => $value ) {
+                    $data[$key] = $value;
+                }
+            }
+
+            $payload = json_encode($data);
+
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($curl, CURLOPT_USERPWD, $this->secret_api_key.":");
+            curl_setopt($curl, CURLOPT_URL, $end_point);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $payload);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($curl);
+            curl_close($curl);
+
+            $responseObject = json_decode($response, true);
+            return $responseObject;
+        }
+		/* END PAYMENT */
 	}
