@@ -54,5 +54,6 @@ $route['404_override'] = '';
 $route['ctm/Cbarang/(:num)'] = "Ctm/Cbarang/setKategori/$1";
 $route['ctm/Cbarang'] = "Ctm/Cbarang";
 $route['Ctm/Ckeranjang'] = "Ctm/CKeranjang";
+$route['Ctm/Ckeranjang/checkout/(:num)'] = "Ctm/CKeranjang/checkout/$1";
 
 $route['translate_uri_dashes'] = TRUE;
