@@ -61,10 +61,10 @@
 			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
-			echo '<pre>';
-			print_r( count($data['cart']->result_array) );
-			echo '</pre>';
-			die();
+			if ( count($data['cart']->result_array) < 1 ) {
+				redirect(base_url('Ctm/Ckeranjang'));
+				die();
+			}
 
 			if (@$alamat_pengiriman->id_al_peng != null) {
 				$data_peng_kota = $this->Mkota->get_by_id($alamat_pengiriman->kota);
