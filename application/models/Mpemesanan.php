@@ -177,10 +177,10 @@ class Mpemesanan extends CI_Model
   // insert data
   function insert($data)
   {
-    $this->db->trans_start();
+    // $this->db->trans_start();
     $this->db->insert($this->table, $data);
     $data['last_id'] = $this->db->insert_id();
-    $this->db->trans_complete();
+    // $this->db->trans_complete();
     return $data;
   }
 
