@@ -43,9 +43,9 @@
                 <th>Alamat Pengiriman</th>
                 <th>Jumlah Bayar</th>
                 <th>Status Pembayaran</th>
-                <th>Info rek Bank</th>
-                <th>Batalkan Pesanan</th>
-                <th>Detail Pemesanan</th>
+                <!-- <th>Info rek Bank</th> -->
+                <!-- <th>Batalkan Pesanan</th> -->
+                <th>Aksi</th>
               </tr>
               </thead>
               <?php // var_dump($pemesanan);
