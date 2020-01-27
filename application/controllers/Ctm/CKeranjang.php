@@ -9,14 +9,18 @@
 		public function __construct()
 		{
 			parent::__construct();
-			$this->load->model('Mdetailpemesanan');
-			$this->load->model('Mpemesanan');
-			$this->load->model('Malamatpen');
-			$this->load->model('Mkecamatan');
-			$this->load->model('Mkota');
-			$this->load->model('Mmetpem');
-			$this->load->model('Mpembayaran');
-			$this->load->model('M_barang');
+			$this->load->model([
+				'Mdetailpemesanan',
+				'Mpemesanan',
+				'Mpelanggan',
+				'Malamatpen',
+				'Mkecamatan',
+				'Mkota',
+				'Mmetpem',
+				'Mpembayaran',
+				'M_barang',
+			]);
+
 			//validasi customer
 			if ($this->session->userdata('status_login') != 'customer_oke') {
 				redirect(base_url('Clogin/login'));
@@ -77,8 +81,11 @@
 			$tambah_no_urut = $no_urut + 1;
 			$nomor_pesanan = "FNR" . date("mdY") . "-" . sprintf("%03s", $tambah_no_urut);
 
-			$_REQUEST['nomor_pemesanan'] = $nomor_pesanan;
-			print_r($_REQUEST);
+			// $_REQUEST['nomor_pemesanan'] = $nomor_pesanan;
+			// $payment = $this->createInvoice($this->input->post('id'),$this->input->post('amount'),$this->input->post('email'),$this->input->post('keterangan'));
+
+			// $pelanggan
+			print_r($this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') ) );
 			die();
 
 			$data = array(
@@ -87,7 +94,9 @@
 				'id_al_peng' => $this->input->post('id_al_peng'),
 				'ongkir' => $this->input->post('ongkir'),
 				'total_harga_barang' => $this->input->post('total_harga_barang'),
-				'id_pelanggan' => $this->session->userdata('id_pelanggan')
+				'id_pelanggan' => $this->session->userdata('id_pelanggan'),
+				'external_id' => $this->session->userdata('id_pelanggan'),
+				'invoice_url' => $this->session->userdata('id_pelanggan')
 			);
 			$insert = $this->Mpemesanan->insert($data);
 			$data_id = (object) $insert;
