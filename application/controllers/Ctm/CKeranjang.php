@@ -1,6 +1,6 @@
 	<?php
 	defined('BASEPATH') or exit('No direct script access allowed');
-	// date_default_timezone_set('Asia/jakarta');
+	date_default_timezone_set('Asia/jakarta');
 
 	class CKeranjang extends CI_Controller
 	{
@@ -8,21 +8,24 @@
 
 		public function __construct()
 		{
-			parent::__construct();
-			$this->load->model('Mdetailpemesanan');
-			$this->load->model('Mpemesanan');
-			$this->load->model('Malamatpen');
-			$this->load->model('Mkecamatan');
-			$this->load->model('Mkota');
-			$this->load->model('Mmetpem');
-			$this->load->model('Mpembayaran');
-			$this->load->model('M_barang');
-			//validasi customer
-			if ($this->session->userdata('status_login') != 'customer_oke') {
-				redirect(base_url('Clogin/login'));
-			}
+			// parent::__construct();
+			// $this->load->model('Mdetailpemesanan');
+			// $this->load->model('Mpemesanan');
+			// $this->load->model('Malamatpen');
+			// $this->load->model('Mkecamatan');
+			// $this->load->model('Mkota');
+			// $this->load->model('Mmetpem');
+			// $this->load->model('Mpembayaran');
+			// $this->load->model('M_barang');
+			// //validasi customer
+			// if ($this->session->userdata('status_login') != 'customer_oke') {
+			// 	redirect(base_url('Clogin/login'));
+			// }
 		}
-		public function index()
+		public function index(){
+			echo 'tes index';
+		}
+		public function indexS()
 		{
 			$data['keranjang'] = $this->Mdetailpemesanan->get_null_id_pesan($this->session->userdata('id_pelanggan'));
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
