@@ -119,10 +119,10 @@ date_default_timezone_set('Asia/jakarta');
                 ';
         foreach ($pesanan as $key) {
             $metodePembayaran= "-";
-            if ( $key->nama_peng=='diproses' ) {
+            if ( $key->verifikasi=='diproses' ) {
                 $metodePembayaran = $this->get_from_invoice( $this->getInvoice($key->external_id) );
             }
-            print_r($key);
+            // print_r($key);
             $out .= '<tr>
                 <td>' . $key->nama_pel . '</td>
                 <td>' . $key->alamat_lengkap . '</td>
