@@ -33,6 +33,9 @@
                               </div>
                               <div class="col-12 mb-3">
                                 <hr>
+                                <?php
+                                  print_r($keranjang);
+                                ?>
                             <select class="w-100 d-none" id="id_met_pem" >
                                 <option value="" >Pilih Metode Pembayaran</option>
                                 <?php
