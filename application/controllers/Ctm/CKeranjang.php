@@ -182,13 +182,34 @@
 			$tambah_no_urut = $no_urut + 1;
 			$nomor_pesanan = "FNR" . date("mdY") . "-" . sprintf("%03s", $tambah_no_urut);
 
+			$dataMod = [];
+			$dataMod['pelanggan'] = $this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') );
+			// $dataMod['detailPemesanan'] = $this->Mdetailpemesanan->get_by_id( $this->input->post('id_det_pem') );
+			// $dataMod['barang'] = $this->M_barang->get_by_id($dataMod['detailPemesanan']->id_barang);
+
+			# config payment
+			$dataMod['paymentConfig']['id'] = $nomor_pesanan;
+			$dataMod['paymentConfig']['amount'] = ( $this->input->post('total_harga_barang')+$this->input->post('ongkir') );
+			$dataMod['paymentConfig']['email'] = $dataMod['pelanggan']->email;
+			$dataMod['paymentConfig']['keterangan'] = "Pembayaran untuk no pemesanan {$nomor_pesanan}";
+
+			# create invoice
+			$dataMod['payment'] = $this->createInvoice(
+				$dataMod['paymentConfig']['id'],
+				$dataMod['paymentConfig']['amount'],
+				$dataMod['paymentConfig']['email'],
+				$dataMod['paymentConfig']['keterangan']
+			);
+
 			$data = array(
 				'id_pesan' => $nomor_pesanan,
 				'tgl_pesan' => date('Y-m-d'),
 				'id_al_peng' => $this->input->post('id_al_peng'),
 				'ongkir' => $this->input->post('ongkir'),
 				'total_harga_barang' => $this->input->post('total_harga_barang'),
-				'id_pelanggan' => $this->session->userdata('id_pelanggan')
+				'id_pelanggan' => $this->session->userdata('id_pelanggan'),
+				'external_id' => $dataMod['payment']['external_id'],
+				'invoice_url' => $dataMod['payment']['invoice_url']
 			);
 			$insert = $this->Mpemesanan->insert($data);
 			$data_id = (object) $insert;
@@ -219,7 +240,8 @@
 			$data_insert_pembayaran = array(
 				"id_pembayaran" => $id_pembayaran,
 				"id_pesan" => $nomor_pesanan,
-				"id_met_pem" => $this->input->post('id_met_pem'),
+				"id_met_pem" => 1,
+				// "id_met_pem" => $this->input->post('id_met_pem'),
 				"jumlah_uang" => $this->input->post('total_harga'),
 				"tgl_bayar" => date("Y-m-d"),
 				"verifikasi" => 'belum bayar',
@@ -230,10 +252,11 @@
 			//insert ke pembayaran
 			$insert_pembayaran = $this->Mpembayaran->insert($data_insert_pembayaran);
 			if ($insert_pembayaran == true) {
-				echo json_encode(array(
-					'status' => true,
-					'id_pesan' => $nomor_pesanan
-				));
+				// echo json_encode(array(
+				// 	'status' => true,
+				// 	'id_pesan' => $nomor_pesanan
+				// ));
+				echo $dataMod['payment']['invoice_url'];
 			} else {
 				echo json_encode(array(
 					'status' => false

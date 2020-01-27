@@ -34,7 +34,7 @@
                               <div class="col-12 mb-3">
                                 <hr>
                                 <?php
-                                  print_r($keranjang);
+                                  // print_r($keranjang);
                                 ?>
                                 <table class="table table-striped">
                                   <thead>
@@ -111,30 +111,30 @@
 
 <script type="text/javascript">
   function simpan_alamat_pengiriman(){
-      var id_met_pem = $('#id_met_pem').val();
+      // var id_met_pem = $('#id_met_pem').val();
       var id_al_peng = $('#id_al_peng').val();
       var ongkir = $('#ongkir').val();
       var total_harga = $('#total_harga').val();
       var total_harga_barang = $('#total_harga_barang').val();
-      console.log(id_met_pem+" "+id_al_peng+" "+ongkir+" "+total_harga+" "+total_harga_barang);
-      if (id_met_pem == '' || ongkir == '' || total_harga == '' || total_harga_barang == '') {
+      // console.log(id_met_pem+" "+id_al_peng+" "+ongkir+" "+total_harga+" "+total_harga_barang);
+      if (ongkir == '' || total_harga == '' || total_harga_barang == '') {
+      // if (id_met_pem == '' || ongkir == '' || total_harga == '' || total_harga_barang == '') {
         alert('Form masih ada yang kosong');
       } else {
         $.ajax({
-          url: '<?= base_url("Ctm/Ckeranjang/lakukan_pemesanan/") ?>',
+          url: '<?= base_url("Ctm/CKeranjang/lakukan_pemesanan/") ?>',
           type: "POST",
           dataType: "json",
           data: {
             id_al_peng : id_al_peng,
-            id_met_pem : id_met_pem,
+            // id_met_pem : id_met_pem,
             ongkir : ongkir,
             total_harga : total_harga,
             total_harga_barang : total_harga_barang,
           },
           // async: false,
           success: function (res) {
-              console.log(res.status);
-              location.href   = "<?= base_url('Ctm/Cpembayaran/detail_pembayaran/') ?>"+res.id_pesan;
+              location.href   = res;
           }
         });
       }
