@@ -8,8 +8,8 @@ class Clap_barang extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Mkota');
-    $this->load->model('m_barang');
-    $this->load->model('m_kategori');
+    $this->load->model('M_barang');
+    $this->load->model('M_kategori');
     if ($this->session->userdata('status_login') != 'admin_oke') {
       redirect(base_url('clogin/login'));
     }
@@ -17,11 +17,11 @@ class Clap_barang extends CI_Controller
 
   public function index()
   {
-    $data['kodeunik'] = $this->m_barang->buat_kode();
-    $data['barang'] = $this->m_barang->get_all();
-    $data['kategori'] = $this->m_kategori->get_all();
-    $this->load->view('template/header');
-    $this->load->view('menu_a/vLapBarang', $data);
-    $this->load->view('template/footer');
+    $data['kodeunik'] = $this->M_barang->buat_kode();
+    $data['barang'] = $this->M_barang->get_all();
+    $data['kategori'] = $this->M_kategori->get_all();
+    $this->load->view('template/Header');
+    $this->load->view('menu_a/VLapBarang', $data);
+    $this->load->view('template/Footer');
   }
 }

@@ -16,9 +16,9 @@ class Ckategori extends CI_Controller
   public function index()
   {
     $data['kategori'] = $this->M_kategori->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vkategori', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Footer');
   }
 
   public function insert_action()
@@ -71,9 +71,9 @@ class Ckategori extends CI_Controller
     $data['update'] = 'update';
     $data['kategori'] = $this->M_kategori->get_all();
     $data['data_update'] = $this->M_kategori->get_by_id($id_kategori);
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vkategori', $data);
-    // $this->load->view('template/footer');
+    // $this->load->view('template/Footer');
   }
 
   public function update_action()
@@ -105,7 +105,7 @@ class Ckategori extends CI_Controller
       // var_dump($data);
       $file_upload = $this->upload->data('file_name');
       //proses kompres data
-      $nama_file_upload = $this->m_kategori->image_compressor($file_upload, $path_asli);
+      $nama_file_upload = $this->M_kategori->image_compressor($file_upload, $path_asli);
     }
 
     //data yang akan di ubah dimasukkan ke array

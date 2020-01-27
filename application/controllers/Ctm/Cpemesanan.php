@@ -24,7 +24,7 @@ class Cpemesanan extends CI_Controller {
 		$data['pemesanan'] = $this->Mpemesanan->get_all_by_id($this->session->userdata('id_pelanggan'));
 		// var_dump($data['pemesanan']);die();
 		$this->load->view('kerangka/Header');
-		$this->load->view('menu_p/vpemesanan',$data);
+		$this->load->view('menu_p/Vpemesanan',$data);
 		$this->load->view('kerangka/Footer');
 	}
 

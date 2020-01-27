@@ -80,10 +80,11 @@
                       <ul class="summary-table">
                           <li><span>subtotal:</span> <span><?= "Rp.".number_format($sTotal) ?></span></li>
                           <hr>
-                          <li><span>Jarak antar kota:</span></li>
+                          <li><span>Jarak antar kota: <?= $data_peng_kota->nm_kota.' Rp.'.number_format($data_peng_kota->biaya)?></span></li>
                           <hr>
-                          <li><span>jarak dari kota ke kecamatan:</span></li>
-                          <li><span>biaya per km (1km = 4000):</span></li>
+                          <li><span>jarak dari kota ke kecamatan: <?= $data_peng_kec->jarak?> Km</span></li>
+                          <li><span>biaya per km (1km = 4000)</span></li>
+                          <li><span>Rp.<?= number_format($data_peng_kota->biaya) ?> + ( Rp.4.000 * <?= $data_peng_kec->jarak ?> )</span></li>
                           <hr>
                           <li><span>delivery </span> <span><?= "Rp.".number_format($delivery) ?></span></li>
                           <li><span>total:</span> <span><?= "Rp.".number_format($total) ?></span></li>

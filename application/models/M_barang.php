@@ -30,10 +30,26 @@ class M_barang extends CI_Model
        return $this->db->get($this->table)->result();
    }
 
+   function get_row()
+   {
+       $this->db->order_by($this->id, $this->order);
+       return $this->db->get($this->table)->num_rows();
+   }
+
     function get_limit()
     {
         $sql = "SELECT * FROM barang ORDER BY id_barang DESC LIMIT 6";
         return $this->db->query($sql)->result_array();
+    }
+
+    public function getDataPagination($limit, $offset)
+    {
+       $this->db->select('*');
+       $this->db->from($this->table);
+       $this->db->order_by($this->id, 'ASC');
+       $this->db->limit($limit, $offset);
+
+       return $this->db->get();
     }
 
     //get data by id

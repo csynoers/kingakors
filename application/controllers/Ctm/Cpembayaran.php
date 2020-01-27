@@ -33,7 +33,7 @@ class Cpembayaran extends CI_Controller
 		$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
 		$this->load->view('kerangka/Header', $data);
-		$this->load->view('menu_p/vdetailpembayaran', $data);
+		$this->load->view('menu_p/Vdetailpembayaran', $data);
 		$this->load->view('kerangka/Footer');
 	}
 
@@ -43,7 +43,7 @@ class Cpembayaran extends CI_Controller
 		$data['pembayaran'] = $this->Mpembayaran->get_all();
 		$data['data_update'] = $this->Mpembayaran->get_join_by_id($id_pembayaran, 'pembayaran');
 		$this->load->view('kerangka/Header');
-		$this->load->view('menu_p/vdetailpembayaran', $data);
+		$this->load->view('menu_p/Vdetailpembayaran', $data);
 		$this->load->view('kerangka/Footer');
 	}
 

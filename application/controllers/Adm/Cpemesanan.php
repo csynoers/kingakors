@@ -20,9 +20,9 @@ class Cpemesanan extends CI_Controller
   public function index()
   {
     $data['pemesanan'] = $this->Mpemesanan->get_pesanan($this->session->userdata('id_pesan'));
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vpemesanan', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Footer');
   }
 }
 

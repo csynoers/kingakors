@@ -14,7 +14,7 @@
                 <h3 class="text-white">KING AKOR'S</h3>
                 <p class="text-white">Kami menciptakan desain furniture yang luar biasa, dengan cara memperluas jangkauan produk</p>
                 <a href="<?= base_url('Chome/profil_akors')?>">
-                  <div class="btn btn-info">Lihat Profil Kami</div>
+                  <!-- <div class="btn btn-info">Lihat Profil Kami</div> -->
                 </a>
               </div>
             </div>
@@ -24,7 +24,7 @@
                 <h3 class="text-white">KING AKOR'S</h3>
                 <p class="text-white">Kami menciptakan desain furniture yang luar biasa, dengan cara memperluas jangkauan produk</p>
                 <a href="<?= base_url('Chome/profil_akors')?>">
-                  <div class="btn btn-info">Lihat Profil Kami</div>
+                  <!-- <div class="btn btn-info">Lihat Profil Kami</div> -->
                 </a
               </div>
             </div>

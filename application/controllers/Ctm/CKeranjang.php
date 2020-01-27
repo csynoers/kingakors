@@ -28,17 +28,17 @@
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
 			$alamat_pengiriman = $this->Malamatpen->get_alamat_ready($this->session->userdata('id_pelanggan'));
-			@$data_peng_kota = $this->Mkota->get_by_id($alamat_pengiriman->kota);
-			@$data_peng_kec = $this->Mkecamatan->get_by_id($alamat_pengiriman->kecamatan);
+			$data_peng_kota = $this->Mkota->get_by_id($alamat_pengiriman->kota);
+			$data_peng_kec = $this->Mkecamatan->get_by_id($alamat_pengiriman->kecamatan);
 
 			$total_ongkir = 0;
-			@$total_ongkir = ($data_peng_kec->jarak * $data_peng_kec->harga) + $data_peng_kota->biaya;
+			$total_ongkir = ($data_peng_kec->jarak * $data_peng_kec->harga) + $data_peng_kota->biaya;
 			$data['total_ongkir'] = $total_ongkir;
-
+			$data['data_peng_kota']=$data_peng_kota;
+			$data['data_peng_kec']=$data_peng_kec;
 			$data['alamat'] = $alamat_pengiriman;
-			// var_dump($data['keranjang']);die();
 			$this->load->view('kerangka/Header', $data);
-			$this->load->view('menu_p/vkeranjangku', $data);
+			$this->load->view('menu_p/Vkeranjangku', $data);
 			$this->load->view('kerangka/Footer');
 		}
 
@@ -47,17 +47,11 @@
 			$data["update"] = "checkout";
 			$detailpemesanan = $this->Mdetailpemesanan->get_row_null_id_pesan($iddetailpemesanan);
 			$data["data_update"] = $detailpemesanan;
-			// echo $pemesanan;
-			// var_dump($detailpemesanan);
-			// die();
 
 			$alamat_pengiriman = $this->Malamatpen->get_alamat_ready($this->session->userdata('id_pelanggan'));
 			$data['alamat_pengiriman'] = $alamat_pengiriman;
 			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
-
-			//var_dump($alamat_pengiriman->id_al_peng);
-			//die();
 
 			if (@$alamat_pengiriman->id_al_peng != null) {
 				$data_peng_kota = $this->Mkota->get_by_id($alamat_pengiriman->kota);
@@ -111,7 +105,6 @@
 				"stok" => $stokbarang
 			);
 			$update_barang = $this->M_barang->update($detailpemesanan->id_barang, $data_update_barang);
-
 
 			$last_insert_pembayaran = $this->Mpembayaran->get_last_pembayaran();
 
@@ -176,15 +169,12 @@
 				$update_det_pem = $this->Mdetailpemesanan->update_peng($data_pesanan->id_det_pem, $data_update_pemesanan);
 				//update stok barang
 				$barang = $this->M_barang->get_by_id($data_pesanan->id_barang);
-				// die(var_dump($data_pesanan->id_barang));
-				//pengurangan stok
 				$stokbarang = $barang->stok - $data_pesanan->jumlah_pesan;
 				$data_update_barang = array(
 					"stok" => $stokbarang
 				);
 				$update_det_pem = $this->M_barang->update($data_pesanan->id_barang, $data_update_barang);
 			}
-
 
 			$last_insert_pembayaran = $this->Mpembayaran->get_last_pembayaran();
 
@@ -226,6 +216,7 @@
 			$harga = 0;
 			$sub_total_harga = 0;
 			$total_harga = 0;
+
 			foreach ($belanja as $data_belanja) {
 				$jumlah = $data_belanja->jumlah_pesan;
 				$harga = $data_belanja->harga;
@@ -234,15 +225,15 @@
 				// var_dump($total_harga);
 			}
 			$data['total_harga'] = $total_harga;
-			// var_dump($total_harga);
-			// die();
 			$alamat_pengiriman = $this->Malamatpen->get_alamat_ready($this->session->userdata('id_pelanggan'));
+			$data_peng_kota = $this->Mkota->get_by_id($alamat_pengiriman->kota);
+			$data_peng_kec = $this->Mkecamatan->get_by_id($alamat_pengiriman->kecamatan);
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 			$data['alamat_pengiriman'] = $alamat_pengiriman;
+			$data['data_peng_kota']=$data_peng_kota;
+			$data['data_peng_kec']=$data_peng_kec;
 			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 
-			// var_dump($data['metode_pembayaran']);
-			// die();
 			if (@$alamat_pengiriman->id_al_peng != null) {
 
 				$data_peng_kota = $this->Mkota->get_by_id(@$alamat_pengiriman->kota);
@@ -317,7 +308,6 @@
 			$data_peng = $this->Malamatpen->get_by_id($id_al_peng);
 			$data_peng_kota = $this->Mkota->get_by_id($data_peng->kota);
 			$data_peng_kec = $this->Mkecamatan->get_by_id($data_peng->kecamatan);
-
 			$total_ongkir = 0;
 			$total_ongkir = ($data_peng_kec->jarak * $data_peng_kec->harga) + $data_peng_kota->biaya;
 			echo json_encode($total_ongkir);

@@ -32,7 +32,7 @@
                 </form>
                 <hr>
                 <div class="text-center">
-                  <p>Member baru ? silahkan <a href="<?php echo base_url("Clogin/register"); ?>">Registrasi </p>
+                  <lo>Member baru ? silahkan <a href="<?php echo base_url("Clogin/register"); ?>">Registrasi </li>
                   <!-- <a class="small" href="<?= base_url('auth/registration') ?>">Create an Account!</a> -->
                 </div>
               </div>

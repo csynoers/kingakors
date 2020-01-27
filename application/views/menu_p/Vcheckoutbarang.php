@@ -6,9 +6,10 @@
         <div class="row">
           <div class="col-12 col-lg-12">
           <div class="cart-title mt-50">
+            <center>
               <h2>Detail Pembayaran</h2>
           </div>
-            <div class="cart-table clearfix">
+            <div class="cart-table clearfix" >
             <form id="checkout">
             <hr>
             <table class="table table-responsive">
@@ -47,7 +48,7 @@
                             <label for="">: <?php echo @$alamat_pengiriman->alamat_lengkap ?> </label>
                             <input type="hidden" id="id_al_peng" name="id_al_peng" value="<?php echo @$alamat_pengiriman->id_al_peng ?>">
                             <button style="background-color: #2f82e4; color: white" class="btn btn-primary">
-                            <a class="fa fa-eye" href="<?php echo base_url("Ctm/Calamatpen"); ?>"> Ubah Alamat Pengiriman
+                            <a class="fa fa-eye" href="<?php echo base_url("Ctm/Cprofil"); ?>"> Ubah Alamat Pengiriman
                             </a></button>
                         </td>
                     </tr>

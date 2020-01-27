@@ -8,9 +8,10 @@ class Cprint extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Mpelanggan');
+        $this->load->model('Malamatpen');
         $this->load->model('Mpemesanan');
-        $this->load->model('m_barang');
-        $this->load->model('m_kategori');
+        $this->load->model('M_barang');
+        $this->load->model('M_kategori');
         if ($this->session->userdata('status_login') != 'admin_oke') {
             redirect(base_url('Clogin/login'));
         }
@@ -18,13 +19,13 @@ class Cprint extends CI_Controller
 
     public function print_barang()
     {
-        $data['kodeunik'] = $this->m_barang->buat_kode();
-        $data['barang'] = $this->m_barang->get_all();
-        $data['kategori'] = $this->m_kategori->get_all();
+        $data['kodeunik'] = $this->M_barang->buat_kode();
+        $data['barang'] = $this->M_barang->get_all();
+        $data['kategori'] = $this->M_kategori->get_all();
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "laporan-barang.pdf";
-        $this->pdf->load_view('print/laporan_barang', $data);
+        $this->pdf->load_view('print/Laporan_barang', $data);
     }
 
     public function print_penjualan()
@@ -45,7 +46,7 @@ class Cprint extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "laporan-barang.pdf";
-        $this->pdf->load_view('print/laporan_penjualan', $data);
+        $this->pdf->load_view('print/Laporan_penjualan', $data);
     }
 
     public function print_struct()
@@ -56,7 +57,7 @@ class Cprint extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'landscape');
         $this->pdf->filename = "Struct-Pembelian.pdf";
-        $this->pdf->load_view('print/struct_pemesanan', $data);
+        $this->pdf->load_view('print/Struct_pemesanan', $data);
     }
     public function print_member()
     {
@@ -64,6 +65,6 @@ class Cprint extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "laporan-member.pdf";
-        $this->pdf->load_view('print/laporan_pelanggan', $data);
+        $this->pdf->load_view('print/Laporan_pelanggan', $data);
     }
 }

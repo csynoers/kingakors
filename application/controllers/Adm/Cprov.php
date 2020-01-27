@@ -18,15 +18,15 @@ class Cprov extends CI_Controller
   {
     $data['kodeunik'] = $this->Mprov->buat_kode();
     $data['provinsi'] = $this->Mprov->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vprov', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Footer');
   }
 
   public function data()
   {
     $data['provinsi'] = $this->Mprov->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vprov', $data);
   }
 
@@ -35,7 +35,7 @@ class Cprov extends CI_Controller
     $data['update'] = 'update';
     $data['provinsi'] = $this->Mprov->get_all();
     $data['data_update'] = $this->Mprov->get_by_id($id_prov);
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vprov', $data);
   }
 
@@ -65,23 +65,6 @@ class Cprov extends CI_Controller
 
     redirect(base_url("Adm/Cprov"));
   }
-
-  // 	public function delete_relasi(){
-  //
-  // 		//ambil data detail pemesanan
-  //   $provinsi = $this->Mprov->get_join_row_by_id_prov(@$this->input->post('id_prov'));
-  // 	// var_dump($detail_pemesanan);die();
-  // 	$delete_alamat_peng = $this->Malamatpen->delete(@$this->input->post('id_al_peng'));
-  // 	if ($delete_alamat_peng == true ) {
-  // 		$this->session->set_flashdata('info', 'sukses');
-  // 		$this->session->set_flashdata('message', 'Pembatalan Pesan Sukses');
-  // 	} else {
-  // 		$this->session->set_flashdata('info', 'gagal');
-  // 		$this->session->set_flashdata('message', 'Pembatalan Pesan Gagal');
-  // 	}
-  //   redirect("Adm/Cprov");
-  // }
-
 
   public function hapus()
   {

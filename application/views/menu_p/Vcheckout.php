@@ -58,11 +58,18 @@
                         <h5>Cart Total</h5>
                         <ul class="summary-table">
                             <li><span>Total Harga :</span> <span>Rp. <?= number_format($total_harga);?></span></li>
-                            <li><span>Harga OngKir:</span> <span>Rp. <?= number_format($total_ongkir);?></span></li>
+                            <hr>
+                            <li><span>Jarak antar kota: <?= $data_peng_kota->nm_kota.' Rp.'.number_format($data_peng_kota->biaya)?></span></li>
+                            <hr>
+                            <li><span>jarak dari kota ke kecamatan: <?= $data_peng_kec->jarak?> Km</span></li>
+                            <li><span>biaya per km (1km = 4000)</span></li>
+                            <li><span>Rp.<?= number_format($data_peng_kota->biaya) ?> + ( Rp.4.000 * <?= $data_peng_kec->jarak ?> )</span></li>
+                            <hr>
+                            <li><span>Harga Ongkir:</span> <span>Rp. <?= number_format($total_ongkir);?></span></li>
                             <li><span>Total:</span> <span>Rp. <?= number_format($total_harga + $total_ongkir);?></span></li>
                         </ul>
                         <div class="cart-btn mt-100">
-                            <button class="btn amado-btn w-100" onclick="simpan_alamat_pengiriman()" >Place Order A</button>
+                            <button class="btn amado-btn w-100" onclick="simpan_alamat_pengiriman()" >Place Order</button>
                         </div>
                     </div>
                 </div>

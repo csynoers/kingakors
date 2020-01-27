@@ -7,8 +7,8 @@ class Cbarang extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_barang');
-		$this->load->model('m_kategori');
+		$this->load->model('M_barang');
+		$this->load->model('M_kategori');
 		if ($this->session->userdata('status_login') != 'admin_oke') {
 			redirect(base_url('Clogin/login'));
 		}
@@ -16,12 +16,12 @@ class Cbarang extends CI_Controller
 
 	public function index()
 	{
-		$data['kodeunik'] = $this->m_barang->buat_kode();
-		$data['barang'] = $this->m_barang->get_alls();
-		$data['kategori'] = $this->m_kategori->get_all();
-		$this->load->view('template/header');
+		$data['kodeunik'] = $this->M_barang->buat_kode();
+		$data['barang'] = $this->M_barang->get_alls();
+		$data['kategori'] = $this->M_kategori->get_all();
+		$this->load->view('template/Header');
 		$this->load->view('menu_a/Vbarang', $data);
-		$this->load->view('template/footer');
+		$this->load->view('template/Footer');
 	}
 	public function insert_action()
 	{
@@ -54,7 +54,7 @@ class Cbarang extends CI_Controller
 			// var_dump($data);
 			$file_upload = $this->upload->data('file_name');
 			//proses kompres data
-			$nama_file_upload = $this->m_barang->image_compressor($file_upload, $path_asli);
+			$nama_file_upload = $this->M_barang->image_compressor($file_upload, $path_asli);
 		}
 
 		//upload gambar 2
@@ -66,7 +66,7 @@ class Cbarang extends CI_Controller
 			$data = array('upload_data' => $this->upload->data());
 			// var_dump($data);
 			$file_upload2 = $this->upload->data('file_name');
-			$nama_file_upload2 = $this->m_barang->image_compressor2($file_upload2, $path_asli);
+			$nama_file_upload2 = $this->M_barang->image_compressor2($file_upload2, $path_asli);
 		}
 
 		$data = array(
@@ -80,17 +80,17 @@ class Cbarang extends CI_Controller
 			"id_kategori" => $this->input->post('id_kategori'),
 			"tanggal_masuk" => $this->input->post('tanggal_masuk'),
 		);
-		$this->m_barang->insert($data);
+		$this->M_barang->insert($data);
 		redirect(base_url("Adm/Cbarang"));
 	}
 
 	public function update($id_barang)
 	{
 		$data["update"] = "update";
-		$data["data_update"] = $this->m_barang->get_by_id($id_barang);
-		$data['barang'] = $this->m_barang->get_alls();
-		$data['kategori'] = $this->m_kategori->get_all();
-		$this->load->view('template/header');
+		$data["data_update"] = $this->M_barang->get_by_id($id_barang);
+		$data['barang'] = $this->M_barang->get_alls();
+		$data['kategori'] = $this->M_kategori->get_all();
+		$this->load->view('template/Header');
 		$this->load->view('menu_a/Vbarang', $data);
 		// $this->load->view('template/Footer');
 
@@ -114,7 +114,7 @@ class Cbarang extends CI_Controller
 			$data = array('upload_data' => $this->upload->data());
 			// var_dump($data);
 			$file_upload = $this->upload->data('file_name');
-			$nama_file_upload = $this->m_barang->image_compressor($file_upload, $path_asli);
+			$nama_file_upload = $this->M_barang->image_compressor($file_upload, $path_asli);
 		}
 
 		if (!$this->upload->do_upload('gambar2')) {
@@ -125,7 +125,7 @@ class Cbarang extends CI_Controller
 			$data = array('upload_data' => $this->upload->data());
 			// var_dump($data);
 			$file_upload2 = $this->upload->data('file_name');
-			$nama_file_upload2 = $this->m_barang->image_compressor2($file_upload2, $path_asli);
+			$nama_file_upload2 = $this->M_barang->image_compressor2($file_upload2, $path_asli);
 		}
 
 		$data_update = array(
@@ -139,7 +139,7 @@ class Cbarang extends CI_Controller
 			"tanggal_masuk" => $this->input->post('tanggal_masuk'),
 		);
 		// var_dump($data_update);
-		$this->m_barang->update($this->input->post('id_barang'), $data_update);
+		$this->M_barang->update($this->input->post('id_barang'), $data_update);
 
 		redirect(base_url("Adm/Cbarang"));
 	}
@@ -147,14 +147,14 @@ class Cbarang extends CI_Controller
 
 	public function data()
 	{
-		$data['barang'] = $this->m_barang->get_alls();
+		$data['barang'] = $this->M_barang->get_alls();
 		$this->load->view('menu_a/Vbarang', $data);
 	}
 
 	public function hapus()
 	{
 		$id = $this->input->post("id");
-		$hapus_data = $this->m_barang->delete($id);
+		$hapus_data = $this->M_barang->delete($id);
 		// echo "data terhapus";
 		redirect("Adm/Cbarang");
 	}

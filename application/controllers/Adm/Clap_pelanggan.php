@@ -8,6 +8,8 @@ class Clap_pelanggan extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Mpelanggan');
+    $this->load->model('Malamatpen');
+
     if ($this->session->userdata('status_login') != 'admin_oke') {
       redirect(base_url('clogin/login'));
     }
@@ -15,10 +17,10 @@ class Clap_pelanggan extends CI_Controller
 
   public function index()
   {
-    $data['pelanggan'] = $this->Mpelanggan->get_all();
-    $this->load->view('template/header');
+    $data['pelanggan'] = $this->Mpelanggan->get_al_pel();
+    $this->load->view('template/Header');
     $this->load->view('menu_a/VLap_pelanggan', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Footer');
   }
 }
 /* End of file ${TM_FILENAME:} */

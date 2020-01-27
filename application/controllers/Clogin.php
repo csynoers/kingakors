@@ -11,6 +11,10 @@ class Clogin extends CI_Controller
     $this->load->model('M_kategori');
     $this->load->model('Mpelanggan');
     $this->load->model('Madmin');
+    $this->load->model('Mprov');
+    $this->load->model('Mkota');
+    $this->load->model('Mkecamatan');
+    $this->load->model('Malamatpen');
     $this->load->model('Mdetailpemesanan');
   }
 
@@ -29,6 +33,38 @@ class Clogin extends CI_Controller
     $this->load->view('menu_a/Vlogin');
     $this->load->view('kerangka/Footer');
   }
+
+  		public function datakota()
+  		{
+          $data['kota'] = $this->Mkota->get_all();
+          $this->load->view('kerangka/Header');
+          $this->load->view('menu_p/Vprofil', $data);
+          $this->load->view('kerangka/Footer');
+      }
+
+  		public function dataprov()
+  		{
+  			$data['provinsi'] = $this->Mprov->get_all();
+  			$this->load->view('kerangka/Header');
+  			$this->load->view('menu_p/Vprofil', $data);
+  			$this->load->view('kerangka/Footer');
+  	}
+
+  		public function cari_kota_ajax()
+      {
+          $provinsi= $this->input->get('provinsi');
+          $kota = $this->Mkota->get_kota($provinsi);
+          $json = json_encode($kota,JSON_PRETTY_PRINT);
+          echo $json;
+  		}
+
+  		public function cari_kecamatan_ajax()
+      {
+          $kota= $this->input->get('kota');
+          $kecamatan = $this->Mkecamatan->get_kecamatan($kota);
+          $json = json_encode($kecamatan,JSON_PRETTY_PRINT);
+          echo $json;
+  		}
 
   //data yang akan di ubah dimasukkan ke array
   public function login_action()
@@ -86,67 +122,24 @@ class Clogin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
         <strong>Error</strong> Username dan password Salah!
         </div>');
-        redirect(base_url('Clogin/login'));
+        redirect(base_url('Clogin/Login'));
       }
     }
   }
 
   public function register()
   {
+    $data['kecamatan'] = $this->Mkecamatan->get_join_all();
+    $data['kota'] = $this->Mkota->get_join_all();
+    $data['provinsi'] = $this->Mprov->get_all();
     $this->load->view('kerangka/Header');
-    $this->load->view('menu_p/v_pelanggan');
+    $this->load->view('menu_p/V_pelanggan',$data);
     $this->load->view('kerangka/Footer');
-  }
-
-  public function send()
-  {
-    $subject = "Aplikasi untuk pendaftaran member baru oleh - " .
-    $this->input->post("nama");
-    if (is_array($file_data))
-    {
-      $message = '
-      <h3 align="center">member baru</h3>
-      <table border="1" width="100%" cellpadding="5">
-      <tr>
-      <td width="30%">Name</td>
-      <td width="70%">'.$this->input->post("nama").'</td>
-      </tr>
-      </table>
-      ';
-      $config = array(
-        'protocol'  => 'smtp',
-        'smtp_host' => 'smtpout.secureserver.net',
-        'smtp_port' => 80,
-        'smtp_user' => 'xxxxx',
-        'smtp_pass' =>  'xxxxx',
-        'mailtype'  =>  'html',
-        'charset'   => 'iso-8859-1',
-        'wordwrap'  =>  TRUE
-       );
-       $this->load->library('Email', $config);
-       $this->email->set_newline("\r\n");
-       $this->email->from($this->input->post("email"));
-       $this->email->to('hanistn12@gmail.com');
-       $this->email->subject($subject);
-       $this->email->message($message);
-       $this->email->attach($file_data['full_path']);
-       if($this->email->send())
-       {
-          if(delete_files($file_data['file_path']))
-          {
-            $this->session->set_flashdata('message', 'Application Sended');
-            redirect('Clogin');
-          }
-       }
-    }
-    else
-    {
-      $this->session->set_flashdata('massage', 'There is an error in attach file');
-    }
   }
 
   public function insert_register()
   {
+    // proses input data ke tabel pelanggan
     //data yang akan di ubah dimasukkan ke array
     $data = array(
       // 'id_pelanggan' => $this->input->post('id_pelanggan'),
@@ -154,14 +147,59 @@ class Clogin extends CI_Controller
       'username' => $this->input->post('username'),
       'pass' => $this->input->post('pass'),
       'email' => $this->input->post('email'),
-      'no_telp' => $this->input->post('no_telp'),
-      'alamat' => $this->input->post('alamat'),
+      'no_telp' => $this->input->post('no_telp')
     );
 
     // mengirimkan data primary key dan data yang akan di ubah
     $this->Mpelanggan->insert($data);
 
-    redirect(base_url('Clogin/login'));
+// cek data pelanggan terakhir
+    $get_lastId = $this->db->query("SELECT max(id_pelanggan) as xId FROM pelanggan")->row();
+
+// proses input data ke tabel alamat_pengiriman
+    $data = array(
+      "id_pelanggan" => $get_lastId->xId,
+      "nama" => $this->input->post('nama_pel'),
+      "no_tlpn" => $this->input->post('no_telp'),
+      "id_prov" => $this->input->post('id_prov'),
+      "kota" => $this->input->post('id_kota'),
+      "kecamatan" => $this->input->post('id_kecamatan'),
+      "alamat_lengkap" => $this->input->post('alamat_lengkap'),
+    );
+    $this->Malamatpen->insert($data);
+
+    $this->_sendemail();
+
+    redirect(base_url('Clogin/Login'));
+  }
+
+  private function _sendemail(){
+
+    $config = [
+        'protocol'  => 'smtp',
+        'smtp_host' => 'ssl://smtp.googlemail.com',
+        'smtp_user' => 'hanistn27@gmail.com',
+        'smtp_pass' => 'setiani12',
+        'smtp_port' => 465,
+        'mailtype'  => 'html',
+        'charset'   => 'utf-8',
+        'newline'   => "\r\n"
+    ];
+
+    $this->load->library('email', $config);
+    $this->email->initialize($config);
+    $this->email->from('hanistn27@gmail.com', "kING AKOR'S");
+    $this->email->to($this->input->post('email'));
+    $this->email->subject('Pemberitahuan');
+    $this->email->message('Selamat anda telah terdaftar sebagai member silahkan
+    <a href="'.base_url('Adm/A_log').'">Login</a>');
+
+    if ($this->email->send()) {
+      return true;
+    } else {
+      echo $this->email->print_debugger();
+      die;
+    }
   }
 
   public function update1($id_pelanggan)
@@ -203,6 +241,6 @@ class Clogin extends CI_Controller
     $this->session->unset_userdata('username');
     $this->session->unset_userdata('id_pelanggan');
     $this->session->unset_userdata('status_login');
-    redirect(base_url('clogin/login'));
+    redirect(base_url('clogin/Login'));
   }
 }

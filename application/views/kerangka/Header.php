@@ -74,7 +74,7 @@
                                                     <i class="fa fa-user"></i> <?= $this->session->userdata('username') ?>
                                                 </a>
                                                 <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdownMenuLink">
-                                                    <a class="dropdown-item" href="<?= base_url('Ctm/cprofil'); ?>">My Account</a>
+                                                    <a class="dropdown-item" href="<?= base_url('Ctm/Cprofil'); ?>">My Account</a>
                                                     <a class="dropdown-item" href="<?= base_url('Ctm/Criw'); ?>">Order Details</a>
                                                 </div>
                                                 <li class="nav-item">

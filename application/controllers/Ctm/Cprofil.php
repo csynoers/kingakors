@@ -22,7 +22,7 @@ class cprofil extends CI_Controller
     $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($this->session->userdata('id_pelanggan'));
     $data['pemesanan'] = $this->Mpemesanan->get_riwayat($this->session->userdata('id_pelanggan'));
     $data['kecamatan'] = $this->Mkecamatan->get_join_all();
-     $data['kota'] = $this->Mkota->get_join_all();
+    $data['kota'] = $this->Mkota->get_join_all();
     $data['provinsi'] = $this->Mprov->get_all();
     $data['alamat_pengiriman'] = $this->Malamatpen->get_all_by_id($this->session->userdata('id_pelanggan'));
     $this->load->view('kerangka/Header', $data);
@@ -34,8 +34,10 @@ class cprofil extends CI_Controller
   {
     $data['update'] = 'update';
     $data['data_update'] = $this->Mpelanggan->get_by_id($id_pelanggan);
-    $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($id_pelanggan);
+
+    $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($this->session->userdata('id_pelanggan'));
     $data['pemesanan'] = $this->Mpemesanan->get_riwayat($this->session->userdata('id_pelanggan'));
+    $data['alamat_pengiriman']=$this->Malamatpen->get_all_by_id($this->session->userdata('id_pelanggan'));
     $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vprofil', $data);
     $this->load->view('kerangka/Footer');
@@ -49,14 +51,12 @@ class cprofil extends CI_Controller
       'username' => $this->input->post('username'),
       'pass' => $this->input->post('pass'),
       'email' => $this->input->post('email'),
-      'no_telp' => $this->input->post('no_telp'),
-      'alamat' => $this->input->post('alamat')
+      'no_telp' => $this->input->post('no_telp')
     );
     // mengirimkan data primary key dan data yang akan di ubah
     $this->Mpelanggan->update($this->input->post('id_pelanggan'), $data);
     redirect(base_url("Ctm/Cprofil"));
   }
-
 
   		public function datakota()
   		{
@@ -104,18 +104,19 @@ class cprofil extends CI_Controller
         redirect(base_url("Ctm/Cprofil"));
       }
 
-      	public function update1($id_al_peng)
-        {
-      		$data["update"]="update";
-  				$data["data_update"] = $this->Malamatpen->get_join_id($id_al_peng);
-  				// var_dump($data["data_update"]);die();
-  				$data['provinsi'] = $this->Mprov->get_all();
-  				$data['kota'] = $this->Mkota->get_all();
-      		$data['kecamatan'] = $this->Mkecamatan->get_all();
-  				$data['alamat_pengiriman'] = $this->Malamatpen->get_join_all();
-      			$this->load->view('kerangka/Header');
-      			$this->load->view('menu_p/Vprofil', $data);
-      			$this->load->view('kerangka/Footer');
+    	public function update1($id_al_peng)
+      {
+        $data["update1"]="update1"; //letak kesalahan nya
+        $data["data_update"] = $this->Malamatpen->get_by_id($id_al_peng);
+        // var_dump($data["data_update"]);die();
+        $data['provinsi'] = $this->Mprov->get_all();
+        $data['kota'] = $this->Mkota->get_all();
+        $data['kecamatan'] = $this->Mkecamatan->get_all();
+        $data['alamat_pengiriman'] = $this->Malamatpen->get_all_by_id($this->session->userdata('id_pelanggan'));
+        $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($this->session->userdata('id_pelanggan'));
+        $this->load->view('kerangka/header');
+        $this->load->view('menu_p/Vprofil', $data);
+        $this->load->view('kerangka/footer');
      	}
 
       	public function update_action1(){
@@ -142,7 +143,3 @@ class cprofil extends CI_Controller
             redirect(base_url("Ctm/Cprofil"));
           }
         }
-
-
-/* End of file ${TM_FILENAME:cprofil.php} */
-/* Location: ./${TM_FILEPATH/.+((?:application).+)/cprofil/:application/controllers/cprofil.php} */

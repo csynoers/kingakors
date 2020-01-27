@@ -47,14 +47,8 @@
                         <h6><?= $list->merek ?></h6>
                     </div>
                     <!-- Ratings & Cart -->
-                    <div class="ratings-cart text-right d-none">
-                        <div class="ratings">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
+                    <div class="ratings-cart text-right">
+                      
                         <div class="cart">
                             <span data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="<?= base_url('assets/amado/img/core-img/cart.png')?>" alt=""></span>
                         </div>

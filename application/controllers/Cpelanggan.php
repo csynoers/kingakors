@@ -41,7 +41,7 @@ class Cpelanggan extends CI_Controller {
 		// mengirimkan data primary key dan data yang akan di ubah
 		$this->Mpelanggan->insert($data);
 
-		redirect(base_url("menu_pelanggan/vlogin"));
+		redirect(base_url("menu_pelanggan/Vlogin"));
 	}
 
 	public function update_action()
@@ -64,6 +64,6 @@ class Cpelanggan extends CI_Controller {
     $id = $this->input->post("id");
     $hapus_data = $this->Mpelanggan->delete($id);
     // echo "data terhapus";
-    redirect(base_url("customer/cpelanggan"));
+    redirect(base_url("customer/Cpelanggan"));
   }
 }

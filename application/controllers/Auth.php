@@ -58,10 +58,10 @@ class Auth extends CI_Controller
         'id_pelanggan' => $get_login->id_pelanggan,
         'status_login' => "customer_oke",
       );
-      // var_dump($data_login);die();
+
       //set data ke session
       $this->session->set_userdata($data_login);
-      redirect(base_url('customer/home'));
+      redirect(base_url('customer/Home'));
     } else {
       $get_admin = $this->Madmin->login($username, $password);
       if (count($get_admin) != null) {
@@ -73,12 +73,10 @@ class Auth extends CI_Controller
           'status_login' => "admin_oke",
         );
 
-        // var_dump($data_login);die();
-        //set data ke session
         $this->session->set_userdata($data_login);
         redirect(base_url('admin/Cadmindashboard'));
       } else {
-        redirect(base_url('auth/login'));
+        redirect(base_url('auth/Login'));
       }
     }
   }
@@ -105,13 +103,13 @@ class Auth extends CI_Controller
     // mengirimkan data primary key dan data yang akan di ubah
     $this->Mpelanggan->insert($data);
 
-    redirect(base_url('auth/login'));
+    redirect(base_url('auth/Login'));
   }
 
   public function lKonsumen()
   {
     $this->load->view('kerangka/Header');
-    $this->load->view('lKonsumen');
+    $this->load->view('LKonsumen');
     $this->load->view('kerangka/Footer');
   }
 
@@ -121,6 +119,6 @@ class Auth extends CI_Controller
     $this->session->unset_userdata('username');
     $this->session->unset_userdata('id_pelanggan');
     $this->session->unset_userdata('status_login');
-    redirect(base_url('auth/login'));
+    redirect(base_url('auth/Login'));
   }
 }

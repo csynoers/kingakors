@@ -9,7 +9,7 @@ class cadmin extends CI_Controller {
   public function index()
   {
     $data['admin'] = $this->Madmin->get_all($this->session->userdata('id_admin'));
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vadmin', $data);
     // $this->load->view('kerangka/footer');
   }

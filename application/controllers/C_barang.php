@@ -67,7 +67,3 @@ class c_barang extends CI_Controller {
       redirect(base_url('Ctm/Ckeranjang'));
     }
 }
-
-
-/* End of file ${TM_FILENAME:cprofil.php} */
-/* Location: ./${TM_FILEPATH/.+((?:application).+)/cprofil/:application/controllers/cprofil.php} */

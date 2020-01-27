@@ -33,7 +33,7 @@ class Malamatpen extends CI_Model
       $this->db->order_by($this->id, $this->order);
       return $this->db->get()->result();
     }
-    
+
     // get all
     function get_all_by_id($id)
     {
@@ -61,11 +61,16 @@ class Malamatpen extends CI_Model
     $this->db->where('status', 'ready');
     return $this->db->get()->row();
     }
+
+
     // get data by id
     function get_by_id($id)
     {
-        $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+      $this->db->join('kota','alamat_pengiriman.kota=kota.id_kota');
+      $this->db->join('kecamatan','alamat_pengiriman.kecamatan=kecamatan.id_kec');
+      $this->db->join('pelanggan','alamat_pengiriman.id_pelanggan=pelanggan.id_pelanggan');
+      $this->db->where($this->id, $id);
+      return $this->db->get($this->table)->row();
     }
 
     // insert data

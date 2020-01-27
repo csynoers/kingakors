@@ -37,7 +37,7 @@
                                         <h5><?= $data_pelanggan->nama_pel; ?></h5>
                                     </td>
                                     <td>
-                                        <h5><?= $data_pelanggan->alamat; ?></h5>
+                                        <h5><?= $data_pelanggan->alamat_lengkap; ?></h5>
                                     </td>
                                     <td>
                                         <h5><?= $data_pelanggan->no_telp; ?></h5>

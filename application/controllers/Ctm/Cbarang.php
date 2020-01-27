@@ -13,7 +13,6 @@ class Cbarang extends CI_Controller {
      if ($this->session->userdata('status_login')!='customer_oke') {
        redirect(base_url('clogin/login'));
      }
-     // $this->idKategori = $idKategori;
    }
 
   public function setKategori($value){
@@ -78,12 +77,6 @@ class Cbarang extends CI_Controller {
     $idbarang = $this->input->post('id_barang');
     $qty = $this->input->post('quantity');
 
-    // echo "<pre> id_barang = ";
-    // print_r ($idbarang);
-    // echo "<br> <br> qty = ";
-    // print_r ($qty);
-    // echo "</pre>";
-    // die();
     $cart = $this->Mdetailpemesanan->get_info_detail_barang($this->session->userdata('id_pelanggan'),$idbarang);
     $q = 0;
     if ($cart->num_rows() == 1) {

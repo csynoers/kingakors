@@ -3,48 +3,50 @@
 
     <!-- Update data -->
     <?php if (isset($update)) { ?>
-      <div class="row">
-        <div class="col-12 col-lg-12">
-          <div class="box">
-            <!-- header -->
-            <div class="box-header with-border">
-              <h3 class="box-title">Update Data</h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              </div>
-            </div>
+            <div class="row">
+              <div class="col-md-8" style="margin:0 auto; float:none;"><br><br>
+                <h3 align="center">Update Data</h3><hr><br>
+
             <!-- body -->
             <div class="box-body">
-              <form class="" action="<?php echo base_url('Ctm/Cprofil/update_action') ?>" method="post">
-                <div class="form-group">
-                  <label for="">Id Pelanggan</label>
-                  <input type="text" class="form-control" name="id_pelanggan" id="id_pelanggan" value="<?php echo "$data_update->id_pelanggan"; ?>" readonly="">
+              <form class="" action="<?= base_url('Ctm/Cprofil/update_action') ?>" method="post">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Id Pelanggan</label>
+                    <input type="text" class="form-control" name="id_pelanggan" id="id_pelanggan" value="<?= $data_update->id_pelanggan ?>" readonly="">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Nama Pelanggan</label>
-                  <input type="text" class="form-control" name="nama_pel" id="nama_pel" value="<?php echo "$data_update->nama_pel"; ?>">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Nama Pelanggan</label>
+                    <input type="text" class="form-control" name="nama_pel" id="nama_pel" value="<?= $data_update->nama_pel ?>">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Username</label>
-                  <input type="text" class="form-control" name="username" id="username" value="<?php echo "$data_update->username"; ?>">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" value="<?= $data_update->username ?>">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Password</label>
-                  <input type="password" class="form-control" name="pass" id="pass" value="<?php echo "$data_update->pass"; ?>">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="pass" id="pass" value="<?= $data_update->pass ?>">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Email</label>
-                  <input type="text" class="form-control" name="email" id="email;" value="<?php echo "$data_update->email"; ?>">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" name="email" id="email;" value="<?= $data_update->email ?>">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">No telp</label>
-                  <input type="number" class="form-control" name="no_telp" id="no_telp" value="<?php echo "$data_update->no_telp"; ?>">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">No telp</label>
+                    <input type="number" class="form-control" name="no_telp" id="no_telp" value="<?= $data_update->no_telp ?>">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Alamat</label>
-                  <input type="text" class="form-control" name="alamat" id="alamat;" value="<?php echo "$data_update->alamat"; ?>">
-                </div>
-                <div class="form-group"><br>
+                <div class="form-group"><center><br>
                   <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
               </form>
@@ -75,7 +77,6 @@
                       <th>username</th>
                       <th>email</th>
                       <th>no_telp</th>
-                      <th>alamat</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -83,27 +84,24 @@
                     <tbody>
                       <tr>
                         <td class="cart_product_desc">
-                          <h5><?php echo $data_pelanggan->nama_pel; ?></h5>
+                          <h5><?= $data_pelanggan->nama_pel; ?></h5>
                         </td>
                         <td class="cart_product_desc">
-                          <h5><?php echo $data_pelanggan->username; ?></h5>
+                          <h5><?= $data_pelanggan->username; ?></h5>
                         </td>
                         <td class="cart_product_desc">
-                          <h5><?php echo $data_pelanggan->email; ?></h5>
+                          <h5><?= $data_pelanggan->email; ?></h5>
                         </td>
                         <td class="cart_product_desc">
-                          <h5><?php echo $data_pelanggan->no_telp; ?></h5>
+                          <h5><?= $data_pelanggan->no_telp; ?></h5>
                         </td>
                         <td class="cart_product_desc">
-                          <h5><?php echo $data_pelanggan->alamat; ?></h5>
-                        </td>
-                        <td class="cart_product_desc">
-                          <a href="<?php echo base_url("Ctm/cprofil/update/" . $data_pelanggan->id_pelanggan); ?>">
+                          <a href="<?= base_url("Ctm/cprofil/update/" . $data_pelanggan->id_pelanggan); ?>">
                             <div class="btn btn-warning">
                               Update
                             </div>
                           </a>
-                          <input type="hidden" name="id" value="<?php echo $data_pelanggan->id_pelanggan; ?>">
+                          <input type="hidden" name="id" value="<?= $data_pelanggan->id_pelanggan; ?>">
                           <!-- <button type="submit" class="btn btn-danger" name="button"> Hapus </button> -->
                           </form>
                         </td>
@@ -121,79 +119,87 @@
           <div class="container-fluid">
 
               <!-- Update data-->
-              <?php if (isset($update)) { ?>
+              <?php if (isset($update1)) { ?>
                 <div class="row">
-                  <div class="col-12 col-lg-12">
-                    <div class="box">
-                      <!-- header -->
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Update Alamat Pengiriman</h3>
-                        <div class="box-tools pull-right">
-                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        </div>
-                      </div>
+                  <div class="col-md-8" style="margin:0 auto; float:none;"><br><br>
+                    <h3 align="center">Update Alamat Pengiriman</h3><hr><br>
+
                     <!-- body -->
                     <div class="box-body">
-                        <form class="" action="<?php echo base_url('Ctm/Cprofil/update_action1')?>" method="post">
+                        <form class="" action="<?= base_url('Ctm/Cprofil/update_action1')?>" method="post">
+                          <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Id Alamat Pengiriman</label><tr>
-                                <input type="text" class="form-control" name="id_al_peng" id="id_al_peng" value="<?php
-                                echo "$data_update->id_al_peng";?>" readonly="">
+                                <input type="text" class="form-control" name="id_al_peng" id="id_al_peng" value="<?=$data_update->id_al_peng?>" readonly="">
                             </div>
+                            </div>
+                            <div class="col-md-12">
                               <div class="form-group">
                                 <br><label for="">Nama Penerima</label>
-                                <input type="text" class="form-control" name="nama" value="<?php echo $data_update->nama ?>" id="nama">
+                                <input type="text" class="form-control" name="nama" value="<?= $data_update->nama ?>" id="nama">
                             </div>
-                            <div class="form-group">
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-group">
                                 <label for="">No Telepon</label>
-                                <input type="number" class="form-control" name="no_tlpn" value="<?php echo $data_update->no_tlpn ?>" id="no_tlpn">
+                                <input type="number" class="form-control" name="no_tlpn" value="<?= $data_update->no_tlpn ?>" id="no_tlpn">
                             </div>
+                            </div>
+
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="">Provinsi</label><br>
+                                <select onblur="cari_kota();" class="form-control" name="id_prov" id="id_prov_input">
+                                      <option value="">Pilih</option>
+
+                                      <?php foreach ($provinsi as $data_provinsi) {?>
+                                        <?php if ($data_update->id_prov == $data_provinsi->id_prov): ?>
+                                            <option value="<?= $data_provinsi->id_prov ?>" selected><?= $data_provinsi->nama_prov ?></option>
+                                        <?php else: ?>
+                                            <option value="<?=$data_provinsi->id_prov?>"><?=$data_provinsi->nama_prov?></option>
+                                        <?php endif; ?>
+                                      <?php } ?>
+                                  </select>
+                                  <br>
+                                  </div>
+                                  </div>
+
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <br><label for="">Kota</label><br>
+                                  <select onblur="cari_kecamatan();" class="form-control" name="id_kota" id="id_kota_input">
+                                    <option value="">Pilih</option>
+                                    <?php if ($data_update->kota != NULL): ?>
+                                        <option value="<?= $data_update->id_kota ?>" selected><?= $data_update->nm_kota ?></option>
+                                    <?php else: ?>
+                                        <option value="">Pilih</option>
+                                    <?php endif; ?>
+                                  </select>
+                                  <br>
+                                </div>
+                              </div>
+
+                          <div class="col-md-12">
                             <div class="form-group">
-                        <label for="">Provinsi</label><br>
-                        <select onblur="cari_kota();" class="form-control" name="id_prov" id="id_prov_input">
-                              <option value="">Pilih</option>
-
-                              <?php foreach ($provinsi as $data_provinsi) {?>
-                                <?php if ($data_update->id_prov == $data_provinsi->id_prov): ?>
-                                    <option value="<?php echo $data_provinsi->id_prov ?>" selected><?php echo $data_provinsi->nama_prov ?></option>
-                                <?php else: ?>
-                                    <option value="<?php echo"$data_provinsi->id_prov";?>"><?php echo"$data_provinsi->nama_prov";?></option>
-                                <?php endif; ?>
-                              <?php } ?>
-                          </select>
-                          <br>
-                          </div>
-
-                    <div class="form-group">
-                        <br><label for="">Kota</label><br>
-                        <select onblur="cari_kecamatan();" class="form-control" name="id_kota" id="id_kota_input">
-                                <option value="">Pilih</option>
-                                <?php if ($data_update->kota != NULL): ?>
-                                    <option value="<?php echo $data_update->kota ?>" selected><?php echo $data_update->nm_kota ?></option>
-                                <?php else: ?>
+                              <br><label for="">Kecamatan</label><br>
+                              <select class="form-control" name="id_kec" id="id_kecamatan_input">
                                     <option value="">Pilih</option>
-                                <?php endif; ?>
-                          </select>
-                          <br>
-                          </div>
+                                    <?php if ($data_update->kecamatan != NULL): ?>
+                                          <option value="<?= $data_update->id_kec ?>" selected><?= $data_update->nm_kec ?></option>
+                                      <?php else: ?>
+                                          <option value="">Pilih</option>
+                                      <?php endif; ?>
+                                </select>
+                                <br>
+                                </div>
+                                </div>
 
-                    <div class="form-group">
-                        <br><label for="">Kecamatan</label><br>
-                        <select class="form-control" name="id_kecamatan" id="id_kecamatan_input">
-                              <option value="">Pilih</option>
-                              <?php if ($data_update->kecamatan != NULL): ?>
-                                    <option value="<?php echo $data_update->kecamatan ?>" selected><?php echo $data_update->nm_kec ?></option>
-                                <?php else: ?>
-                                    <option value="">Pilih</option>
-                                <?php endif; ?>
-                          </select>
-                          <br>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="">Alamat Lengkap</label>
-                            <input type="text" class="form-control" name="alamat_lengkap" value="<?php echo $data_update->alamat_lengkap ?>" id="alamat_lengkap">
-                          </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                <label for="">Alamat Lengkap</label>
+                                <input type="text" class="form-control" name="alamat_lengkap" value="<?= $data_update->alamat_lengkap ?>" id="alamat_lengkap">
+                              </div>
+                              </div>
 
                           <tr>
                            <td>Status</td>
@@ -201,7 +207,7 @@
                            <td>
                             <input type="radio" name="status" <?php if($data_update == 'ready'){ echo 'checked';} ?> value="ready">Ready
                             <input type="radio" name="status" <?php if($data_update == 'no ready'){ echo 'checked';} ?> value="no_ready">No Ready
-                          </td><?php echo form_error('Status'); ?>
+                          </td><?= form_error('Status'); ?>
                           </tr>
                         </div>
                         <div class="form-group"><br>
@@ -222,57 +228,69 @@
                 <div class="col-md-8" style="margin: auto; float:none;"><br>
                   <h3 align="center">Alamat Penerima</h3><hr><br>
                     <!-- body -->
-
-                        <form class="" action="<?php echo base_url('Ctm/Cprofil/insert_action1')?>" method="post">
-                          <div class="row">
-                            <div class="col-md-12">
+                        <form class="" action="<?= base_url('Ctm/Cprofil/insert_action1')?>" method="post">
+                          <div class="col-md-12">
+                            <div class="form-group">
                               <label> Nama </label>
-                              <input type="text" class="form-control" name="nama"  placeholder="Masukkan Nama" required/>
+                              <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama" required/>
                           </div>
                           </div>
-                          <div class="col-md-12"><br>
+                          <div class="col-md-12">
+                            <div class="form-group">
                               <label> No Telepon </label>
                               <input type="text" class="form-control" name="no_tlpn" placeholder="Massukan nomor ponsel" pattern="\d*" required />
                           </div>
-                              <div class="col-md-12"><br>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
                               <label for="">Provinsi</label>
-                              <select onblur="cari_kota();" class="form-control" name="id_prov" id="id_prov_input">
-                              <option value="">Pilih Kota</option>
+                              <select class="form-control" name="id_prov" id="id_prov_input">
+                              <option value="">Pilih Provinsi</option>
                                 <?php foreach ($provinsi as $data_provinsi) {?>
-                              <option value="<?php echo"$data_provinsi->id_prov";?>"><?php echo"$data_provinsi->nama_prov";?></option><?php } ?>
+                              <option value="<?=$data_provinsi->id_prov?>"><?=$data_provinsi->nama_prov?></option><?php } ?>
                           </select>
                           <br>
                           </div>
-
-                            <div class="col-md-12">
-                              <label for="">Kota</label>
-                              <select onblur="cari_kecamatan();" class="form-control" name="id_kota" id="id_kota_input">
-                              <option value="">Pilih kecamatan</option>
-                              <?php foreach ($kota as $data_provinsi) {?>
-                            <option value="<?php echo"$data_provinsi->id_kota";?>"><?php echo"$data_provinsi->nm_kota";?></option><?php } ?>
-                          </select>
-                          <br>
                           </div>
 
                           <div class="col-md-12">
-                            <label for="">Kecamatan</label></br>
-                            <select class="form-control" name="id_kecamatan" id="id_kecamatan_input">
-                              <option value="">Pilih</option>
-                              <?php foreach ($kecamatan as $data_provinsi) {?>
-                            <option value="<?php echo"$data_provinsi->id_kec";?>"><?php echo"$data_provinsi->nm_kec";?></option><?php } ?>
+                            <div class="form-group">
+                              <label for="">Kota</label>
+                              <select onblur="cari_kecamatan();" class="form-control" name="id_kota" id="id_kota_input">
+                              <option value="">Pilih kota</option>
+                              <?php foreach ($kota as $data_provinsi) {?>
+                            <option value="<?=$data_provinsi->id_kota?>"><?=$data_provinsi->nm_kota?></option><?php } ?>
                           </select>
+                          <br>
+                          </div>
                           </div>
 
-                          <div class="col-md-12"><br>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="">Kecamatan</label></br>
+                            <select class="form-control" name="id_kecamatan" id="id_kecamatan_input">
+                              <option value="">Pilih Kecamatan</option>
+                              <?php foreach ($kecamatan as $data_provinsi) {?>
+                            <option value="<?=$data_provinsi->id_kec?>"><?=$data_provinsi->nm_kec?></option><?php } ?>
+                          </select>
+                          </div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="form-group">
                             <label for="">Alamat Lengkap</label>
-                            <textarea class="form-control" name="alamat_lengkap" placeholder="Masukkan alamat lengkap anda" required></textarea>
+                            <textarea class="form-control" name="alamat_lengkap" rows="8" placeholder="Masukkan alamat lengkap anda" required></textarea>
                         </div>
-                        <div class="col-md-12"><br>
+                        </div>
+
+                        <div class="col-md-12">
+                          <div class="form-group">
                           <label for="">Status</label><br>
                               <tr> <input type="radio" name="status" checked value="ready">Ready
                                <input type="radio" name="status" value="no ready">No ready
-                             </td><?php echo form_error('status'); ?>
+                             </td><?= form_error('status'); ?>
                              </tr>
+                           </div>
                            </div>
                            <div class="form-group" align="center">
                              <br>
@@ -285,6 +303,7 @@
         </div>
       </div>
     </div>
+
  <?php } ?>
 
             <!-- end Insert data-->
@@ -304,13 +323,13 @@
                             <i class="fa fa-user-plus"></i> Tambah Alamat Baru
                           </button>
                         </form>
+                        <br>
                         <!-- selesai pemaanggilan form Insert data-->
 
                         <div class="cart-table clearfix">
                           <table class="table table-responsive">
                                 <thead>
                                     <tr>
-                                        <!-- <th>Id Alamat Pengiriman</th> -->
                                         <th>Nama</th>
                                         <th>No telepon</th>
                                         <th>Alamat Lengkap</th>
@@ -321,22 +340,23 @@
                                 <tbody>
                                   <?php foreach ($alamat_pengiriman as $data_alamat_pengiriman) { ?>
                                       <td class="cart_product_desc">
-                                          <h5><?php echo $data_alamat_pengiriman->nama;?></h5>
+                                          <h5><?= $data_alamat_pengiriman->nama;?></h5>
                                       </td>
-
                                       <td class="cart_product_desc">
-                                          <h5><?php echo $data_alamat_pengiriman->no_tlpn;?></h5>
+                                          <h5><?= $data_alamat_pengiriman->no_tlpn;?></h5>
                                         </td>
                                       <td class="cart_product_desc">
-                                          <h5><?php echo $data_alamat_pengiriman->alamat_lengkap;?></h5>
+                                          <h5><?= $data_alamat_pengiriman->alamat_lengkap;?></h5>
                                       </td>
                                       <td class="cart_product_desc">
-                                          <h5><?php echo $data_alamat_pengiriman->status;?></h5>
+                                          <h5><?= $data_alamat_pengiriman->status;?></h5>
                                       </td>
                                     <td class="cart_product_desc">
-                                      <a href="<?php echo base_url("Ctm/Cprofil/update/".$data_alamat_pengiriman->id_al_peng);?>" class="btn btn-warning">Update</a><br><br>
-                                      <form class="" action="<?php echo base_url("Ctm/Cprofil/hapus")?>" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $data_alamat_pengiriman->id_al_peng;?>">
+                                      <a href="<?= base_url("Ctm/Cprofil/update1/".$data_alamat_pengiriman->id_al_peng);?>">
+                                        <button class="btn btn-warning">Update</button>
+                                      </a><br><br>
+                                      <form class="" action="<?= base_url("Ctm/Cprofil/hapus1")?>" method="post">
+                                        <input type="hidden" name="id" value="<?= $data_alamat_pengiriman->id_al_peng;?>">
                                         <button type="submit" class="btn btn-danger" name="button"> Hapus </button>
                                       </form>
                                       <!-- <a type="button" name="button">Hapus</a> -->
@@ -352,69 +372,5 @@
                   </div>
                 </div>
                 </div>
-              </div>
-            </div>
-            </div>
-          </div><hr>
 
             <!-- ##### Main Content Wrapper End ##### -->
-          </section>
-          <!-- ##### Newsletter Area End ##### -->
-          <script>
-        function cari_kota(){
-            var id_prov = $('#id_prov_input').val();
-            var url = "<?php echo base_url('Ctm/Cprofil/cari_kota_ajax')?>";
-            url += "?provinsi=" + id_prov;
-            console.log(url);
-
-            $.ajax({
-                url : url,
-                dataType : 'json',
-                success : function (data) {
-                console.log(data);
-                $('#id_kota_input').empty();
-                $("#id_kota_input").append('<option value="">Pilihlah</option>');
-                if (data.length > 0) {
-                    $.each(data, function (index, value) {
-                    var nama_kota = value.nm_kota;
-                    var id_kota = value.id_kota;
-                    $("#id_kota_input").append('<option value="' + id_kota + '">' + nama_kota + '</option>');
-                    console.log(id_kota);
-
-                    });
-                } else {
-                    $("#id_kota_input").append('<option value="">Tidak ditemukan</option>');
-                }
-                }
-            });
-        }
-
-        function cari_kecamatan(){
-            var id_kota = $('#id_kota_input').val();
-            var url = "<?php echo base_url('Ctm/Cprofil/cari_kecamatan_ajax')?>";
-            url += "?kota=" + id_kota;
-            console.log(url);
-
-            $.ajax({
-                url : url,
-                dataType : 'json',
-                success : function (data) {
-                console.log(data);
-                $('#id_kecamatan_input').empty();
-                $("#id_kecamatan_input").append('<option value="">Pilihlah</option>');
-                if (data.length > 0) {
-                    $.each(data, function (index, value) {
-                    var nama_kec = value.nm_kec;
-                    var id_kec = value.id_kec;
-                    $("#id_kecamatan_input").append('<option value="' + id_kec + '">' + nama_kec + '</option>');
-                    console.log(id_kec);
-
-                    });
-                } else {
-                    $("#id_kecamatan_input").append('<option value="">Tidak ditemukan</option>');
-                }
-                }
-            });
-        }
-
-        </script>

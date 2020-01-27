@@ -11,9 +11,9 @@ class Home extends CI_Controller {
    	public function index()
    	{
       $data['kategori']=$this->M_kategori->get_all();
-   		$this->load->view('template/header');
-   		$this->load->view('index',$data);
-   		$this->load->view('template/footer');
+   		$this->load->view('template/Header');
+   		$this->load->view('Index',$data);
+   		$this->load->view('template/Footer');
    	}
 
 }

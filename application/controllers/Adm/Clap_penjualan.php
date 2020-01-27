@@ -8,10 +8,11 @@ class Clap_penjualan extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Mpelanggan');
+    $this->load->model('Malamatpen');
     $this->load->model('Mpemesanan');
     $this->load->model('Mdetailpemesanan');
-    $this->load->model('m_barang');
-    $this->load->model('m_kategori');
+    $this->load->model('M_barang');
+    $this->load->model('M_kategori');
     if ($this->session->userdata('status_login') != 'admin_oke') {
       redirect(base_url('clogin/login'));
     }
@@ -20,9 +21,9 @@ class Clap_penjualan extends CI_Controller
   public function index()
   {
     $data['penjualan'] = $this->Mpemesanan->get_pesanan_fix();
-    $this->load->view('template/header');
-    $this->load->view('menu_a/vLapPenjualan', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Header');
+    $this->load->view('menu_a/VLapPenjualan', $data);
+    $this->load->view('template/Footer');
   }
 
   public function print_struct()
@@ -33,7 +34,7 @@ class Clap_penjualan extends CI_Controller
     $this->load->library('pdf');
     $this->pdf->setPaper('A4', 'landscape');
     $this->pdf->filename = "Struct-Pembelian.pdf";
-    $this->pdf->load_view('print/struct_pemesanan', $data);
+    $this->pdf->load_view('print/Struct_pemesanan', $data);
   }
 
 }

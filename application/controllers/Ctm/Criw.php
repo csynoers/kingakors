@@ -10,6 +10,7 @@ class Criw extends CI_Controller
     $this->load->model('Mpelanggan');
     $this->load->model('Mpemesanan');
     $this->load->model('Mdetailpemesanan');
+    $this->load->model('Malamatpen');
   }
 
   public function index()
@@ -17,8 +18,6 @@ class Criw extends CI_Controller
     $data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
     $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($this->session->userdata('id_pelanggan'));
     $data['pemesanan'] = $this->Mpemesanan->get_riwayat($this->session->userdata('id_pelanggan'));
-    // var_dump($data['pemesanan']);
-    // die();
     $this->load->view('kerangka/Header', $data);
     $this->load->view('menu_p/Vriw_pesan', $data);
     $this->load->view('kerangka/Footer');
@@ -30,6 +29,7 @@ class Criw extends CI_Controller
       $id = $this->input->post('id_pesan');
       $data = $this->Mpemesanan->getDetailRiwayat($id);
       $pesanan = $this->Mpemesanan->get_pesanan_where($id);
+      // $out=var_dump($pesanan);
       $out = "
               <div class='row'>
                 <div class='col-12 col-md-8'>
@@ -117,7 +117,7 @@ class Criw extends CI_Controller
       foreach ($pesanan as $key) {
         $out .= '<tr>
               <td>' . $key->nama_pel . '</td>
-              <td>' . $key->alamat . '</td>
+              <td>' . $key->alamat_lengkap . '</td>
               <td class="text-center">' . $jml . '</td>
               <td>Rp.' . number_format($key->jumlah_uang) . '</td>
               <td class="text-center"><img src="' . base_url('assets/uploads/') . $key->bukti_transfer . '" class="img img-thumbnail img-rounded"></td>

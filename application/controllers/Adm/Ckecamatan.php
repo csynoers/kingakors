@@ -18,7 +18,7 @@ class Ckecamatan extends CI_Controller
     $data['kodeunik'] = $this->Mkecamatan->buat_kode();
     $data['kecamatan'] = $this->Mkecamatan->get_join_all();
     $data['kota'] = $this->Mkota->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vkecamatan', $data);
     $this->load->view('template/footer');
   }
@@ -26,7 +26,7 @@ class Ckecamatan extends CI_Controller
   public function data()
   {
     $data['kecamatan'] = $this->Mkecamatan->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vkecamatan', $data);
   }
   public function insert_action()
@@ -47,7 +47,7 @@ class Ckecamatan extends CI_Controller
     $data["data_update"] = $this->Mkecamatan->get_by_id($id_kec);
     $data['kecamatan'] = $this->Mkecamatan->get_join_all();
     $data['kota'] = $this->Mkota->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vkecamatan', $data);
   }
   public function update_action()

@@ -16,15 +16,15 @@ class Cmetpem extends CI_Controller
   public function index()
   {
     $data['metode_pembayaran'] = $this->Mmetpem->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vmetpem', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Footer');
   }
 
   public function data()
   {
     $data['metode_pembayaran'] = $this->Mmetpem->get_all();
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vmetpem', $data);
     // $this->load->view('template/footer');
   }
@@ -34,7 +34,7 @@ class Cmetpem extends CI_Controller
     $data['update'] = 'update';
     $data['metode_pembayaran'] = $this->Mmetpem->get_all();
     $data['data_update'] = $this->Mmetpem->get_by_id($id_met_pem);
-    $this->load->view('template/header');
+    $this->load->view('template/Header');
     $this->load->view('menu_a/Vmetpem', $data);
     // $this->load->view('template/footer');
   }

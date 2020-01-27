@@ -8,7 +8,7 @@
                 </div>
 
                 <!-- pemaanggilan form Insert data-->
-                <form class="form-inline" action="<?= base_url('cprint/print_penjualan') ?>" method="POST" target="_blank">
+                <form class="form-inline" action="<?= base_url('Cprint/Print_penjualan') ?>" method="POST" target="_blank">
                     <div class="form-group mb-2">
                         <label for="printL" class="sr-only">Print Laporan</label>
                         <input type="text" readonly class="form-control-plaintext" id="printL" value="Laporan Yang Diinginkan">
@@ -50,7 +50,7 @@
                                 <tr>
                                     <td><?= $data_penjualan->id_pesan ?></td>
                                     <td><?= $data_penjualan->nama_pel ?></td>
-                                    <td><?= $data_penjualan->alamat ?></td>
+                                    <td><?= $data_penjualan->alamat_lengkap ?></td>
                                     <td style="text-align:center">
                                         <?php
                                         $res = $this->db->query("SELECT COUNT(id_det_pem) as j FROM `detail_pemesanan` WHERE id_pesan='{$data_penjualan->id_pesan}'")->result();

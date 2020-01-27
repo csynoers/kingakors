@@ -34,6 +34,10 @@ class Mpelanggan extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
+    public function getget($id_pelanggan){
+      return $this->db->get_where( $this->table , [ 'id_pelanggan' => $id_pelanggan] )->row();
+    }
+
     // get data login
     function login_username($username)
     {
@@ -61,9 +65,11 @@ class Mpelanggan extends CI_Model
         }
     }
 
-    function get_data_cart($id)
+    function get_al_pel()
     {
-      // code...
+       $sql = "SELECT pelanggan.id_pelanggan, pelanggan.nama_pel, alamat_pengiriman.alamat_lengkap, pelanggan.no_telp, pelanggan.email, pelanggan.username, pelanggan.pass
+       FROM pelanggan JOIN alamat_pengiriman ON pelanggan.id_pelanggan = alamat_pengiriman.id_pelanggan" ;
+       return $this->db->query($sql)->result();
     }
 
     function get_join_all()
@@ -94,6 +100,7 @@ class Mpelanggan extends CI_Model
       $this->db->where('alamat_pengiriman.id_al_peng', $id);
       return $this->db->get()->row();
     }
+
 
     // get all join
     function get_alamat_ready($id)

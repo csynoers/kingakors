@@ -31,8 +31,6 @@ class  Chome extends CI_Controller {
   public function detailbarang($idbarang)
   {
     $data['barang'] = $this->M_barang->get_by_id($idbarang);
-    // var_dump($this->m_barang->get_by_id($idbarang));
-    // die();
     $this->load->view('kerangka/Header');
     $this->load->view('menu_p/Vdetail_barang',$data);
     $this->load->view('kerangka/Footer');
