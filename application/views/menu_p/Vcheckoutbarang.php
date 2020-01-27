@@ -52,6 +52,23 @@
                             </a></button>
                         </td>
                     </tr>
+                    <!-- <tr class='d-none'>
+                        <td class="cart_product_desc">
+                            <label for="">Metode Pembayaran</label>
+                        </td>
+                        <td class="cart_product_desc">
+                            <select class="form-control" name="id_met_pem" id="id_met_pem">
+                                <option value="">Pilih</option>
+                                <?php foreach ($metode_pembayaran as $data_metode_pembayaran) {?>
+                                    <?php if ($data_metode_pembayaran->id_met_pem ==$data_pembayaran->id_pembayaran): ?>
+                                    <option value="<?php echo @$data_metode_pembayaran->id_met_pem ?>" selected><?php echo $data_pembayaran->Transfer_Bank ?></option>
+                                    <?php else: ?>
+                                        <option value="<?php echo @$data_metode_pembayaran->id_met_pem;?>"><?php echo $data_metode_pembayaran->Transfer_Bank;?></option>
+                                    <?php endif; ?>
+                                <?php } ?>
+                            </select><br><br>
+                        </td>
+                    </tr> -->
                     <tr>
                         <td class="cart_product_desc">
                             <label for="">Total Harga Barang </label>
@@ -94,13 +111,14 @@
 
 function simpan_alamat_pengiriman(){
     var id_det_pem = $('#id_det_pem').val();
-    var id_met_pem = $('#id_met_pem').val();
+    // var id_met_pem = $('#id_met_pem').val();
     var id_al_peng = $('#id_al_peng').val();
     var ongkir = $('#ongkir').val();
     var total_harga = $('#total_harga').val();
     var total_harga_barang = $('#total_harga_barang').val();
     let text ;
-if (id_met_pem == '' || ongkir == '' || total_harga == '' || total_harga_barang == '') {
+// if (id_met_pem == '' || ongkir == '' || total_harga == '' || total_harga_barang == '') {
+if ( ongkir == '' || total_harga == '' || total_harga_barang == '') {
       alert('Form masih ada yang kosong');
     } else {
 $.ajax({
