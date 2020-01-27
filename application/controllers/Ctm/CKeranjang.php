@@ -8,7 +8,7 @@
 
 		public function __construct()
 		{
-			// parent::__construct();
+			parent::__construct();
 			// $this->load->model('Mdetailpemesanan');
 			// $this->load->model('Mpemesanan');
 			// $this->load->model('Malamatpen');
