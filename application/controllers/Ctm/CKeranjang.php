@@ -94,7 +94,13 @@
 			$dataMod['paymentConfig']['email'] = $dataMod['pelanggan']->email;
 			$dataMod['paymentConfig']['keterangan'] = "Pembayaran dengan no pemesanan {$nomor_pesanan}";
 
-			// $dataMod['payment'] = $this->createInvoice($this->input->post('id'),$this->input->post('amount'),$this->input->post('email'),$this->input->post('keterangan'));
+			# create invoice
+			$dataMod['payment'] = $this->createInvoice(
+				$dataMod['paymentConfig']['id'],
+				$dataMod['paymentConfig']['amount'],
+				$dataMod['paymentConfig']['email'],
+				$dataMod['paymentConfig']['keterangan']
+			);
 			 
 			print_r(
 				$dataMod
