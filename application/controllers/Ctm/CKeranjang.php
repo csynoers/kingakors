@@ -61,7 +61,9 @@
 			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
+			echo '<pre>';
 			print_r($data);
+			echo '</pre>';
 			die();
 
 			if (@$alamat_pengiriman->id_al_peng != null) {
