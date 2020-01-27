@@ -73,7 +73,7 @@
                                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fa fa-user"></i> <?= $this->session->userdata('username') ?>
                                                 </a>
-                                                <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdownMenuLink">
+                                                <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdownMenuLink" style="z-index:99999 !important">
                                                     <a class="dropdown-item" href="<?= base_url('Ctm/Cprofil'); ?>">My Account</a>
                                                     <a class="dropdown-item" href="<?= base_url('Ctm/Criw'); ?>">Order Details</a>
                                                 </div>
