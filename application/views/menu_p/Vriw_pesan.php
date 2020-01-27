@@ -77,20 +77,27 @@
                             // } ?>>Info Pembayaran</button>
                       </form>
                     </td> -->
+                    <!-- <td>
+                      
+                    </td> -->
                     <td>
-                      <form class="" action="<?php echo base_url('Ctm/Cpemesanan/delete_relasi') ?>" method="post">
-                        <input type="hidden" name="id_pesan" value="<?php echo $data_pemesanan->id_pesan; ?>">
-                        <input type="hidden" name="id_pembayaran" value="<?php echo $data_pemesanan->id_pembayaran; ?>">
+                      <?php
+                        if ( $data_pemesanan->verifikasi=='belum bayar' ) {
+                          ?>
+                            <form class="" action="<?php echo base_url('Ctm/Cpemesanan/delete_relasi') ?>" method="post">
+                              <input type="hidden" name="id_pesan" value="<?php echo $data_pemesanan->id_pesan; ?>">
+                              <input type="hidden" name="id_pembayaran" value="<?php echo $data_pemesanan->id_pembayaran; ?>">
 
-                        <button type="submit" class="btn btn-warning"
-                        <?php
-                          //jika bukti transfer sudah di isi pesanan tidak bisa di batalkan
-                          if ($data_pemesanan->bukti_transfer != null  || $data_pemesanan->verifikasi == 'expired') {
-                            echo "disabled";
-                          } ?>>Batalkan Pesanan</button>
-                      </form>
-                    </td>
-                    <td>
+                              <button type="submit" class="btn btn-warning"
+                              <?php
+                                //jika bukti transfer sudah di isi pesanan tidak bisa di batalkan
+                                if ($data_pemesanan->bukti_transfer != null  || $data_pemesanan->verifikasi == 'expired') {
+                                  echo "disabled";
+                                } ?>>Batalkan Pesanan</button>
+                            </form>
+                          <?php
+                        }
+                      ?>
                       <button type="button" class="btn btn-primary" onclick="modalDetail('<?= $data_pemesanan->id_pesan ?>')">Detail Pesanan</button>
                     </td>
                   </tr>
