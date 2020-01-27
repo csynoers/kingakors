@@ -39,6 +39,7 @@
                                 <table class="table table-striped">
                                   <thead>
                                     <tr>
+                                      <th>Thumbnail</th>
                                       <th>Name</th>
                                       <th>Price</th>
                                       <th>Quantity</th>
@@ -48,8 +49,10 @@
                                     <?php
                                       foreach ($keranjang as $key => $value) {
                                         $value->hargaText = 'Rp. '.number_format($value->harga);
+                                        $value->gambarUrl = base_url("assets/uploads/".$value->gambar);
                                         echo "
                                           <tr>
+                                            <td><a href='#'><img src='{$value->gambarUrl}' alt='Product'></a></td>
                                             <td>{$value->merek}</td>
                                             <td>{$value->hargaText}</td>
                                             <td>{$value->jumlah_pesan}</td>
