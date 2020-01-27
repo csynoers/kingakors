@@ -121,7 +121,7 @@ date_default_timezone_set('Asia/jakarta');
                 <td class="text-center">' . $jml . '</td>
                 <td>Rp.' . number_format($key->jumlah_uang) . '</td>
                 <td class="text-center"><img src="' . base_url('assets/uploads/') . $key->bukti_transfer . '" class="img img-thumbnail img-rounded"></td>
-                <td>' . date("Y-m-d", $key->tgl_pesan) . '</td>
+                <td>' . $key->tgl_pesan . '</td>
                 </tr>';
         }
         $out .= '
