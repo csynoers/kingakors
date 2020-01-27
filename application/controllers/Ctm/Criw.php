@@ -11,6 +11,9 @@ date_default_timezone_set('Asia/jakarta');
         $this->load->model('Mpemesanan');
         $this->load->model('Mdetailpemesanan');
         $this->load->model('Malamatpen');
+        /* config PAYMENT API */
+        $this->server_domain = 'https://api.xendit.co';
+        $this->secret_api_key = 'xnd_development_41Bf6WsBwmDg802BKdtNIQ0Vg0wLie3ZaRWxMSgQ3GnVojeH1uQYPITTuJaR4gU';
     }
 
     public function index()
@@ -110,11 +113,12 @@ date_default_timezone_set('Asia/jakarta');
                     <th>Alamat Pembeli</th>
                     <th>Total Pembelian</th>
                     <th>Total Pembayaran</th>
-                    <th>Bukti Transfer</th>
+                    <th>Metode Pembayaran</th>
                     <th>Tanggal Pembelian</th>
                 </tr>
                 ';
         foreach ($pesanan as $key) {
+            print_r($key);
             $out .= '<tr>
                 <td>' . $key->nama_pel . '</td>
                 <td>' . $key->alamat_lengkap . '</td>
@@ -131,5 +135,34 @@ date_default_timezone_set('Asia/jakarta');
         ';
         echo $out;
         // echo json_encode($this->Mpemesanan->getDetailRiwayat($id));
+        }
+
+        function getInvoice ($invoice_id) {
+            $curl = curl_init();
+
+            $headers = array();
+            $headers[] = 'Content-Type: application/json';
+
+            $end_point = $this->server_domain.'/v2/invoices/'.$invoice_id;
+
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($curl, CURLOPT_USERPWD, $this->secret_api_key.":");
+            curl_setopt($curl, CURLOPT_URL, $end_point);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($curl);
+            curl_close($curl);
+
+            $responseObject = json_decode($response, true);
+            return $responseObject;
+        }
+
+        public function get_from_invoice($response)
+        {
+            return $response['payment_method'].'('.$response['bank_code'].') '.date("d F Y & H:i:s", strtotime($response['paid_at']));
+                // echo '<pre>';
+                // print_r($response['payment_channel']);
+                // print_r($response['payment_channel']);
+                // echo '</pre>';
         }
     }
