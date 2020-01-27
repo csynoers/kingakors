@@ -134,15 +134,16 @@ $.ajax({
         },
         async: true,
         success: function (arr) {
+            window.open(arr, '_blank');
             // console.log(arr.status);
-            text = JSON.stringify(arr);
+            // text = JSON.stringify(arr);
             // console.log(text);
             // die();
-            // location.href   = "<?php echo base_url('Ctm/Cpembayaran/detail_pembayaran/') ?>"+arr;
+            // location.href   = "<?php //echo base_url('Ctm/Cpembayaran/detail_pembayaran/') ?>"+arr;
         },
         error: function (arr,textStatus,errorThrown) {
-            // console.log(JSON.stringify(arr));
-            // console.log("AJAX error : "+textStatus+' : '+errorThrown);
+            console.log(JSON.stringify(arr));
+            console.log("AJAX error : "+textStatus+' : '+errorThrown);
         }
       });
       }

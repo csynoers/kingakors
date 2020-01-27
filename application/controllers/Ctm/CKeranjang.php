@@ -25,7 +25,7 @@
 			if ($this->session->userdata('status_login') != 'customer_oke') {
 				redirect(base_url('Clogin/login'));
 			}
-			
+
 			/* config PAYMENT API */
             $this->server_domain = 'https://api.xendit.co';
             $this->secret_api_key = 'xnd_development_41Bf6WsBwmDg802BKdtNIQ0Vg0wLie3ZaRWxMSgQ3GnVojeH1uQYPITTuJaR4gU';
@@ -96,7 +96,7 @@
 			$dataMod['paymentConfig']['id'] = $nomor_pesanan;
 			$dataMod['paymentConfig']['amount'] = ( $this->input->post('total_harga_barang')+$this->input->post('ongkir') );
 			$dataMod['paymentConfig']['email'] = $dataMod['pelanggan']->email;
-			$dataMod['paymentConfig']['keterangan'] = "Pembayaran dengan no pemesanan {$nomor_pesanan}";
+			$dataMod['paymentConfig']['keterangan'] = "Pembayaran untuk no pemesanan {$nomor_pesanan}";
 
 			# create invoice
 			$dataMod['payment'] = $this->createInvoice(
@@ -106,16 +106,16 @@
 				$dataMod['paymentConfig']['keterangan']
 			);
 			 
-			print_r(
-				$dataMod
-				// $this->createInvoice(
-				// 	$nomor_pesanan,
-				// 	( $this->input->post('total_harga_barang')+$this->input->post('ongkir') ),
-				// 	$pelanggan->email,
-				// 	$this->input->post('keterangan')
-				// ) 
-			);
-			die();
+			// print_r(
+			// 	$dataMod
+			// 	// $this->createInvoice(
+			// 	// 	$nomor_pesanan,
+			// 	// 	( $this->input->post('total_harga_barang')+$this->input->post('ongkir') ),
+			// 	// 	$pelanggan->email,
+			// 	// 	$this->input->post('keterangan')
+			// 	// ) 
+			// );
+			// die();
 
 			$data = array(
 				'id_pesan' => $nomor_pesanan,
@@ -124,8 +124,8 @@
 				'ongkir' => $this->input->post('ongkir'),
 				'total_harga_barang' => $this->input->post('total_harga_barang'),
 				'id_pelanggan' => $this->session->userdata('id_pelanggan'),
-				'external_id' => $this->session->userdata('id_pelanggan'),
-				'invoice_url' => $this->session->userdata('id_pelanggan')
+				'external_id' => $dataMod['payment']['external_id'],
+				'invoice_url' => $dataMod['payment']['invoice_url']
 			);
 			$insert = $this->Mpemesanan->insert($data);
 			$data_id = (object) $insert;
@@ -157,7 +157,8 @@
 			$data_insert_pembayaran = array(
 				"id_pembayaran" => $id_pembayaran,
 				"id_pesan" => $nomor_pesanan,
-				"id_met_pem" => $this->input->post('id_met_pem'),
+				"id_met_pem" => 1,
+				// "id_met_pem" => $this->input->post('id_met_pem'),
 				"jumlah_uang" => $this->input->post('total_harga'),
 				"tgl_bayar" => date("Y-m-d"),
 				"verifikasi" => 'belum bayar',
@@ -170,11 +171,12 @@
 
 			if ($insert_pembayaran == true) {
 				// echo $nomor_pesanan;
-				echo json_encode(
-					// 'status'=>'sukses',
-					$nomor_pesanan
-					// 'link' => "Ctm"."\/Cpembayaran"."\/detail_pembayaran"."\/".$nomor_pesanan
-				);
+				// echo json_encode(
+				// 	// 'status'=>'sukses',
+				// 	$nomor_pesanan
+				// 	// 'link' => "Ctm"."\/Cpembayaran"."\/detail_pembayaran"."\/".$nomor_pesanan
+				// );
+				echo json_encode($dataMod['payment']['invoice_url']);
 			} else {
 				echo json_encode(array(
 					'status' => 'nosukses'
