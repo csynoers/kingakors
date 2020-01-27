@@ -87,6 +87,14 @@
 			$dataMod['pelanggan'] = $this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') );
 			$dataMod['detailPemesanan'] = $this->Mdetailpemesanan->get_by_id( $this->input->post('id_det_pem') );
 			$dataMod['barang'] = $this->M_barang->get_by_id($dataMod['detailPemesanan']->id_barang);
+
+			# config payment
+			$dataMod['paymentConfig']['id'] = $nomor_pesanan;
+			$dataMod['paymentConfig']['amount'] = ( $this->input->post('total_harga_barang')+$this->input->post('ongkir') );
+			$dataMod['paymentConfig']['email'] = $dataMod['pelanggan']->email;
+			$dataMod['paymentConfig']['keterangan'] = "Pembayaran dengan no pemesanan {$nomor_pesanan}";
+
+			// $dataMod['payment'] = $this->createInvoice($this->input->post('id'),$this->input->post('amount'),$this->input->post('email'),$this->input->post('keterangan'));
 			 
 			print_r(
 				$dataMod
