@@ -26,7 +26,7 @@ date_default_timezone_set('Asia/jakarta');
 
         public function getDetailRiwayat()
         {
-        $id = $this->input->post('id_pesan');
+        $id = $this->input->get('id_pesan');
         $data = $this->Mpemesanan->getDetailRiwayat($id);
         $pesanan = $this->Mpemesanan->get_pesanan_where($id);
         // $out=var_dump($pesanan);
