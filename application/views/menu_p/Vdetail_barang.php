@@ -72,7 +72,7 @@
                               </div>
 
                               <!-- Add to Cart Form -->
-                              <form class="cart clearfix" action="<?= base_url('ctm/Cbarang/add_keranjang/') ?>" method="post">
+                              <form class="cart clearfix" action="<?= base_url('Ctm/Cbarang/add_keranjang/') ?>" method="post">
                                   <div class="cart-btn d-flex mb-50">
                                           <input type="hidden" id="maxi_stock"  name="maxi_stock" value="<?php echo $barang->stok; ?>">
                                       <p>Qty</p>
