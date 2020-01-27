@@ -61,6 +61,9 @@
 			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
+			print_r($data);
+			die();
+
 			if (@$alamat_pengiriman->id_al_peng != null) {
 				$data_peng_kota = $this->Mkota->get_by_id($alamat_pengiriman->kota);
 				$data_peng_kec = $this->Mkecamatan->get_by_id($alamat_pengiriman->kecamatan);
