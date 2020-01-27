@@ -83,13 +83,13 @@
 
 			// $_REQUEST['nomor_pemesanan'] = $nomor_pesanan;
 			// $payment = ;
-
-			$pelanggan = $this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') );
+			$dataMod = [];
+			$dataMod['pelanggan'] = $this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') );
+			$dataMod['detailPemesanan'] = $this->Mdetailpemesanan->get_by_id( $this->input->post('id_det_pem') );
+			$dataMod['barang'] = $this->M_barang->get_by_id($dataMod['detailPemesanan']->id_barang);
+			 
 			print_r(
-				[
-					$this->Mpelanggan->get_by_id( $this->session->userdata('id_pelanggan') )->email,
-					$this->Mdetailpemesanan->get_by_id( $this->input->post('id_det_pem') )
-				]
+				$dataMod
 				// $this->createInvoice(
 				// 	$nomor_pesanan,
 				// 	( $this->input->post('total_harga_barang')+$this->input->post('ongkir') ),
