@@ -25,6 +25,10 @@
 			if ($this->session->userdata('status_login') != 'customer_oke') {
 				redirect(base_url('Clogin/login'));
 			}
+			
+			/* config PAYMENT API */
+            $this->server_domain = 'https://api.xendit.co';
+            $this->secret_api_key = 'xnd_development_41Bf6WsBwmDg802BKdtNIQ0Vg0wLie3ZaRWxMSgQ3GnVojeH1uQYPITTuJaR4gU';
 		}
 		public function index()
 		{
