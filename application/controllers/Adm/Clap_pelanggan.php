@@ -19,7 +19,7 @@ class Clap_pelanggan extends CI_Controller
   {
     $data['pelanggan'] = $this->Mpelanggan->get_al_pel();
     $this->load->view('template/Header');
-    $this->load->view('menu_a/VLap_pelanggan', $data);
+    $this->load->view('menu_a/Vlap_Pelanggan', $data);
     $this->load->view('template/Footer');
   }
 }
