@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="">Kota</label>
+                                        <label for="" class="d-block">Kota</label>
                                         <select onblur="cari_kota()" class="form-control" name="id_kota" id="id_kota_input">
                                         <option value="">Pilih kota</option>
                                         <?php foreach ($kota as $data_provinsi) {?>
