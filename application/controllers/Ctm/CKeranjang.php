@@ -236,8 +236,6 @@
 			$data_insert_pembayaran = array(
 				"id_pembayaran" => $id_pembayaran,
 				"id_pesan" => $nomor_pesanan,
-				"id_met_pem" => 1,
-				// "id_met_pem" => $this->input->post('id_met_pem'),
 				"jumlah_uang" => $this->input->post('total_harga'),
 				"tgl_bayar" => date("Y-m-d"),
 				"verifikasi" => 'belum bayar',
@@ -248,10 +246,6 @@
 			//insert ke pembayaran
 			$insert_pembayaran = $this->Mpembayaran->insert($data_insert_pembayaran);
 			if ($insert_pembayaran == true) {
-				// echo json_encode(array(
-				// 	'status' => true,
-				// 	'id_pesan' => $nomor_pesanan
-				// ));
 				echo $dataMod['payment']['invoice_url'];
 			} else {
 				echo json_encode(array(
@@ -285,7 +279,6 @@
 			$data['alamat_pengiriman'] = $alamat_pengiriman;
 			$data['data_peng_kota']=$data_peng_kota;
 			$data['data_peng_kec']=$data_peng_kec;
-			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 			$data['keranjang'] = $belanja;
 
 			if (@$alamat_pengiriman->id_al_peng != null) {
