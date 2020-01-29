@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="cart-table clearfix">
-                <table class="table table-responsive" id="dataTable">
+                <table class="table table-responsiveXXX" id="dataTable">
                     <thead>
                     <tr>
                     <th>No pemesanan</th>
