@@ -3,7 +3,7 @@ OK -logout (customer)
 OK -kecamatan (admin)
 OK -laporan barang (admin)
 OK -laporan penjualan (admin)
--laporan pelanggan (admin)
+OK -laporan pelanggan (admin)
 OK -logout (admin)
 OK -akun (admin)
 OK -halaman login kolom footer acak2an
