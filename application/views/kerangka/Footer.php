@@ -2,9 +2,6 @@
         <section class="newsletter-area section-padding-100-0">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-sm-4">1</div>
-                    <div class="col-sm-4">2</div>
-                    <div class="col-sm-4">3</div>
                     <!-- Newsletter Text -->
                     <div class="col-12 col-lg-6 col-xl-2" style="min-height:300px">
                         <div class="newsletter-text mb-50 mt-3">
