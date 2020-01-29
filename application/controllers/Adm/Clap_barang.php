@@ -21,7 +21,7 @@ class Clap_barang extends CI_Controller
     $data['barang'] = $this->M_barang->get_all();
     $data['kategori'] = $this->M_kategori->get_all();
     $this->load->view('template/Header');
-    $this->load->view('menu_a/VLapBarang', $data);
+    $this->load->view('menu_a/vLapBarang', $data);
     $this->load->view('template/Footer');
   }
 }
