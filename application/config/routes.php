@@ -55,5 +55,6 @@ $route['ctm/Cbarang/(:num)'] = "Ctm/Cbarang/setKategori/$1";
 $route['ctm/Cbarang'] = "Ctm/Cbarang";
 $route['Ctm/Ckeranjang'] = "Ctm/CKeranjang";
 $route['Ctm/Ckeranjang/checkout/(:num)'] = "Ctm/CKeranjang/checkout/$1";
+$route['Ctm/Ckeranjang/hapus/(:num)'] = "Ctm/CKeranjang/hapus/$1";
 
 $route['translate_uri_dashes'] = TRUE;
