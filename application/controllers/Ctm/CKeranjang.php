@@ -58,7 +58,6 @@
 
 			$alamat_pengiriman = $this->Malamatpen->get_alamat_ready($this->session->userdata('id_pelanggan'));
 			$data['alamat_pengiriman'] = $alamat_pengiriman;
-			$data['metode_pembayaran'] = $this->Mmetpem->get_all();
 			$data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
 
 			if (@$alamat_pengiriman->id_al_peng != null) {
