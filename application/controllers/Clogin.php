@@ -179,31 +179,60 @@ class Clogin extends CI_Controller
 
     private function _sendemail(){
 
-        $config = [
-            'protocol'  => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'hanistn27@gmail.com',
-            'smtp_pass' => 'setiani12',
-            'smtp_port' => 465,
-            'mailtype'  => 'html',
-            'charset'   => 'utf-8',
-            'newline'   => "\r\n"
-        ];
+        // $config = [
+        //     'protocol'  => 'smtp',
+        //     'smtp_host' => 'ssl://smtp.googlemail.com',
+        //     'smtp_user' => 'hanistn27@gmail.com',
+        //     'smtp_pass' => 'setiani12',
+        //     'smtp_port' => 465,
+        //     'mailtype'  => 'html',
+        //     'charset'   => 'utf-8',
+        //     'newline'   => "\r\n"
+        // ];
 
-        $this->load->library('email', $config);
-        $this->email->initialize($config);
-        $this->email->from('hanistn27@gmail.com', "kING AKOR'S");
-        $this->email->to($this->input->post('email'));
-        $this->email->subject('Pemberitahuan');
-        $this->email->message('Selamat anda telah terdaftar sebagai member silahkan
-        <a href="'.base_url('Adm/A_log').'">Login</a>');
+        // $this->load->library('email', $config);
+        // $this->email->initialize($config);
+        // $this->email->from('hanistn27@gmail.com', "kING AKOR'S");
+        // $this->email->to($this->input->post('email'));
+        // $this->email->subject('Pemberitahuan');
+        // $this->email->message('Selamat anda telah terdaftar sebagai member silahkan
+        // <a href="'.base_url('Adm/A_log').'">Login</a>');
 
-        if ($this->email->send()) {
-            return true;
-        } else {
-            echo $this->email->print_debugger();
-            die;
-        }
+        // if ($this->email->send()) {
+        //     return true;
+        // } else {
+        //     echo $this->email->print_debugger();
+        //     die;
+        // }
+
+        $data = [];
+        $data['mail']['email'] = $this->input->post('email');
+        $data['mail']['subjek'] = "Pemberitahuan";
+        $data['mail']['pesan'] = "
+            <html>
+                <head>
+                    <title>TOKO kING AKORS</title>
+                </head>
+                <body>
+                    <div style='
+                        margin: 10% 20%;
+                        background: #ddd;
+                        padding: 20px;
+                    '>
+                        <b>Selamat anda telah terdaftar sebagai member silahkan :</b><br>
+                        <a href='".base_url('Adm/A_log')."'>Login</a>
+                    </div>
+                </body>
+            </html>	
+        ";
+
+        // Always set content-type when sending HTML email
+        $data['mail']['dari'] = "MIME-Version: 1.0" . "\r\n";
+        $data['mail']['dari'] .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        // More headers
+        $data['mail']['dari'] .= 'From: <support@kingakors.com>' . "\r\n";
+        mail($data['mail']['email'],$data['mail']['subjek'],$data['mail']['pesan'],$data['mail']['dari']);
     }
 
     public function update1($id_pelanggan)
