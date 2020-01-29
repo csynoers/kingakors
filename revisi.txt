@@ -9,3 +9,4 @@ OK -akun (admin)
 OK -halaman login kolom footer acak2an
 OK -fix halaman order detail(kustomer) navbar
 OK -Fix halaman checkout one item
+OK -Fix halaman checkout one item >> proses hapus
