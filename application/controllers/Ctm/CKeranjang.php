@@ -370,7 +370,7 @@
 		public function hapus()
 		{
 			$id = $this->input->post("id");
-			print_r($id);
+			print_r($this->uri->segment(3));
 			die();
 			// $hapus_data = $this->Mdetailpemesanan->delete($id);
 			// echo "data terhapus";
