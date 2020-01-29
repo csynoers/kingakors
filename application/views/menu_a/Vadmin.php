@@ -128,7 +128,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?= json_encode($this->session) ?>
+                    <?= //json_encode($this->session) ?>
                     <?php foreach ($admin as $data_admin) { ?>
                         <tr>
                             <td class="cart_product_desc">
@@ -140,7 +140,7 @@
                             <td class="cart_product_desc">
                                 <a href="<?php echo base_url("Adm/Cadmin/update/" . $data_admin->id_admin); ?>" class="btn btn-warning">Ubah</a>
                                 <input type="hidden" name="id" value="<?php echo $data_admin->id_admin; ?>">
-                                <?= empty($this->session) ? NULL : '<button type="submit" class="btn btn-danger" name="button"> Hapus </button>' ;?>
+                                <!-- <button type="submit" class="btn btn-danger" name="button"> Hapus </button> -->
                                 </form>
                             </td>
                         </tr>
