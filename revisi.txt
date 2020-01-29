@@ -8,4 +8,4 @@ OK -logout (admin)
 OK -akun (admin)
 OK -halaman login kolom footer acak2an
 OK -fix halaman order detail(kustomer) navbar
--Fix halaman checkout
+OK -Fix halaman checkout one item
