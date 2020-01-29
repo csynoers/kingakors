@@ -4,7 +4,7 @@ OK -kecamatan (admin)
 -laporan barang (admin)
 -laporan penjualan (admin)
 -laporan pelanggan (admin)
--logout (admin)
+OK -logout (admin)
 OK -akun (admin)
 OK -halaman login kolom footer acak2an
 OK -fix halaman order detail(kustomer) navbar
