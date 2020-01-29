@@ -10,4 +10,5 @@ OK -halaman login kolom footer acak2an
 OK -fix halaman order detail(kustomer) navbar
 OK -Fix halaman checkout one item
 OK -Fix halaman checkout one item >> proses hapus
-Process -Fix halaman checkout multiple items
+OK -Fix halaman checkout multiple items
+Process -Fix halaman riwayat pesanan 
