@@ -369,10 +369,8 @@
 
 		public function hapus()
 		{
-			$id = $this->input->post("id");
-			print_r($this->uri->segment(3));
-			die();
-			// $hapus_data = $this->Mdetailpemesanan->delete($id);
+			$id = $this->uri->segment(4);
+			$hapus_data = $this->Mdetailpemesanan->delete($id);
 			// echo "data terhapus";
 			redirect("Ctm/Ckeranjang");
 		}
