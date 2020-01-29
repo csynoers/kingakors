@@ -128,7 +128,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?= //json_encode($this->session) ?>
                     <?php foreach ($admin as $data_admin) { ?>
                         <tr>
                             <td class="cart_product_desc">
