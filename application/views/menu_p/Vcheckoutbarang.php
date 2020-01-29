@@ -52,23 +52,6 @@
                             </a></button>
                         </td>
                     </tr>
-                    <!-- <tr class='d-none'>
-                        <td class="cart_product_desc">
-                            <label for="">Metode Pembayaran</label>
-                        </td>
-                        <td class="cart_product_desc">
-                            <select class="form-control" name="id_met_pem" id="id_met_pem">
-                                <option value="">Pilih</option>
-                                <?php foreach ($metode_pembayaran as $data_metode_pembayaran) {?>
-                                    <?php if ($data_metode_pembayaran->id_met_pem ==$data_pembayaran->id_pembayaran): ?>
-                                    <option value="<?php echo @$data_metode_pembayaran->id_met_pem ?>" selected><?php echo $data_pembayaran->Transfer_Bank ?></option>
-                                    <?php else: ?>
-                                        <option value="<?php echo @$data_metode_pembayaran->id_met_pem;?>"><?php echo $data_metode_pembayaran->Transfer_Bank;?></option>
-                                    <?php endif; ?>
-                                <?php } ?>
-                            </select><br><br>
-                        </td>
-                    </tr> -->
                     <tr>
                         <td class="cart_product_desc">
                             <label for="">Total Harga Barang </label>
