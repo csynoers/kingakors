@@ -20,7 +20,7 @@ class Ckecamatan extends CI_Controller
     $data['kota'] = $this->Mkota->get_all();
     $this->load->view('template/Header');
     $this->load->view('menu_a/Vkecamatan', $data);
-    $this->load->view('template/footer');
+    $this->load->view('template/Footer');
   }
 
   public function data()

@@ -1,5 +1,5 @@
--register login gak bisa redirect ke login
--logout (customer)
+OK -register login gak bisa redirect ke login
+OK -logout (customer)
 -kecamatan (admin)
 -laporan barang (admin)
 -laporan penjualan (admin)
