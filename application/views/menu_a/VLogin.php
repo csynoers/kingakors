@@ -25,7 +25,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <lo>Member baru ? silahkan <a href="<?php echo base_url("Clogin/register"); ?>">Registrasi </li>
+                                    <lo>Member baru ? silahkan <a href="<?php echo base_url("Clogin/register"); ?>">Registrasi </a></lo>
                                     <!-- <a class="small" href="<?= base_url('auth/registration') ?>">Create an Account!</a> -->
                                 </div>
                             </div>
