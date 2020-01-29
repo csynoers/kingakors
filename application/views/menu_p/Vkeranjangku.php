@@ -46,13 +46,12 @@
                                             </div>
                                           </a>
                                         </div>
-                                        <div class="col-6 float-right">
-                                          <form action="<?= base_url("Ctm/Ckeranjang/hapus")?>" method="post">
-                                            <input type="hidden" name="id" value="<?php echo $list->id_det_pem;?>">
-                                            <button type="submit" class="btn btn-danger" name="button">
+                                        <div class="col-6">
+                                          <a href="<?= base_url("Ctm/Ckeranjang/hapus/".$list->id_det_pem);?>">
+                                            <div  class="btn btn-danger">
                                               <i class="fa fa-trash-o"></i>
-                                            </button>
-                                          </form>
+                                            </div>
+                                          </a>
                                         </div>
                                       </div>
                                   </td>
