@@ -30,7 +30,7 @@ class Clogin extends CI_Controller
     public function login()
     {
         $this->load->view('kerangka/Header');
-        $this->load->view('menu_a/Vlogin');
+        $this->load->view('menu_a/VLogin');
         $this->load->view('kerangka/Footer');
     }
 
@@ -139,10 +139,10 @@ class Clogin extends CI_Controller
 
     public function insert_register()
     {
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
-        die();
+        // echo '<pre>';
+        // print_r($_POST);
+        // echo '</pre>';
+        // die();
         // proses input data ke tabel pelanggan
         //data yang akan di ubah dimasukkan ke array
         $data = array(
@@ -174,7 +174,7 @@ class Clogin extends CI_Controller
 
         $this->_sendemail();
 
-        redirect(base_url('Clogin/Login'));
+        redirect(base_url('Clogin/login'));
     }
 
     private function _sendemail(){
@@ -199,10 +199,10 @@ class Clogin extends CI_Controller
         <a href="'.base_url('Adm/A_log').'">Login</a>');
 
         if ($this->email->send()) {
-        return true;
+            return true;
         } else {
-        echo $this->email->print_debugger();
-        die;
+            echo $this->email->print_debugger();
+            die;
         }
     }
 
