@@ -65,7 +65,7 @@
                                             <a class="nav-link" href="<?= base_url('Adm/cadmin'); ?>">Akun</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?= base_url("clogin/login"); ?>">Keluar</a>
+                                            <a class="nav-link" href="<?= base_url("clogin/log-out"); ?>">Keluar</a>
                                         </li>
                                     </ul>
                                 </div>
