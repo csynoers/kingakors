@@ -1,0 +1,8 @@
+-register login gak bisa redirect ke login
+-logout (customer)
+-kecamatan (admin)
+-laporan barang (admin)
+-laporan penjualan (admin)
+-laporan pelanggan (admin)
+-logout (admin)
+-akun (admin)
