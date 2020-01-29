@@ -94,13 +94,11 @@
 
 function simpan_alamat_pengiriman(){
     var id_det_pem = $('#id_det_pem').val();
-    // var id_met_pem = $('#id_met_pem').val();
     var id_al_peng = $('#id_al_peng').val();
     var ongkir = $('#ongkir').val();
     var total_harga = $('#total_harga').val();
     var total_harga_barang = $('#total_harga_barang').val();
     let text ;
-// if (id_met_pem == '' || ongkir == '' || total_harga == '' || total_harga_barang == '') {
 if ( ongkir == '' || total_harga == '' || total_harga_barang == '') {
       alert('Form masih ada yang kosong');
     } else {
@@ -110,7 +108,6 @@ $.ajax({
         data: {
             id_al_peng : id_al_peng,
             id_det_pem : id_det_pem,
-            // id_met_pem : id_met_pem,
             ongkir : ongkir,
             total_harga : total_harga,
             total_harga_barang : total_harga_barang,
@@ -118,13 +115,6 @@ $.ajax({
         async: true,
         success: function (arr) {
             location.href = arr;
-            // console.log(arr);
-            // window.open(arr, '_blank');
-            // console.log(arr.status);
-            // text = JSON.stringify(arr);
-            // console.log(text);
-            // die();
-            // location.href   = "<?php //echo base_url('Ctm/Cpembayaran/detail_pembayaran/') ?>"+arr;
         },
         error: function (arr,textStatus,errorThrown) {
             // console.log(JSON.stringify(arr));

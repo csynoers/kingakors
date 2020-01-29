@@ -146,8 +146,6 @@
 			$data_insert_pembayaran = array(
 				"id_pembayaran" => $id_pembayaran,
 				"id_pesan" => $nomor_pesanan,
-				"id_met_pem" => 1,
-				// "id_met_pem" => $this->input->post('id_met_pem'),
 				"jumlah_uang" => $this->input->post('total_harga'),
 				"tgl_bayar" => date("Y-m-d"),
 				"verifikasi" => 'belum bayar',
