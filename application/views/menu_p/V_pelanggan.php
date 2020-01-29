@@ -95,6 +95,13 @@
                                 <input type="text" class="form-control" name="no_telp" placeholder="Massukan nomor ponsel" pattern="\d*" required />
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">1</div>
+                                <div class="col-md-4">2</div>
+                                <div class="col-md-4">3</div>
+                            </div>
+                        </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="">Provinsi</label><br>
