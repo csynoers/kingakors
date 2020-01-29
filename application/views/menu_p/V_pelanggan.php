@@ -97,39 +97,36 @@
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-4">1</div>
-                                <div class="col-md-4">2</div>
-                                <div class="col-md-4">3</div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="">Provinsi</label><br>
-                                <select class="form-control" name="id_prov" id="id_prov_input">
-                                <option value="">Pilih Provinsi</option>
-                                <?php foreach ($provinsi as $data_provinsi) {?>
-                                <option value="<?="$data_provinsi->id_prov";?>"><?="$data_provinsi->nama_prov";?></option><?php } ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="">Kota</label>
-                                <select onblur="cari_kota()" class="form-control" name="id_kota" id="id_kota_input">
-                                <option value="">Pilih kota</option>
-                                <?php foreach ($kota as $data_provinsi) {?>
-                                <option value="<?="$data_provinsi->id_kota";?>"><?="$data_provinsi->nm_kota";?></option><?php } ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="">Kecamatan</label>
-                                <select onblur="cari_kecamatan()" class="form-control" name="id_kecamatan" id="id_kecamatan_input">
-                                <option value="">Pilih Kecamatan</option>
-                                <?php foreach ($kecamatan as $data_provinsi) {?>
-                                <option value="<?="$data_provinsi->id_kec";?>"><?="$data_provinsi->nm_kec";?></option><?php } ?>
-                                </select>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Provinsi</label><br>
+                                        <select class="form-control" name="id_prov" id="id_prov_input">
+                                        <option value="">Pilih Provinsi</option>
+                                        <?php foreach ($provinsi as $data_provinsi) {?>
+                                        <option value="<?="$data_provinsi->id_prov";?>"><?="$data_provinsi->nama_prov";?></option><?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Kota</label>
+                                        <select onblur="cari_kota()" class="form-control" name="id_kota" id="id_kota_input">
+                                        <option value="">Pilih kota</option>
+                                        <?php foreach ($kota as $data_provinsi) {?>
+                                        <option value="<?="$data_provinsi->id_kota";?>"><?="$data_provinsi->nm_kota";?></option><?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Kecamatan</label>
+                                        <select onblur="cari_kecamatan()" class="form-control" name="id_kecamatan" id="id_kecamatan_input">
+                                        <option value="">Pilih Kecamatan</option>
+                                        <?php foreach ($kecamatan as $data_provinsi) {?>
+                                        <option value="<?="$data_provinsi->id_kec";?>"><?="$data_provinsi->nm_kec";?></option><?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12"><br>
