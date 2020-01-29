@@ -139,6 +139,10 @@ class Clogin extends CI_Controller
 
     public function insert_register()
     {
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+        die();
         // proses input data ke tabel pelanggan
         //data yang akan di ubah dimasukkan ke array
         $data = array(
