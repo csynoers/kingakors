@@ -1,9 +1,10 @@
 OK -register login gak bisa redirect ke login
 OK -logout (customer)
--kecamatan (admin)
+OK -kecamatan (admin)
 -laporan barang (admin)
 -laporan penjualan (admin)
 -laporan pelanggan (admin)
 -logout (admin)
--akun (admin)
+OK -akun (admin)
 OK -halaman login kolom footer acak2an
+OK -fix halaman order detail(kustomer) navbar

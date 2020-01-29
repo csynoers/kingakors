@@ -62,7 +62,7 @@
                                             <a class="nav-link" href="" >Pemberitahuan</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?= base_url('Adm/CAdmin'); ?>">Akun</a>
+                                            <a class="nav-link" href="<?= base_url('Adm/cadmin'); ?>">Akun</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="<?= base_url("clogin/login"); ?>">Keluar</a>
