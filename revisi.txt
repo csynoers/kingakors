@@ -6,3 +6,4 @@
 -laporan pelanggan (admin)
 -logout (admin)
 -akun (admin)
+-halaman login kolom footer acak2an
