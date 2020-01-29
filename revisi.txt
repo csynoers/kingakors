@@ -1,8 +1,8 @@
 OK -register login gak bisa redirect ke login
 OK -logout (customer)
 OK -kecamatan (admin)
--laporan barang (admin)
--laporan penjualan (admin)
+OK -laporan barang (admin)
+OK -laporan penjualan (admin)
 -laporan pelanggan (admin)
 OK -logout (admin)
 OK -akun (admin)

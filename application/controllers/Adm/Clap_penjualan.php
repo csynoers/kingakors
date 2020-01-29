@@ -22,7 +22,7 @@ class Clap_penjualan extends CI_Controller
   {
     $data['penjualan'] = $this->Mpemesanan->get_pesanan_fix();
     $this->load->view('template/Header');
-    $this->load->view('menu_a/VLapPenjualan', $data);
+    $this->load->view('menu_a/vLapPenjualan', $data);
     $this->load->view('template/Footer');
   }
 
