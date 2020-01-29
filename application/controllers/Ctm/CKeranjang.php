@@ -240,7 +240,6 @@
 				"tgl_bayar" => date("Y-m-d"),
 				"verifikasi" => 'belum bayar',
 				'id_pelanggan' => $this->session->userdata('id_pelanggan'),
-				'kadaluarsa' => time()
 			);
 
 			//insert ke pembayaran
