@@ -25,7 +25,7 @@ class Cprint extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "laporan-barang.pdf";
-        $this->pdf->load_view('print/Laporan_barang', $data);
+        $this->pdf->load_view('print/laporan_barang', $data);
     }
 
     public function print_penjualan()
@@ -46,7 +46,7 @@ class Cprint extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "laporan-barang.pdf";
-        $this->pdf->load_view('print/Laporan_penjualan', $data);
+        $this->pdf->load_view('print/laporan_penjualan', $data);
     }
 
     public function print_struct()
@@ -57,7 +57,7 @@ class Cprint extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'landscape');
         $this->pdf->filename = "Struct-Pembelian.pdf";
-        $this->pdf->load_view('print/Struct_pemesanan', $data);
+        $this->pdf->load_view('print/struct_pemesanan', $data);
     }
     public function print_member()
     {
@@ -65,6 +65,6 @@ class Cprint extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "laporan-member.pdf";
-        $this->pdf->load_view('print/Laporan_pelanggan', $data);
+        $this->pdf->load_view('print/laporan_pelanggan', $data);
     }
 }
