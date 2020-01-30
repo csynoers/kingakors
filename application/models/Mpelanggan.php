@@ -27,6 +27,15 @@ class Mpelanggan extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    function get_pelanggan()
+    {
+        $this->db->from($this->table);
+        $this->db->join('alamat_pengiriman',$this->table.'.id_pelanggan = alamat_pengiriman.id_pelanggan');
+        $this->db->order_by("{$this->table}.{$this->id}", $this->order);
+        $this->db->where('alamat_pengiriman.status', 'ready');
+        return $this->db->get()->result();
+    }
+
     // get data by id
     function get_by_id($id)
     {

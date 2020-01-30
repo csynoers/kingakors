@@ -61,7 +61,7 @@ class Cprint extends CI_Controller
     }
     public function print_member()
     {
-        $data['pelanggan'] = $this->Mpelanggan->get_all();
+        $data['pelanggan'] = $this->Mpelanggan->get_pelanggan();
         // $this->load->library('pdf');
         // $this->pdf->setPaper('A4', 'potrait');
         // $this->pdf->filename = "laporan-member.pdf";
