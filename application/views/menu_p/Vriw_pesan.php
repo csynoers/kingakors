@@ -1,172 +1,153 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-date_default_timezone_set('Asia/jakarta');
+<div class="main-content-wrapper d-flex clearfix">
+  <div class="cart-table-area section-padding-50">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-lg-12">
+          <div class="cart-title mt-50">
+        <h2>Riwayat Pesanan</h2>
+      </div>
+      <!-- pemaanggilan form Insert data-->
+      <form action="" method="post">
+      </form>
+      <!-- selesai pemaanggilan form Insert data-->
+      <div class="cart-table clearfix">
 
-    class Criw extends CI_Controller
-    {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('Mpelanggan');
-        $this->load->model('Mpemesanan');
-        $this->load->model('Mdetailpemesanan');
-        $this->load->model('Malamatpen');
-        /* config PAYMENT API */
-        $this->server_domain = 'https://api.xendit.co';
-        $this->secret_api_key = 'xnd_development_41Bf6WsBwmDg802BKdtNIQ0Vg0wLie3ZaRWxMSgQ3GnVojeH1uQYPITTuJaR4gU';
-    }
+        <!--alert-->
+        <?php if ($this->session->flashdata('info') == 'sukses') { ?>
+          <div class="">
 
-    public function index()
-    {
-        $data['cart'] = $this->Mdetailpemesanan->get_cart_row($this->session->userdata('id_pelanggan'));
-        $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($this->session->userdata('id_pelanggan'));
-        $data['pemesanan'] = $this->Mpemesanan->get_riwayat($this->session->userdata('id_pelanggan'));
-        $this->load->view('kerangka/Header', $data);
-        $this->load->view('menu_p/Vriw_pesan', $data);
-        $this->load->view('kerangka/Footer');
-    }
+            <div class="alert alert-sukes">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+              <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+            </div>
+          <?php } ?>
 
+          <?php if ($this->session->flashdata('info') == 'gagal') { ?>
+            <div class="">
+              <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+              </div>
+            <?php } ?>
+            </div>
 
-        public function getDetailRiwayat()
-        {
-        $id = $this->input->get('id_pesan');
-        $data = $this->Mpemesanan->getDetailRiwayat($id);
-        $pesanan = $this->Mpemesanan->get_pesanan_where($id);
-        // $out=var_dump($pesanan);
-        $out = "
-                <div class='row'>
-                    <div class='col-12 col-md-8'>
-                    <table class='table table-hover'>
-                        <tr style='background-color:#f5f7fa!important; text-align:center'>
-                        <th>
-                            <td colspan='2'>Nama</td>
-                            <td>Harga Satuan</td>
-                            <td>Qty</td>
-                        </th>
-                        </tr>
-                ";
-        $i = 1;
-        $hargaBrg = "";
-        $ongKir = "";
-        foreach ($data->result_array() as $list) {
-            $out .= "
+            <div class="cart-table clearfix">
+              <table class="table table-responsive" id="dataTable">
+                <thead>
                 <tr>
-                    <td>{$i}</td>
-                    <td class='cart_product_img'>
-                        <a href='#'><img style='height:81px;max-width:100%;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'></a>
+                <th>No pemesanan</th>
+                <th>Alamat Pengiriman</th>
+                <th>Jumlah Bayar</th>
+                <th>Status Pembayaran</th>
+                <th>Info rek Bank</th>
+                <th>Batalkan Pesanan</th>
+                <th>Detail Pemesanan</th>
+              </tr>
+              </thead>
+              <?php // var_dump($pemesanan);
+              ?>
+              <?php foreach ($pemesanan as $data_pemesanan) { ?>
+                <tbody>
+                  <tr>
+                    <td class="cart_product_desc">
+                      <h5><?php echo $data_pemesanan->id_pesan; ?></h5>
                     </td>
-                    <td class='cart_product_desc'>
-                        <h5>{$list['merek']}</h5>
+                    <td class="cart_product_desc">
+                      <h5><?php echo $data_pemesanan->alamat_lengkap; ?></h5>
                     </td>
-                    <td class='price'>
-                        <span>Rp." . number_format($list['harga']) . "</span>
+                    <!-- <td class="cart_product_desc">
+                      <h5><?php echo $data_pemesanan->jumlah_pesan; ?></h5>
+                  </td> -->
+                    <td class="cart_product_desc">
+                      <h5><?php echo $data_pemesanan->jumlah_uang; ?></h5>
                     </td>
-                    <td class='qty'>
-                        <div class='qty-btn d-flex'>
-                            <p>{$list['jumlah_pesan']}</p>
-                        </div>
+                    <td class="cart_product_desc">
+                      <h5><?php echo $data_pemesanan->verifikasi; ?></h5>
                     </td>
-                </tr>
-            ";
-            $jml = $i;
-            $i += 1;
-            $hargaBrg = $list['total_harga_barang'];
-            $ongKir = $list['ongkir'];
-        }
-        $out .= "
-        </table>
-        </div>
-        <div class='col-12 col-md-4'>
-            <div class='card' style='background-color:#f5f7fa!important'>
-            <div class='card-body '>
-                <div class='card-title' style='font-size:20px;text-align:center'><span>Cart Total</span></div>
-                <table class='table'>
-                <tr class=''>
-                    <td>Harga Barang</td>
-                    <td>: Rp." . number_format($hargaBrg) . "</td>
-                </tr>
-                <tr class=''>
-                    <td>Harga OngKir</td>
-                    <td>: Rp." . number_format($ongKir) . "</td>
-                </tr>
-                <tr class=''>
-                    <td>Harga Total</td>
-                    <td>: Rp." . number_format($hargaBrg + $ongKir) . "</td>
-                </tr>
-                </table>
-            </div>
-            </div>
-        </div>
-        </div>
-        ";
-        $out .= '<hr>
-        <div class="row">
-            <div class="col-12">
-            <h1>Status transaksi : </h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-12">
-            <table class="table table-bordered table-hover">
-                <tr style="background-color:#f5f7fa!important; text-align:center">
-                    <th>Nama Pembeli</th>
-                    <th>Alamat Pembeli</th>
-                    <th>Total Pembelian</th>
-                    <th>Total Pembayaran</th>
-                    <th>Metode Pembayaran</th>
-                    <th>Tanggal Pembelian</th>
-                </tr>
-                ';
-        foreach ($pesanan as $key) {
-            $metodePembayaran= "-";
-            if ( $key->verifikasi=='diproses' ) {
-                $metodePembayaran = $this->get_from_invoice( $this->getInvoice($key->external_id) );
-            }
-            // print_r($key);
-            $out .= '<tr>
-                <td>' . $key->nama_pel . '</td>
-                <td>' . $key->alamat_lengkap . '</td>
-                <td class="text-center">' . $jml . '</td>
-                <td>Rp.' . number_format($key->jumlah_uang) . '</td>
-                <td class="text-center">'.$metodePembayaran.'</td>
-                <td>' . $key->tgl_pesan . '</td>
-                </tr>';
-        }
-        $out .= '
+                    <td>
+                      <form class="" action="<?php echo base_url("Ctm/Cpembayaran/detail_pembayaran"); ?>" method="post">
+                        <input type="hidden" name="id" value="<?php echo $data_pemesanan->id_pembayaran; ?>">
+
+                        <button type="submit" class="btn btn-danger"
+                        <?php
+                            //jika bukti transfer sudah di info pembayaran tidak bisa di lihat
+                            if ($data_pemesanan->bukti_transfer != null || $data_pemesanan->verifikasi == 'expired') {
+                              echo "disabled";
+                            } ?>>Info Pembayaran</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form class="" action="<?php echo base_url('Ctm/Cpemesanan/delete_relasi') ?>" method="post">
+                        <input type="hidden" name="id_pesan" value="<?php echo $data_pemesanan->id_pesan; ?>">
+                        <input type="hidden" name="id_pembayaran" value="<?php echo $data_pemesanan->id_pembayaran; ?>">
+
+                        <button type="submit" class="btn btn-warning"
+                        <?php
+                          //jika bukti transfer sudah di isi pesanan tidak bisa di batalkan
+                          if ($data_pemesanan->bukti_transfer != null  || $data_pemesanan->verifikasi == 'expired') {
+                            echo "disabled";
+                          } ?>>Batalkan Pesanan</button>
+                      </form>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-primary" onclick="modalDetail('<?= $data_pemesanan->id_pesan ?>')">Detail Pesanan</button>
+                    </td>
+                  </tr>
+                <?php } ?>
+                </tbody>
             </table>
-            </div>
-        </div>
-        ';
-        echo $out;
-        // echo json_encode($this->Mpemesanan->getDetailRiwayat($id));
-        }
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<br><br>
 
-        function getInvoice ($invoice_id) {
-            $curl = curl_init();
+<div class="modal fade bd-example-modal-xl" id="modDetail" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="modDetailTitle"></h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <br>
+    <div id="result"></div>
+  </div>
+  <div class="modal-footer">
 
-            $headers = array();
-            $headers[] = 'Content-Type: application/json';
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>
+</div>
 
-            $end_point = $this->server_domain.'/v2/invoices/'.$invoice_id;
 
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($curl, CURLOPT_USERPWD, $this->secret_api_key.":");
-            curl_setopt($curl, CURLOPT_URL, $end_point);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-            $response = curl_exec($curl);
-            curl_close($curl);
-
-            $responseObject = json_decode($response, true);
-            return $responseObject;
-        }
-
-        public function get_from_invoice($response)
-        {
-            return $response['payment_method'].'('.$response['bank_code'].') '.date("d F Y & H:i:s", strtotime($response['paid_at']));
-                // echo '<pre>';
-                // print_r($response['payment_channel']);
-                // print_r($response['payment_channel']);
-                // echo '</pre>';
-        }
-    }
+<script type="text/javascript">
+function modalDetail(id) {
+$("#id_pesan").val(id);
+$.ajax({
+  url: '<?php echo base_url("Ctm/Criw/getDetailRiwayat/") ?>',
+  type: "POST",
+  data: {
+    id_pesan: id
+  },
+  // async: false,
+  success: function(res) {
+    // console.log(res);
+    $('#modDetailTitle').html(id);
+    $('#result').html(res);
+    $('#modDetail').modal('show');
+  },
+});
+// console.log(id);
+}
+</script>
