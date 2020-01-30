@@ -41,7 +41,7 @@ class Mpemesanan extends CI_Model
   {
     $this->db->select('*,detail_pemesanan.id_pelanggan, detail_pemesanan.id_barang,
       detail_pemesanan.jumlah_pesan,pemesanan.total_harga_barang,
-      pemesanan.ongkir, pemesanan.id_al_peng, pembayaran.id_met_pem,
+      pemesanan.ongkir, pemesanan.id_al_peng,
       pemesanan.tgl_pesan');
     $this->db->from('pemesanan');
     $this->db->join('detail_pemesanan', 'pemesanan.id_pesan = detail_pemesanan.id_pesan');
