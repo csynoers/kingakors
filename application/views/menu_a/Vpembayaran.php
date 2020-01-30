@@ -22,11 +22,11 @@
                             <form class="" action="<?= base_url('Adm/Cpembayaran/update_action') ?>" method="post">
                                 <div class="form-group">
                                     <label for="">Nama Pemesan</label>
-                                    <input type="text" class="form-control" name="nama" id="nama" value="<?= "$data_update->nama_peng"; ?>" readonly="">
+                                    <input type="text" class="form-control" name="nama" id="nama" value="<?= $data_update->nama_peng ?>" readonly="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Id Pesanan</label>
-                                    <input type="text" class="form-control" name="id_pesan" id="id_pesan" value="<?= "$data_update->id_pesan"; ?>" readonly="">
+                                    <input type="text" class="form-control" name="id_pesan" id="id_pesan" value="<?= $data_update->id_pesan ?>" readonly="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Total yang harus dibayar</label>
