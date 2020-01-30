@@ -14,7 +14,7 @@
                             </div>
                         </div>
                         <!-- body -->
-                        <?php //var_dump($pembayaran)
+                        <?php echo '<pre>'; print_r($pembayaran); echo '</pre>';
                         ?>
                         <div class="box-body">
                             <form class="" action="<?= base_url('Adm/Cpembayaran/update_action') ?>" method="post">
