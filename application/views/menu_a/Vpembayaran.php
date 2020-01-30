@@ -85,7 +85,6 @@
                             <th>Id Pembayaran</th>
                             <th>pelanggan</th>
                             <th>Total pembayaran</th>
-                            <th>Informasi Pembayaran</th>
                             <th>Tanggal Bayar</th>
                             <th>Verifikasi</th>
                             <th>Konfirmasi</th>
@@ -102,9 +101,6 @@
                                 </td>
                                 <td>
                                     <h5><?= $data_pembayaran->jumlah_uang; ?></h5>
-                                </td>
-                                <td>
-                                    <h5><?= $data_pembayaran->id_met_pem; ?></h5>
                                 </td>
                                 <td>
                                     <h5><?= $data_pembayaran->tgl_bayar ?></h5>
