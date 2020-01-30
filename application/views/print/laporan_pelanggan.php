@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($pelanggan as $data_pelanggan) : ?>
+            <?php foreach ($pelanggan as $data_pelanggan) : echo json_encode($data_pelanggan); ?>
                 <!-- var_dump($data_barang); -->
                 <tr>
                     <td style="text-align: center">
