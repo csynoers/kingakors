@@ -14,7 +14,9 @@
                             </div>
                         </div>
                         <!-- body -->
-                        <?php echo '<pre>'; print_r($pembayaran); echo '</pre>';
+                        <?php
+                            echo '<pre>'; print_r($pembayaran); echo '</pre>';
+                            echo json_encode($data_update);
                         ?>
                         <div class="box-body">
                             <form class="" action="<?= base_url('Adm/Cpembayaran/update_action') ?>" method="post">
