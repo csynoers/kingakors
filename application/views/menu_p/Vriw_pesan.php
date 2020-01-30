@@ -56,19 +56,16 @@
                     <tbody>
                     <tr>
                         <td class="cart_product_desc">
-                        <h5><?php echo $data_pemesanan->id_pesan; ?></h5>
+                            <h5><?php echo $data_pemesanan->id_pesan; ?></h5>
                         </td>
                         <td class="cart_product_desc">
-                        <h5><?php echo $data_pemesanan->alamat_lengkap; ?></h5>
-                        </td>
-                        <!-- <td class="cart_product_desc">
-                        <h5><?php echo $data_pemesanan->jumlah_pesan; ?></h5>
-                    </td> -->
-                        <td class="cart_product_desc">
-                        <h5><?php echo $data_pemesanan->jumlah_uang; ?></h5>
+                            <h5><?php echo $data_pemesanan->alamat_lengkap; ?></h5>
                         </td>
                         <td class="cart_product_desc">
-                        <h5><?php echo $data_pemesanan->verifikasi; ?></h5>
+                            <h5><?php echo $data_pemesanan->jumlah_uang; ?></h5>
+                        </td>
+                        <td class="cart_product_desc">
+                            <h5><?php echo $data_pemesanan->verifikasi; ?></h5>
                         </td>
                         <td>
                         <form class="" action="<?php echo base_url("Ctm/Cpembayaran/detail_pembayaran"); ?>" method="post">
