@@ -11,4 +11,4 @@ OK -fix halaman order detail(kustomer) navbar
 OK -Fix halaman checkout one item
 OK -Fix halaman checkout one item >> proses hapus
 OK -Fix halaman checkout multiple items
-Process -Fix halaman riwayat pesanan 
+OK -Fix halaman riwayat pesanan 
