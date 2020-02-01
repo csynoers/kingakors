@@ -124,6 +124,6 @@ class Mpembayaran extends CI_Model
 
     public function get_detail_pembayaran($id_pembayaran)
     {
-        return $this->db->query("SELECT * FROM `pembayaran` LEFT JOIN pemesanan ON pemesanan.id_pesan=pembayaran.id_pesan LEFT JOIN pelanggan ON pelanggan.id_pelanggan=pemesanan.id_pelanggan WHERE 1 AND pembayaran.id_pembayaran='{$id_pembayaran}'")->result();
+        return $this->db->query("SELECT * FROM `pembayaran` LEFT JOIN pemesanan ON pemesanan.id_pesan=pembayaran.id_pesan LEFT JOIN pelanggan ON pelanggan.id_pelanggan=pemesanan.id_pelanggan LEFT JOIN alamat_pengiriman ON alamat_pengiriman.id_pelanggan=pelanggan.id_pelanggan WHERE 1 AND pembayaran.id_pembayaran='{$id_pembayaran}' AND alamat_pengiriman.status='ready'")->result();
     }
 }
