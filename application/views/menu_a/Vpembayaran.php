@@ -36,15 +36,6 @@
                                     <input type="text" class="form-control" name="id_pembayaran" id="id_pembayaran" value="<?= "$data_update->id_pembayaran"; ?>" readonly="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Nama Pengirim</label>
-                                    <input type="text" class="form-control" name="nama_peng" id="nama_peng" value="<?= "$data_update->nama_peng"; ?>" readonly="">
-                                </div>
-                                    <div class="col-sm-4 pl-0">
-                                        <img src="<?= base_url('assets/uploads/') . $data_update->bukti_transfer ?>" class="img img-thumbnail" alt="thumbnail" srcset="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <!-- <input type="text" class="form-control" name="verifikasi" id="verifikasi" value="<?= "$data_update->verifikasi"; ?>"> -->
                                     <label for="">Konfirmasi</label>
                                 </div>
                                 <div class="form-group row ml-1">
