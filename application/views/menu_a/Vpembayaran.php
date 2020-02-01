@@ -21,7 +21,7 @@
                             <form class="" action="<?= base_url('Adm/Cpembayaran/update_action') ?>" method="post">
                                 <div class="form-group">
                                     <label for="">Nama Pemesan</label>
-                                    <input type="text" class="form-control" name="nama" id="nama" value="<?= $data_update->nama_peng ?>" readonly="">
+                                    <input type="text" class="form-control" name="nama" id="nama" value="<?= $detail_pembayaran->nama_pel ?>" readonly="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Id Pesanan</label>
