@@ -15,8 +15,7 @@
                         </div>
                         <!-- body -->
                         <?php
-                            echo '<pre>'; print_r($pembayaran); echo '</pre>';
-                            echo json_encode($data_update);
+                            echo '<pre>'; print_r($detail_pembayaran); echo '</pre>';
                         ?>
                         <div class="box-body">
                             <form class="" action="<?= base_url('Adm/Cpembayaran/update_action') ?>" method="post">
@@ -96,7 +95,6 @@
                         <?php
                             foreach ($pembayaran as $data_pembayaran) {
                                 $data_pembayaran->verifikasi = '<span style="font-size: 20px" class="badge '.(($data_pembayaran->verifikasi == 'selesai') ? 'badge-success' : 'badge-warning' ).'">'.$data_pembayaran->verifikasi.'</span>';
-                            
                             ?>
                             <tr>
                                 <td>

@@ -18,6 +18,7 @@ class Cpembayaran  extends CI_Controller
   public function index()
   {
     $data['pembayaran'] = $this->Mpembayaran->get_pembayaran($this->session->userdata('id_pembayaran'));
+    $data['detail_pembayaran'] = $this->Mpembayaran->get_detail_pembayaran($this->session->userdata('id_pembayaran'));
     $this->load->view('template/Header');
     $this->load->view('menu_a/Vpembayaran', $data);
     $this->load->view('template/Footer');

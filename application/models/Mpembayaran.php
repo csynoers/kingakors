@@ -121,4 +121,9 @@ class Mpembayaran extends CI_Model
         unlink($path_asli . $nama_file_upload);
         return 'compress_pembayaran_' . $newfilename;
     }
+
+    public function get_detail_pembayaran($id_pembayaran)
+    {
+        return $this->db->query("SELECT * FROM `pembayaran` LEFT JOIN pemesanan ON pemesanan.id_pesan=pembayaran.id_pesan LEFT JOIN pelanggan ON pelanggan.id_pelanggan=pemesanan.id_pelanggan WHERE 1 AND pembayaran.id_pembayaran='{$id_pembayaran}'")->result();
+    }
 }
