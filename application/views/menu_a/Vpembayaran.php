@@ -93,7 +93,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($pembayaran as $data_pembayaran) { ?>
+                        <?php
+                            foreach ($pembayaran as $data_pembayaran) {
+                                $data_pembayaran->verifikasi = '<span style="font-size: 20px" class="badge '.(($data_pembayaran->verifikasi == 'selesai') ? 'badge-success' : 'badge-warning' ).'">'.$data_pembayaran->verifikasi.'</span>';
+                            
+                            ?>
                             <tr>
                                 <td>
                                     <h5><?= $data_pembayaran->id_pembayaran; ?></h5>
@@ -108,7 +112,7 @@
                                     <h5><?= $data_pembayaran->tgl_bayar ?></h5>
                                 </td>
                                 <td>
-                                    <span style="font-size: 20px" class="badge <?= ($data_pembayaran->verifikasi == 'selesai') ? 'badge-success' : 'badge-warning' ?>"><?= $data_pembayaran->verifikasi; ?></span>
+                                    
                                 </td>
                                 <td>
                                     <a href="<?= base_url("Adm/Cpembayaran/update/" . $data_pembayaran->id_pembayaran); ?>">
