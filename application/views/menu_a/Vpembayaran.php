@@ -79,7 +79,7 @@
                             <th>Total pembayaran</th>
                             <th>Tanggal Bayar</th>
                             <th>Verifikasi</th>
-                            <th>Konfirmasi</th>
+                            <!-- <th>Konfirmasi</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -103,10 +103,11 @@
                                 <td>
                                     <?= $data_pembayaran->verifikasi ?>
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <a href="<?= base_url("Adm/Cpembayaran/update/" . $data_pembayaran->id_pembayaran); ?>">
                                         <input type="button" class="btn btn-warning" value="Update">
                                     </a>
+                                </td> -->
                             </tr>
                         <?php } ?>
                     </tbody>
