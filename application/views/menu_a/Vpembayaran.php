@@ -112,7 +112,7 @@
                                     <h5><?= $data_pembayaran->tgl_bayar ?></h5>
                                 </td>
                                 <td>
-                                    
+                                    <?= $data_pembayaran->verifikasi ?>
                                 </td>
                                 <td>
                                     <a href="<?= base_url("Adm/Cpembayaran/update/" . $data_pembayaran->id_pembayaran); ?>">
