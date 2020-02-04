@@ -77,7 +77,21 @@
     <script type="text/javascript">
     $(document).on('click','.detailPesanan',function(e){
         // e.preventDefault();
-        console.log($(this).data('id'));
+        let id_pesan = $(this).data('id');
+        $.ajax({
+            url: '<?php echo base_url("Ctm/Criw/getDetailRiwayat/") ?>',
+            type: "POST",
+            data: {
+                id_pesan: id_pesan
+            },
+            // async: false,
+            success: function(res) {
+                // console.log(res);
+                $('#modDetailTitle').html(id);
+                $('#result').html(res);
+                $('#modDetail').modal('show');
+            },
+        });
     });
     function modalDetail(id) {
     $("#id_pesan").val(id);
