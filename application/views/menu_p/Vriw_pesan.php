@@ -77,7 +77,7 @@
     <script type="text/javascript">
     $(document).on('click','.detailPesanan',function(e){
         // e.preventDefault();
-        console.log($(this));
+        console.log($(this).data('id'));
     });
     function modalDetail(id) {
     $("#id_pesan").val(id);
