@@ -60,7 +60,6 @@
         <!-- <footer> -->
 
         <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-        <!-- <script src="<?= base_url("assets/amado/js/jquery/jquery-2.2.4.min.js") ?>"></script> -->
 
         <script>
         // $(document).ready(function() {

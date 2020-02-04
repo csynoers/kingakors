@@ -75,6 +75,7 @@
 
 
     <script type="text/javascript">
+    console.log($);
     $(document).on('click','detailPesanan',function(e){
         e.preventDefault();
         console.log($(this));
