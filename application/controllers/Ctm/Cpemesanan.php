@@ -86,7 +86,7 @@ class Cpemesanan extends CI_Controller {
 			$this->session->set_flashdata('info', 'gagal');
 			$this->session->set_flashdata('message', 'Pembatalan Pesan Gagal');
 		}
-		die();
-		// redirect("Ctm/Criw");
+		// die();
+		redirect("Ctm/Criw");
 	}
 }
