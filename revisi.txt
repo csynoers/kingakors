@@ -13,4 +13,5 @@ OK -Fix halaman checkout one item >> proses hapus
 OK -Fix halaman checkout multiple items
 OK -Fix halaman riwayat pesanan
 OK -Hapus menu metode pembayaran pada halaman admin
-OK -Fix halaman admin menu pemesanan 
+OK -Fix halaman admin menu pemesanan
+-fix halaman order detail(kustomer) 
