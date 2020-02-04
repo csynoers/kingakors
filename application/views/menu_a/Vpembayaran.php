@@ -85,6 +85,7 @@
                     <tbody>
                         <?php
                             foreach ($pembayaran as $data_pembayaran) {
+                                $data_pembayaran->jumlah_uangText    = "Rp. ".number_format($data_pembayaran->jumlah_uang);
                                 $data_pembayaran->verifikasi = '<span style="font-size: 20px" class="badge '.(($data_pembayaran->verifikasi == 'selesai') ? 'badge-success' : 'badge-warning' ).'">'.$data_pembayaran->verifikasi.'</span>';
                             ?>
                             <tr>
@@ -95,7 +96,7 @@
                                     <h5><?= $data_pembayaran->nama_pel; ?></h5>
                                 </td>
                                 <td>
-                                    <h5><?= $data_pembayaran->jumlah_uang; ?></h5>
+                                    <h5><?= $data_pembayaran->jumlah_uangText; ?></h5>
                                 </td>
                                 <td>
                                     <h5><?= $data_pembayaran->tgl_bayar ?></h5>
