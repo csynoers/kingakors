@@ -18,9 +18,9 @@
                 $data_pemesanan->verifikasiMod      = strtoupper($data_pemesanan->verifikasi);
                 if ( $data_pemesanan->verifikasi=='belum bayar' ) {
                     $data_pemesanan->aksi = '
-                        <a href="javascript:void(0)" data-id="$data_pemesanan->id_pesan" class="detailPesanan btn-outline-primary border p-2">Detail Pesanan</a>
-                        <a href="javascript:void(0)" class="btn-outline-info border p-2">Bayar Sekarang</a>
-                        <a href="javascript:void(0)" class="btn-outline-warning border p-2">Batalkan Pesanan</a>
+                        <a href="javascript:void(0)" data-id="'.$data_pemesanan->id_pesan.'" class="detailPesanan btn-outline-primary border p-2">Detail Pesanan</a>
+                        <a href="javascript:void(0)" target="_blank" class="btn-outline-warning border p-2">Batalkan Pesanan</a>
+                        <a href="'.$data_pemesanan->invoice_url.'" class="btn-outline-info border p-2">Bayar Sekarang</a>
                     ';
                 } else {
                     $data_pemesanan->aksi = '<a href="javascript:void(0)" data-id="'.$data_pemesanan->id_pesan.'" class="detailPesanan btn-outline-primary border p-2">Detail Pesanan</a>';
