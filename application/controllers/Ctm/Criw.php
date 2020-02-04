@@ -122,7 +122,7 @@ date_default_timezone_set('Asia/jakarta');
             if ( $key->verifikasi=='diproses' ) {
                 $metodePembayaran = $this->get_from_invoice( $this->getInvoice($key->external_id) );
             }
-            $metodePembayaran= $key->verifikasi;
+            $metodePembayaran= $key->invoice_url;
             // print_r($key);
             $out .= '<tr>
                 <td>' . $key->nama_pel . '</td>
