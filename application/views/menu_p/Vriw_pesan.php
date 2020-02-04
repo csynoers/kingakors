@@ -19,8 +19,8 @@
                 if ( $data_pemesanan->verifikasi=='belum bayar' ) {
                     $data_pemesanan->aksi = '
                         <a href="javascript:void(0)" data-id="'.$data_pemesanan->id_pesan.'" class="detailPesanan btn-outline-primary border p-2">Detail Pesanan</a>
-                        <a href="'.base_url('Ctm/Cpemesanan/delete_relasi/?id_pesan='.$data_pemesanan->id_pesan.'&id_pembayaran='.$data_pemesanan->id_pembayaran).'" target="_blank" class="btn-outline-warning border p-2">Batalkan Pesanan</a>
                         <a href="'.$data_pemesanan->invoice_url.'" class="btn-outline-info border p-2">Bayar Sekarang</a>
+                        <a href="'.base_url('Ctm/Cpemesanan/delete_relasi/?id_pesan='.$data_pemesanan->id_pesan.'&id_pembayaran='.$data_pemesanan->id_pembayaran).'" target="_blank" class="btn-outline-warning border p-2">Batalkan Pesanan</a>
                     ';
                 } else {
                     $data_pemesanan->aksi = '<a href="javascript:void(0)" data-id="'.$data_pemesanan->id_pesan.'" class="detailPesanan btn-outline-primary border p-2">Detail Pesanan</a>';
