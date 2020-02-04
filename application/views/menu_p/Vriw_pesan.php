@@ -75,7 +75,7 @@
 
 
     <script type="text/javascript">
-    $(document).on('click','.detailPesanan',function(e){
+    $(document).on('click','detailPesanan',function(e){
         e.preventDefault();
         console.log($(this));
     });
