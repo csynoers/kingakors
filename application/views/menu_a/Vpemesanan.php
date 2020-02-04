@@ -21,7 +21,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($pemesanan as $data_pemesanan) { ?>
+                                <?php foreach ($pemesanan as $data_pemesanan) {
+                                    $data_pemesanan->total_harga_barangText    = "Rp. ".number_format($data_pemesanan->total_harga_barang);
+                                    ?>
                                     <tr>
                                         <td class="cart_product_desc">
                                             <h5><?= $data_pemesanan->nama_pel; ?></h5>
@@ -33,7 +35,7 @@
                                             <h5><?= $data_pemesanan->jumlah_pesan; ?></h5>
                                         </td>
                                         <td class="cart_product_desc">
-                                            <h5><?= $data_pemesanan->total_harga_barang; ?></h5>
+                                            <h5><?= $data_pemesanan->total_harga_barangText; ?></h5>
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5><?= $data_pemesanan->alamat_lengkap; ?></h5>
