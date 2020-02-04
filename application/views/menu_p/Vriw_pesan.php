@@ -86,7 +86,7 @@
             },
             // async: false,
             success: function(res) {
-                // console.log(res);
+                console.log(res);
                 $('#modDetailTitle').html(id_pesan);
                 $('#result').html(res);
                 $('#modDetail').modal('show');
