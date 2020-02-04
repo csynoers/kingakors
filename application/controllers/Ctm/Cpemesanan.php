@@ -55,8 +55,8 @@ class Cpemesanan extends CI_Controller {
 	public function delete_relasi(){
 		error_reporting(1);
 		//ambil data detail pemesanan
-		$detail_pemesanan = $this->Mdetailpemesanan->get_join_row_by_id_pesan(@$this->input->post('id_pesan'));
-		// var_dump($detail_pemesanan);die();
+		$detail_pemesanan = $this->Mdetailpemesanan->get_join_row_by_id_pesan(@$this->input->get('id_pesan'));
+		// print_r($detail_pemesanan);die();
 
 		foreach ($detail_pemesanan as $key_data) {
 			//ambil data barang
@@ -77,8 +77,8 @@ class Cpemesanan extends CI_Controller {
 
 		}
 
-		$delete_pembayaran = $this->Mpembayaran->delete(@$this->input->post('id_pembayaran'));
-		$delete_pemesanan = $this->Mpemesanan->delete(@$this->input->post('id_pesan'));
+		$delete_pembayaran = $this->Mpembayaran->delete(@$this->input->get('id_pembayaran'));
+		$delete_pemesanan = $this->Mpemesanan->delete(@$this->input->get('id_pesan'));
 		if ($delete_pembayaran == true && $delete_pemesanan == true) {
 			$this->session->set_flashdata('info', 'sukses');
 			$this->session->set_flashdata('message', 'Pembatalan Pesan Sukses');
