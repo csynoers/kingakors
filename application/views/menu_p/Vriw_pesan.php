@@ -80,7 +80,7 @@
         let id_pesan = $(this).data('id');
         $.ajax({
             url: '<?php echo base_url("Ctm/Criw/getDetailRiwayat/") ?>',
-            type: "POST",
+            type: "GET",
             data: {
                 id_pesan: id_pesan
             },
