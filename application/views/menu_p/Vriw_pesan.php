@@ -75,6 +75,10 @@
 
 
     <script type="text/javascript">
+    $(document).on('click','.detailPesanan',function(e){
+        e.preventDefault();
+        console.log($(this));
+    });
     function modalDetail(id) {
     $("#id_pesan").val(id);
     $.ajax({
