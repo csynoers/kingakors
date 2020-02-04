@@ -39,7 +39,7 @@ class Cpemesanan extends CI_Controller {
 			$this->load->view('kerangka/Header');
 			$this->load->view('menu_p/Vcheckout', $data);
 			$this->load->view('kerangka/Footer');
-}
+	}
 	public function update_action()
 	{
 		$data_update = array(
@@ -51,10 +51,10 @@ class Cpemesanan extends CI_Controller {
 
 		redirect(base_url("Ctm/Cpemesanan"));
 
-}
-		public function delete_relasi(){
-			//ambil data detail pemesanan
-    $detail_pemesanan = $this->Mdetailpemesanan->get_join_row_by_id_pesan(@$this->input->post('id_pesan'));
+	}
+	public function delete_relasi(){
+		//ambil data detail pemesanan
+		$detail_pemesanan = $this->Mdetailpemesanan->get_join_row_by_id_pesan(@$this->input->post('id_pesan'));
 		// var_dump($detail_pemesanan);die();
 
 		foreach ($detail_pemesanan as $key_data) {
@@ -85,6 +85,7 @@ class Cpemesanan extends CI_Controller {
 			$this->session->set_flashdata('info', 'gagal');
 			$this->session->set_flashdata('message', 'Pembatalan Pesan Gagal');
 		}
-    redirect("Ctm/Criw");
-  }
+		die();
+		// redirect("Ctm/Criw");
+	}
 }
