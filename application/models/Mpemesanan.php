@@ -59,7 +59,7 @@ class Mpemesanan extends CI_Model
     $this->db->join('pemesanan', 'pembayaran.id_pesan = pemesanan.id_pesan');
     $this->db->join('alamat_pengiriman','alamat_pengiriman.id_al_peng=pemesanan.id_al_peng');
     $this->db->join('pelanggan', 'pemesanan.id_pelanggan = pelanggan.id_pelanggan');
-    $this->db->join('metode_pembayaran', 'pembayaran.id_met_pem = metode_pembayaran.id_met_pem');
+    // $this->db->join('metode_pembayaran', 'pembayaran.id_met_pem = metode_pembayaran.id_met_pem');
     $this->db->where('pembayaran.id_pesan', $id);
     return $this->db->get()->result();
   }
