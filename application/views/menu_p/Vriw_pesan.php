@@ -87,28 +87,28 @@
             // async: false,
             success: function(res) {
                 // console.log(res);
-                $('#modDetailTitle').html(id);
+                $('#modDetailTitle').html(id_pesan);
                 $('#result').html(res);
                 $('#modDetail').modal('show');
             },
         });
     });
-    function modalDetail(id) {
-    $("#id_pesan").val(id);
-    $.ajax({
-    url: '<?php echo base_url("Ctm/Criw/getDetailRiwayat/") ?>',
-    type: "POST",
-    data: {
-        id_pesan: id
-    },
-    // async: false,
-    success: function(res) {
-        // console.log(res);
-        $('#modDetailTitle').html(id);
-        $('#result').html(res);
-        $('#modDetail').modal('show');
-    },
-    });
-    // console.log(id);
-    }
+    // function modalDetail(id) {
+    // $("#id_pesan").val(id);
+    // $.ajax({
+    // url: '<?php //echo base_url("Ctm/Criw/getDetailRiwayat/") ?>',
+    // type: "POST",
+    // data: {
+    //     id_pesan: id
+    // },
+    // // async: false,
+    // success: function(res) {
+    //     // console.log(res);
+    //     $('#modDetailTitle').html(id);
+    //     $('#result').html(res);
+    //     $('#modDetail').modal('show');
+    // },
+    // });
+    // // console.log(id);
+    // }
     </script>
