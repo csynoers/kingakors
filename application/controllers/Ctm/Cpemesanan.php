@@ -53,6 +53,7 @@ class Cpemesanan extends CI_Controller {
 
 	}
 	public function delete_relasi(){
+		error_reporting(1);
 		//ambil data detail pemesanan
 		$detail_pemesanan = $this->Mdetailpemesanan->get_join_row_by_id_pesan(@$this->input->post('id_pesan'));
 		// var_dump($detail_pemesanan);die();
