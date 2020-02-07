@@ -24,19 +24,20 @@ class Cpemesanan extends CI_Controller
     $this->load->view('menu_a/Vpemesanan', $data);
     $this->load->view('template/Footer');
   }
-  public function detail_pesanan()
-  {
-    $id                     = $this->uri->segment(4);
-    $getDetailRiwayat       = $this->Mpemesanan->getDetailRiwayat($id);
-    $pesanan                = $this->Mpemesanan->get_pesanan_where($id);
+    public function detail_pesanan()
+    {
+        $id                     = $this->uri->segment(4);
+        $getDetailRiwayat       = $this->Mpemesanan->getDetailRiwayat($id);
+        $pesanan                = $this->Mpemesanan->get_pesanan_where($id);
 
-    $data                   = [];
-    $data['thead'] = "
-        <th>Gambar</th>
-        <th>Nama</th>
-        <th>Harga Satuan</th>
-        <th>Qty</td>
-    ";
+        $data                   = [];
+        $data['thead'] = "
+            <th>Gambar</th>
+            <th>Nama</th>
+            <th>Harga Satuan</th>
+            <th>Qty</td>
+            <th>Subtotal</td>
+        ";
 
     $out = "
             <div class='row'>
@@ -54,12 +55,15 @@ class Cpemesanan extends CI_Controller
     $hargaBrg = "";
     $ongKir = "";
     foreach ($getDetailRiwayat->result_array() as $list) {
+        $list['subtotal']       = ($list['harga']*$list['jumlah_pesan']);
+        $list['subtotalText']   = 'Rp. '.number_format($list['subtotal']);
         $data['tbody'][] = "
             <tr>
                 <td><img style='height:80px;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'></td>
                 <td>{$list['merek']}</td>
                 <td>Rp." . number_format($list['harga']) . "</td>
                 <td>{$list['jumlah_pesan']}</td>
+                <td>{$list['subtotalText']}</td>
             </tr>
         ";
         $jml = $i;
