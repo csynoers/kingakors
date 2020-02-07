@@ -144,7 +144,7 @@ class Cpemesanan extends CI_Controller
             <td>Status Pesanan</td>
             <td style='width: 100% !important;max-width: none;flex: none;'>
                 <form action='".base_url("Adm/Cpemesanan/update-pesanan/{$data['pesanan']->id_pesan}")."' method='POST'>  
-                    <select onchange='this.form.submit()'>{$optionsStatusPesanan}</select>
+                    <select name='status' onchange='this.form.submit()'>{$optionsStatusPesanan}</select>
                     <span class='badge badge-warning ml-3'>(* Update status pesanan disini)</span>
                 </form>
             </td>
