@@ -11,15 +11,15 @@
                 <table class="table">
                     <tr>
                         <td>No Pemesanan</td>
-                        <td>: <?= $pesanan->id_pesan ?></td>
+                        <td style="width: 100% !important;max-width: none;flex: none;">: <?= $pesanan->id_pesan ?></td>
                     </tr>
                     <tr>
                         <td>Nama Pembeli</td>
-                        <td>: <?= $pesanan->nama_pel ?></td>
+                        <td style="width: 100% !important;max-width: none;flex: none;">: <?= $pesanan->nama_pel ?></td>
                     </tr>
                     <tr>
                         <td>Alamat Pembeli</td>
-                        <td>: <?= $pesanan->alamat_lengkap ?></td>
+                        <td style="width: 100% !important;max-width: none;flex: none;">: <?= $pesanan->alamat_lengkap ?></td>
                     </tr>
                     <!-- <th>Nama Pembeli</th>
                     <th>Alamat Pembeli</th>
