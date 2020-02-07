@@ -22,7 +22,7 @@
                                 <?php
                                 foreach ($pemesanan as $data_pemesanan) {
                                     $data_pemesanan->tgl_pesan_indo = date('d/m/Y', strtotime($data_pemesanan->tgl_pesan));
-                                    $data_pemesanan->status_pesanan = '<span style="font-size: 20px" class="badge '.(($data_pembayaran->verifikasi == 'selesai') ? 'badge-success' : 'badge-warning' ).'">'.$data_pembayaran->verifikasi.'</span>';
+                                    $data_pemesanan->status_pesanan = '<span style="font-size: 20px" class="badge '.(($data_pemesanan->verifikasi == 'selesai') ? 'badge-success' : 'badge-warning' ).'">'.$data_pemesanan->verifikasi.'</span>';
                                     
                                     echo json_encode($data_pemesanan);
                                     $data_pemesanan->total_harga_barangText    = "Rp. ".number_format($data_pemesanan->total_harga_barang);
