@@ -43,7 +43,7 @@
                                         </td>
                                         <td class="cart_product_desc">
                                             <a href="<?= base_url("Adm/Cpemesanan/detail-pesanan/{$data_pemesanan->id_pesan}") ?>" class="detail-pesanan border p-2 btn-outline-info" title="Lihat Detail Pesanan">Detail Pesanan</a>
-                                            <a href="<?= base_url("Adm/Cpemesanan/update-pesanan/{$data_pemesanan->id_pesan}") ?>" data-id="<?= $data_pemesanan->id_pesan ?>" class="update-pesanan border p-2 btn-outline-primary" title="Update Status Pesanan Ini">Update Status</a>
+                                            <!-- <a href="<?= base_url("Adm/Cpemesanan/update-pesanan/{$data_pemesanan->id_pesan}") ?>" data-id="<?= $data_pemesanan->id_pesan ?>" class="update-pesanan border p-2 btn-outline-primary" title="Update Status Pesanan Ini">Update Status</a> -->
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -58,21 +58,21 @@
     <!-- ##### Main Content Wrapper End ##### -->
 <script>
     (function(j){
-        j(document).on('click','.detail-pesanan',function(e){
-            e.preventDefault();
-            let href = $(this).attr('href');
+        // j(document).on('click','.detail-pesanan',function(e){
+        //     e.preventDefault();
+        //     let href = $(this).attr('href');
 
-            $.get(href,function(data){
-                $('#myModal').find('.modal-body').html(data);
-                // Show the Modal on load
-                $("#myModal").modal("show");
-            });
-        });
-        j(document).on('click','.update-pesanan',function(e){
-            e.preventDefault();
-            // Show the Modal on load
-            // Show the Modal on load
-            $("#myModal").modal("show");
-        });
+        //     $.get(href,function(data){
+        //         $('#myModal').find('.modal-body').html(data);
+        //         // Show the Modal on load
+        //         $("#myModal").modal("show");
+        //     });
+        // });
+        // j(document).on('click','.update-pesanan',function(e){
+        //     e.preventDefault();
+        //     // Show the Modal on load
+        //     // Show the Modal on load
+        //     $("#myModal").modal("show");
+        // });
     })(jQuery)
 </script>
