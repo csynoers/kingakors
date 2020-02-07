@@ -12,7 +12,7 @@ class CadminDashboard extends CI_Controller {
      $this->load->model('Mkecamatan');
      $this->load->model('Mpelanggan');
      $this->load->model('Mpembayaran');
-     $_SESSION['pesananBelumDikirim'] = 0;
+     $_SESSION['pesananBelumDikirim'] = count($this->Mpembayaran->get_verifikasi('pengemasan'));
    }
 	public function index()
 	{
