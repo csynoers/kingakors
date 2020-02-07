@@ -146,9 +146,10 @@ class Cpemesanan extends CI_Controller
             <tr>
                 <td>Status Pesanan</td>
                 <td style='width: 100% !important;max-width: none;flex: none;'>
-                    <form action='".base_url("Adm/Cpemesanan/update-pesanan/{$data['pesanan']->id_pesan}")."' method='POST'>  
+                    <form action='".base_url("Adm/Cpemesanan/update-pesanan/{$data['pesanan']->id_pembayaran}")."' method='POST'>  
                         <select name='status' onchange='this.form.submit()'>{$optionsStatusPesanan}</select>
                         <span class='badge badge-warning ml-3'>(* Update status pesanan disini)</span>
+                        <input type='hidden' name='id_pesan' value='{$data['pesanan']->id_pesan}'>
                     </form>
                 </td>
             </tr>
@@ -166,8 +167,15 @@ class Cpemesanan extends CI_Controller
     }
     public function update_pesanan()
     {
-        print_r($this->uri->segment(4));
-        print_r($this->input->post());
+        //data yang akan di ubah dimasukkan ke array
+        $data = array(
+            'verifikasi' => $this->input->post('pesanan')
+        );
+
+        // mengirimkan data primary key dan data yang akan di ubah
+        $this->Mpembayaran->update($this->uri->segment(4), $data);
+    
+        redirect(base_url("Adm/Cpemesanan/detail-pesanan/".$this->input->post('id_pesan') ));
     }
 
     function getInvoice ($invoice_id) {
