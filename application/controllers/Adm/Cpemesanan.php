@@ -29,7 +29,7 @@ class Cpemesanan extends CI_Controller
     $id       = $this->uri->segment(4);
     $data     = $this->Mpemesanan->getDetailRiwayat($id);
     $pesanan  = $this->Mpemesanan->get_pesanan_where($id);
-    
+
     $out = "
             <div class='row'>
                 <div class='col-12 col-md-8'>
@@ -137,7 +137,10 @@ class Cpemesanan extends CI_Controller
         </div>
     </div>
     ';
-    echo $out;
+    // echo $out;
+    $this->load->view('template/Header');
+    $this->load->view('menu_a/Vdetailpemesanan', ['out'=>$out]);
+    $this->load->view('template/Footer');
   }
   public function update_pesanan()
   {

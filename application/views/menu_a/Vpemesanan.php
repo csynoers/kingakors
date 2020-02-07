@@ -58,7 +58,7 @@
     <!-- ##### Main Content Wrapper End ##### -->
 <script>
     (function(j){
-        j(document).on('click','.detail-pesanan',function(e){
+        /* j(document).on('click','.detail-pesanan',function(e){
             e.preventDefault();
             // Show the Modal on load
             $("#myModal").modal("show");
@@ -66,7 +66,8 @@
         j(document).on('click','.update-pesanan',function(e){
             e.preventDefault();
             // Show the Modal on load
+            // Show the Modal on load
             $("#myModal").modal("show");
-        });
+        }); */
     })(jQuery)
 </script>
