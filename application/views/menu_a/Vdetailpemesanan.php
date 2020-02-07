@@ -18,6 +18,10 @@
                         <td style="width: 100% !important;max-width: none;flex: none;">: <?= $pesanan->nama_pel ?></td>
                     </tr>
                     <tr>
+                        <td>NO Telpon</td>
+                        <td style="width: 100% !important;max-width: none;flex: none;">: <?= $pesanan->no_telp ?></td>
+                    </tr>
+                    <tr>
                         <td>Alamat Pembeli</td>
                         <td style="width: 100% !important;max-width: none;flex: none;">: <?= $pesanan->alamat_lengkap ?></td>
                     </tr>
