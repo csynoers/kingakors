@@ -40,7 +40,7 @@ class Mpayment extends CI_Model
     public function store_pembayaran_diproses($id)
     {
         $data = array(
-            'verifikasi' => 'diproses',
+            'verifikasi' => 'pengemasan',
         );
         
         $this->db->where('id_pesan', $id);
