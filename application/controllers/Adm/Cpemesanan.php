@@ -132,10 +132,19 @@ class Cpemesanan extends CI_Controller
     ";
     $statusPembayaran = ['belum bayar','kadaluarsa'];
     if ( ! in_array($data['pesanan']->verifikasi,$statusPembayaran) ) {
+        $statusPesanan = ['pengemasan','dikirim','selesai'];
+        $optionsStatusPesanan = [];
+        foreach ($statusPesanan as $key => $value) {
+            $optionsStatusPesanan[] = "<option>{$value}</option>";
+        }
+        $optionsStatusPesanan = implode('',$optionsStatusPesanan);
         $data['statusPemesanan'] = "
         <tr>
             <td>Status Pesanan</td>
-            <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)." <a>Update Status Pesanan</a></td>
+            <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)." 
+            <select>{$optionsStatusPesanan}</select>
+            <a>Update Status Pesanan</a>
+            </td>
         </tr>
     ";
     }
