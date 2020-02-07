@@ -142,7 +142,7 @@ class Cpemesanan extends CI_Controller
         <tr>
             <td>Status Pesanan</td>
             <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)." 
-            <select>{$optionsStatusPesanan}</select>
+            <select class='tes'>{$optionsStatusPesanan}</select>
             <a>Update Status Pesanan</a>
             </td>
         </tr>
