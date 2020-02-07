@@ -137,10 +137,7 @@ class Cpemesanan extends CI_Controller
         </div>
     </div>
     ';
-    // echo $out;
-    $this->load->view('template/Header');
-    $this->load->view('menu_a/Vdetailpemesanan', ['out'=>$out]);
-    $this->load->view('template/Footer');
+    echo $out;
   }
   public function update_pesanan()
   {
