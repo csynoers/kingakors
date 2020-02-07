@@ -60,8 +60,13 @@
     (function(j){
         j(document).on('click','.detail-pesanan',function(e){
             e.preventDefault();
+            let href = $(this).attr('href');
+
+            $.get(href,function(data){
+                console.log(data)
+            });
             // Show the Modal on load
-            $("#myModal").modal("show");
+            // $("#myModal").modal("show");
         });
         j(document).on('click','.update-pesanan',function(e){
             e.preventDefault();
