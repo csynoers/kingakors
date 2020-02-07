@@ -141,9 +141,9 @@ class Cpemesanan extends CI_Controller
         $data['statusPemesanan'] = "
         <tr>
             <td>Status Pesanan</td>
-            <td style='width: 100% !important;max-width: none;flex: none;'>:  
+            <td style='width: 100% !important;max-width: none;flex: none;'>  
                 <select>{$optionsStatusPesanan}</select>
-                <a>Update Status Pesanan</a>
+                <span>(* Update status pesanan disini)</span>
             </td>
         </tr>
     ";
