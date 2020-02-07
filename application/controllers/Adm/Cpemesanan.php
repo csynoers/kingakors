@@ -131,7 +131,7 @@ class Cpemesanan extends CI_Controller
 
         // mengirimkan data primary key dan data yang akan di ubah
         $this->Mpembayaran->update($this->uri->segment(4), $data);
-    
+        $_SESSION['pesananBelumDikirim'] = count($this->Mpembayaran->get_verifikasi('pengemasan'));
         redirect(base_url("Adm/Cpemesanan/detail-pesanan/".$this->input->post('id_pesan') ));
     }
 
