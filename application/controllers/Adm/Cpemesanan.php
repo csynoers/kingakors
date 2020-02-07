@@ -26,11 +26,11 @@ class Cpemesanan extends CI_Controller
   }
   public function detail_pesanan()
   {
-    $id       = $this->uri->segment(4);
-    $data     = $this->Mpemesanan->getDetailRiwayat($id);
-    $pesanan  = $this->Mpemesanan->get_pesanan_where($id);
+    $id                     = $this->uri->segment(4);
+    $getDetailRiwayat       = $this->Mpemesanan->getDetailRiwayat($id);
+    $pesanan                = $this->Mpemesanan->get_pesanan_where($id);
 
-    $data     = [];
+    $data                   = [];
     $data['thead'] = "
         <td>Nama</td>
         <td>Harga Satuan</td>
@@ -52,7 +52,7 @@ class Cpemesanan extends CI_Controller
     $i = 1;
     $hargaBrg = "";
     $ongKir = "";
-    foreach ($data->result_array() as $list) {
+    foreach ($getDetailRiwayat->result_array() as $list) {
         $out .= "
             <tr>
                 <td>{$i}</td>
