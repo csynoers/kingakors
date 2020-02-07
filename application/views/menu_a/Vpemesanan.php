@@ -56,3 +56,14 @@
     </div>
 
     <!-- ##### Main Content Wrapper End ##### -->
+
+<script>
+    (function(j){
+        j(document).on('click','.detail-pesanan',function(){
+            alert('detail pesanan');
+        });
+        j(document).on('click','.update-pesanan',function(){
+            alert('update pesanan');
+        });
+    })(jQuery)
+</script>
