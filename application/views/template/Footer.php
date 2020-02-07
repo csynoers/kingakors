@@ -98,3 +98,4 @@
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets') ?>/datatables/demo/datatables-demo.js"></script>
+<script>$('#scrollUp').css('display','none')</script>
