@@ -22,6 +22,7 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($pemesanan as $data_pemesanan) {
+                                    echo json_encode($data_pemesanan);
                                     $data_pemesanan->total_harga_barangText    = "Rp. ".number_format($data_pemesanan->total_harga_barang);
                                     ?>
                                     <tr>
