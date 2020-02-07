@@ -9,7 +9,7 @@
             <table>
                 <tr>
                     <td>No Pemesanan</td>
-                    <td>: <?= $pesanan['id_pesan'] ?></td>
+                    <td>: <?= $pesanan->id_pesan ?></td>
                 </tr>
                 <!-- <th>Nama Pembeli</th>
                 <th>Alamat Pembeli</th>
