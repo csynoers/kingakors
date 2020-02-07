@@ -24,6 +24,10 @@ class Cpemesanan extends CI_Controller
     $this->load->view('menu_a/Vpemesanan', $data);
     $this->load->view('template/Footer');
   }
+  public function detail_pesanan()
+  {
+    print_r($_REQUEST);
+  }
 }
 
 
