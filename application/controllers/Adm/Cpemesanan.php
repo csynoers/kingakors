@@ -32,6 +32,7 @@ class Cpemesanan extends CI_Controller
 
     $data                   = [];
     $data['thead'] = "
+        <th>Gambar</th>
         <th>Nama</th>
         <th>Harga Satuan</th>
         <th>Qty</td>
@@ -55,10 +56,8 @@ class Cpemesanan extends CI_Controller
     foreach ($getDetailRiwayat->result_array() as $list) {
         $data['tbody'][] = "
             <tr>
-                <td>
-                    <img style='height:80px;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'>
-                    <h5>{$list['merek']}</h5>
-                </td>
+                <td><img style='height:80px;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'></td>
+                <td>{$list['merek']}</td>
                 <td>Rp." . number_format($list['harga']) . "</td>
                 <td>{$list['jumlah_pesan']}</td>
             </tr>
