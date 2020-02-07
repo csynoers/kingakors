@@ -124,6 +124,12 @@ class Cpemesanan extends CI_Controller
     </div>
     '; */
     // echo $out;
+    $data['statusPemesanan'] = "
+        <tr>
+            <td>Status Pesanan</td>
+            <td style='width: 100% !important;max-width: none;flex: none;'>: ".ucwords($data['pesanan']->verifikasi)."</td>
+        </tr>
+    ";
     $this->load->view('template/Header');
     $this->load->view('menu_a/Vdetailpemesanan', $data);
     $this->load->view('template/Footer');
