@@ -42,8 +42,8 @@
                                             <h5><?= $data_pemesanan->status_pesanan ?></h5>
                                         </td>
                                         <td class="cart_product_desc">
-                                            <a href="javascript:void(0)" class="btn-outline-primary border p-2">Detail Pesanan</a>
-                                            <a href="javascript:void(0)" class="btn-outline-primary border p-2">Update Status</a>
+                                            <a href="javascript:void(0)">Detail Pesanan</a>
+                                            <a href="javascript:void(0)">Update Status</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
