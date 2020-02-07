@@ -32,7 +32,6 @@ class Cpemesanan extends CI_Controller
 
         $data                   = [];
         $data['thead'] = "
-            <th>Gambar</th>
             <th>Nama</th>
             <th>Harga Satuan</th>
             <th>Qty</td>
@@ -49,7 +48,6 @@ class Cpemesanan extends CI_Controller
             $data['ongkir']        += $list['ongkir'];
             $data['tbody'][] = "
                 <tr>
-                    <td><img style='height:80px;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'></td>
                     <td>{$list['merek']}</td>
                     <td>{$list['hargaText']}</td>
                     <td>{$list['jumlah_pesan']}</td>
@@ -65,19 +63,16 @@ class Cpemesanan extends CI_Controller
             <tr>
                 <td></td>
                 <td></td>
-                <td></td>
                 <td>Harga Total</td>
                 <td>{$data['totalText']}</td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
-                <td></td>
                 <td>Harga Ongkir</td>
                 <td>{$data['ongkirText']}</td>
             </tr>
             <tr>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td>Grand Total</td>
