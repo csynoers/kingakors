@@ -60,7 +60,7 @@
                                 <div class="collapse navbar-collapse" id="footerNavContent">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="" >Pemberitahuan</a>
+                                            <a class="nav-link" href="<?= base_url("Adm/Cpemesanan"); ?>" >Pemberitahuan ( 0 Pesanan Belum Dikirim)</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="<?= base_url('Adm/cadmin'); ?>">Akun</a>
