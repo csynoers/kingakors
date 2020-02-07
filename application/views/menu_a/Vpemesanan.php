@@ -1,9 +1,4 @@
 <div class="cart-table-area section-padding-50">
-    <div class="row">
-        <div class="col-12">
-            <h2>Detail Pesanan</h2>
-        </div>
-    </div>
     <div class="">
         <div class="">
 
