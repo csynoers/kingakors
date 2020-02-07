@@ -6,21 +6,25 @@
             </div>
         </div>
         <div class="col-12 col-lg-12">
-            <table>
-                <tr>
-                    <td>No Pemesanan</td>
-                    <td>: <?= $pesanan->id_pesan ?></td>
-                </tr>
-                <!-- <th>Nama Pembeli</th>
-                <th>Alamat Pembeli</th>
-                <th>Total Pembelian</th>
-                <th>Total Pembayaran</th>
-                <th>Metode Pembayaran</th>
-                <th>Tanggal Pembelian</th> -->
-            </table>
-            <hr>
             <div class="table-responsive">
                 <?= json_encode($pesanan) ?>
+                <table>
+                    <tr>
+                        <td>No Pemesanan</td>
+                        <td>: <?= $pesanan->id_pesan ?></td>
+                    </tr>
+                    <tr>
+                        <td>Nama Pembeli</td>
+                        <td>: <?= $pesanan->nama_pel ?></td>
+                    </tr>
+                    <!-- <th>Nama Pembeli</th>
+                    <th>Alamat Pembeli</th>
+                    <th>Total Pembelian</th>
+                    <th>Total Pembayaran</th>
+                    <th>Metode Pembayaran</th>
+                    <th>Tanggal Pembelian</th> -->
+                </table>
+                <hr>
                 <table class="table">
                     <thead>
                         <tr>
