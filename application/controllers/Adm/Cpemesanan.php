@@ -30,6 +30,13 @@ class Cpemesanan extends CI_Controller
     $data     = $this->Mpemesanan->getDetailRiwayat($id);
     $pesanan  = $this->Mpemesanan->get_pesanan_where($id);
 
+    $data     = [];
+    $data['thead'] = "
+        <td>Nama</td>
+        <td>Harga Satuan</td>
+        <td>Qty</td>
+    ";
+
     $out = "
             <div class='row'>
                 <div class='col-12 col-md-8'>
@@ -138,8 +145,9 @@ class Cpemesanan extends CI_Controller
     </div>
     ';
     // echo $out;
+    $data['out'] = $out;
     $this->load->view('template/Header');
-    $this->load->view('menu_a/Vdetailpemesanan', []);
+    $this->load->view('menu_a/Vdetailpemesanan', $data);
     $this->load->view('template/Footer');
   }
   public function update_pesanan()
