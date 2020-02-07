@@ -4,26 +4,29 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Cpemesanan extends CI_Controller
 {
 
-  public function __construct()
-  {
-    parent::__construct();
-    $this->load->model('Mpemesanan');
-    $this->load->model('M_barang');
-    $this->load->model('Mpelanggan');
-    $this->load->model('Malamatpen');
-    $this->load->model('Mdetailpemesanan');
-    $this->load->model('Mpembayaran');
-    if ($this->session->userdata('status_login') != 'admin_oke') {
-      redirect(base_url('Clogin/login'));
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Mpemesanan');
+        $this->load->model('M_barang');
+        $this->load->model('Mpelanggan');
+        $this->load->model('Malamatpen');
+        $this->load->model('Mdetailpemesanan');
+        $this->load->model('Mpembayaran');
+        if ($this->session->userdata('status_login') != 'admin_oke') {
+            redirect(base_url('Clogin/login'));
+        }
+        /* config PAYMENT API */
+        $this->server_domain = 'https://api.xendit.co';
+        $this->secret_api_key = 'xnd_development_41Bf6WsBwmDg802BKdtNIQ0Vg0wLie3ZaRWxMSgQ3GnVojeH1uQYPITTuJaR4gU';
     }
-  }
-  public function index()
-  {
-    $data['pemesanan'] = $this->Mpemesanan->get_pesanan($this->session->userdata('id_pesan'));
-    $this->load->view('template/Header');
-    $this->load->view('menu_a/Vpemesanan', $data);
-    $this->load->view('template/Footer');
-  }
+    public function index()
+    {
+        $data['pemesanan'] = $this->Mpemesanan->get_pesanan($this->session->userdata('id_pesan'));
+        $this->load->view('template/Header');
+        $this->load->view('menu_a/Vpemesanan', $data);
+        $this->load->view('template/Footer');
+    }
     public function detail_pesanan()
     {
         $id                     = $this->uri->segment(4);
@@ -124,42 +127,78 @@ class Cpemesanan extends CI_Controller
     </div>
     '; */
     // echo $out;
-    $data['statusPemesanan'] = "
-        <tr>
-            <td>Status Pesanan</td>
-            <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)."</td>
-        </tr>
-    ";
-    $statusPembayaran = ['belum bayar','kadaluarsa'];
-    if ( ! in_array($data['pesanan']->verifikasi,$statusPembayaran) ) {
-        $statusPesanan = ['pengemasan','dikirim','selesai'];
-        $optionsStatusPesanan = [];
-        foreach ($statusPesanan as $key => $value) {
-            $selected = ($data['pesanan']->verifikasi==$value) ? 'selected disabled' : NULL ;
-            $optionsStatusPesanan[] = "<option value='{$value}' {$selected}>".strtoupper($value)."</option>";
-        }
-        $optionsStatusPesanan = implode('',$optionsStatusPesanan);
         $data['statusPemesanan'] = "
-        <tr>
-            <td>Status Pesanan</td>
-            <td style='width: 100% !important;max-width: none;flex: none;'>
-                <form action='".base_url("Adm/Cpemesanan/update-pesanan/{$data['pesanan']->id_pesan}")."' method='POST'>  
-                    <select name='status' onchange='this.form.submit()'>{$optionsStatusPesanan}</select>
-                    <span class='badge badge-warning ml-3'>(* Update status pesanan disini)</span>
-                </form>
-            </td>
-        </tr>
-    ";
+            <tr>
+                <td>Status Pesanan</td>
+                <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)."</td>
+            </tr>
+        ";
+        $statusPembayaran = ['belum bayar','kadaluarsa'];
+        if ( ! in_array($data['pesanan']->verifikasi,$statusPembayaran) ) {
+            $statusPesanan = ['pengemasan','dikirim','selesai'];
+            $optionsStatusPesanan = [];
+            foreach ($statusPesanan as $key => $value) {
+                $selected = ($data['pesanan']->verifikasi==$value) ? 'selected disabled' : NULL ;
+                $optionsStatusPesanan[] = "<option value='{$value}' {$selected}>".strtoupper($value)."</option>";
+            }
+            $optionsStatusPesanan = implode('',$optionsStatusPesanan);
+            $data['statusPemesanan'] = "
+            <tr>
+                <td>Status Pesanan</td>
+                <td style='width: 100% !important;max-width: none;flex: none;'>
+                    <form action='".base_url("Adm/Cpemesanan/update-pesanan/{$data['pesanan']->id_pesan}")."' method='POST'>  
+                        <select name='status' onchange='this.form.submit()'>{$optionsStatusPesanan}</select>
+                        <span class='badge badge-warning ml-3'>(* Update status pesanan disini)</span>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Metode Pembayaran</td>
+                <td style='width: 100% !important;max-width: none;flex: none;'>
+                    ".$this->get_from_invoice( $this->getInvoice($data['pesanan']->external_id) )."
+                </td>
+            </tr>
+        ";
+        }
+        $this->load->view('template/Header');
+        $this->load->view('menu_a/Vdetailpemesanan', $data);
+        $this->load->view('template/Footer');
     }
-    $this->load->view('template/Header');
-    $this->load->view('menu_a/Vdetailpemesanan', $data);
-    $this->load->view('template/Footer');
-  }
-  public function update_pesanan()
-  {
-    print_r($this->uri->segment(4));
-    print_r($this->input->post());
-  }
+    public function update_pesanan()
+    {
+        print_r($this->uri->segment(4));
+        print_r($this->input->post());
+    }
+
+    function getInvoice ($invoice_id) {
+        $curl = curl_init();
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+
+        $end_point = $this->server_domain.'/v2/invoices/'.$invoice_id;
+
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($curl, CURLOPT_USERPWD, $this->secret_api_key.":");
+        curl_setopt($curl, CURLOPT_URL, $end_point);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        $responseObject = json_decode($response, true);
+        return $responseObject;
+    }
+
+    public function get_from_invoice($response)
+    {
+        return $response['payment_method'].'('.$response['bank_code'].') '.date("d F Y & H:i:s", strtotime($response['paid_at']));
+            // echo '<pre>';
+            // print_r($response['payment_channel']);
+            // print_r($response['payment_channel']);
+            // echo '</pre>';
+    }
+
 }
 
 
