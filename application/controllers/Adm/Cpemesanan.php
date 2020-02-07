@@ -32,9 +32,9 @@ class Cpemesanan extends CI_Controller
 
     $data                   = [];
     $data['thead'] = "
-        <td>Nama</td>
-        <td>Harga Satuan</td>
-        <td>Qty</td>
+        <th>Nama</th>
+        <th>Harga Satuan</th>
+        <th>Qty</td>
     ";
 
     $out = "
