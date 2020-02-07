@@ -26,7 +26,11 @@ class Cpemesanan extends CI_Controller
   }
   public function detail_pesanan()
   {
-    print_r($_REQUEST);
+    print_r($this->uri->segment(4));
+  }
+  public function update_pesanan()
+  {
+    print_r($this->uri->segment(4));
   }
 }
 
