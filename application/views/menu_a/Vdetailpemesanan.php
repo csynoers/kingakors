@@ -6,7 +6,6 @@
             </div>
         </div>
         <div class="col-12 col-lg-12">
-                <?= json_encode($pesanan) ?>
             <div class="table-responsive">
                 <table class="table">
                     <tr>

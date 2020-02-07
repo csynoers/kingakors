@@ -84,49 +84,6 @@ class Cpemesanan extends CI_Controller
             </tr>
         ";
         $data['tbody'] = implode('',$data['tbody']);
-    /*
-    $out .= '<hr>
-    <div class="row">
-        <div class="col-12">
-        <h1>Status transaksi : </h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-12">
-        <table class="table table-bordered table-hover">
-            <tr style="background-color:#f5f7fa!important; text-align:center">
-                <th>Nama Pembeli</th>
-                <th>Alamat Pembeli</th>
-                <th>Total Pembelian</th>
-                <th>Total Pembayaran</th>
-                <th>Metode Pembayaran</th>
-                <th>Tanggal Pembelian</th>
-            </tr>
-            ';
-    foreach ($pesanan as $key) {
-        $metodePembayaran= "-";
-        if ( $key->verifikasi=='diproses' ) {
-            $metodePembayaran = $this->get_from_invoice( $this->getInvoice($key->external_id) );
-        }
-        if ( $key->verifikasi=='belum bayar' ) {
-            $metodePembayaran= '<a href="'.$key->invoice_url.'" target="_blank" class="btn-outline-primary border p-2">Bayar Sekarang</a>';
-        }
-        // print_r($key);
-        $out .= '<tr>
-            <td>' . $key->nama_pel . '</td>
-            <td>' . $key->alamat_lengkap . '</td>
-            <td class="text-center">' . $jml . '</td>
-            <td>Rp.' . number_format($key->jumlah_uang) . '</td>
-            <td class="text-center">'.$metodePembayaran.'</td>
-            <td>' . $key->tgl_pesan . '</td>
-            </tr>';
-    }
-    $out .= '
-        </table>
-        </div>
-    </div>
-    '; */
-    // echo $out;
         $data['statusPemesanan'] = "
             <tr>
                 <td>Status Pesanan</td>
@@ -143,23 +100,23 @@ class Cpemesanan extends CI_Controller
             }
             $optionsStatusPesanan = implode('',$optionsStatusPesanan);
             $data['statusPemesanan'] = "
-            <tr>
-                <td>Status Pesanan</td>
-                <td style='width: 100% !important;max-width: none;flex: none;'>
-                    <form action='".base_url("Adm/Cpemesanan/update-pesanan/{$data['pesanan']->id_pembayaran}")."' method='POST'>  
-                        <select name='status' onchange='this.form.submit()'>{$optionsStatusPesanan}</select>
-                        <span class='badge badge-warning ml-3'>(* Update status pesanan disini)</span>
-                        <input type='hidden' name='id_pesan' value='{$data['pesanan']->id_pesan}'>
-                    </form>
-                </td>
-            </tr>
-            <tr>
-                <td>Metode Pembayaran</td>
-                <td style='width: 100% !important;max-width: none;flex: none;'>
-                    ".$this->get_from_invoice( $this->getInvoice($data['pesanan']->external_id) )."
-                </td>
-            </tr>
-        ";
+                <tr>
+                    <td>Status Pesanan</td>
+                    <td style='width: 100% !important;max-width: none;flex: none;'>
+                        <form action='".base_url("Adm/Cpemesanan/update-pesanan/{$data['pesanan']->id_pembayaran}")."' method='POST'>  
+                            <select name='status' onchange='this.form.submit()'>{$optionsStatusPesanan}</select>
+                            <span class='badge badge-warning ml-3'>(* Update status pesanan disini)</span>
+                            <input type='hidden' name='id_pesan' value='{$data['pesanan']->id_pesan}'>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Metode Pembayaran</td>
+                    <td style='width: 100% !important;max-width: none;flex: none;'>
+                        ".$this->get_from_invoice( $this->getInvoice($data['pesanan']->external_id) )."
+                    </td>
+                </tr>
+            ";
         }
         $this->load->view('template/Header');
         $this->load->view('menu_a/Vdetailpemesanan', $data);
