@@ -6,8 +6,8 @@
             </div>
         </div>
         <div class="col-12 col-lg-12">
-            <div class="table-responsive">
                 <?= json_encode($pesanan) ?>
+            <div class="table-responsive">
                 <table>
                     <tr>
                         <td>No Pemesanan</td>
