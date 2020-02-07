@@ -38,41 +38,37 @@ class Cpemesanan extends CI_Controller
             <th>Qty</td>
             <th>Subtotal</td>
         ";
+        $data['total'] = 0;
+        $data['ongkir'] = 0;
+        foreach ($getDetailRiwayat->result_array() as $list) {
+            $list['hargaText']      = 'Rp.' . number_format($list['harga']);
+            $list['subtotal']       = ($list['harga']*$list['jumlah_pesan']);
+            $list['subtotalText']   = 'Rp. '.number_format($list['subtotal']);
 
-    $out = "
-            <div class='row'>
-                <div class='col-12 col-md-8'>
-                <table class='table table-hover'>
-                    <tr style='background-color:#f5f7fa!important; text-align:center'>
-                    <th>
-                        <td colspan='2'>Nama</td>
-                        <td>Harga Satuan</td>
-                        <td>Qty</td>
-                    </th>
-                    </tr>
+            $data['total']         += $list['subtotal']; 
+            $data['ongkir']        += $list['ongkir'];
+            $data['tbody'][] = "
+                <tr>
+                    <td><img style='height:80px;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'></td>
+                    <td>{$list['merek']}</td>
+                    <td>{$list['hargaText']}</td>
+                    <td>{$list['jumlah_pesan']}</td>
+                    <td>{$list['subtotalText']}</td>
+                </tr>
             ";
-    $i = 1;
-    $hargaBrg = "";
-    $ongKir = "";
-    foreach ($getDetailRiwayat->result_array() as $list) {
-        $list['subtotal']       = ($list['harga']*$list['jumlah_pesan']);
-        $list['subtotalText']   = 'Rp. '.number_format($list['subtotal']);
+        }
+        $data['total'] = 'Rp. '.number_format($data['total']);
+        $data['ogkir'] = 'Rp. '.number_format($data['ongkir']);
         $data['tbody'][] = "
             <tr>
-                <td><img style='height:80px;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'></td>
-                <td>{$list['merek']}</td>
-                <td>Rp." . number_format($list['harga']) . "</td>
-                <td>{$list['jumlah_pesan']}</td>
-                <td>{$list['subtotalText']}</td>
+                <td colspan='4'>Harga Total</td>
+                <td>{$data['total']}</td>
+                <td colspan='4'>Harga Ongkir</td>
+                <td>{$data['ongkir']}</td>
             </tr>
         ";
-        $jml = $i;
-        $i += 1;
-        $hargaBrg = $list['total_harga_barang'];
-        $ongKir = $list['ongkir'];
-    }
-    $data['tbody'] = implode('',$data['tbody']);
-    $out .= "
+        $data['tbody'] = implode('',$data['tbody']);
+    /* $out .= "
     </table>
     </div>
     <div class='col-12 col-md-4'>
@@ -138,7 +134,7 @@ class Cpemesanan extends CI_Controller
         </table>
         </div>
     </div>
-    ';
+    '; */
     // echo $out;
     $data['out'] = $out;
     $this->load->view('template/Header');
