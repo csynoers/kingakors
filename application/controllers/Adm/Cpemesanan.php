@@ -58,14 +58,20 @@ class Cpemesanan extends CI_Controller
             ";
         }
         $data['total'] = 'Rp. '.number_format($data['total']);
-        $data['ogkir'] = 'Rp. '.number_format($data['ongkir']);
+        $data['ongkir'] = 'Rp. '.number_format($data['ongkir']);
         $data['tbody'][] = "
             <tr>
-                <td colspan='4'>Harga Total</td>
+                <td>Harga Total</td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>{$data['total']}</td>
             </tr>
             <tr>
-                <td colspan='4'>Harga Ongkir</td>
+                <td>Harga Ongkir</td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>{$data['ongkir']}</td>
             </tr>
         ";
