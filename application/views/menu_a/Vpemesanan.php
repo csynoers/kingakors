@@ -13,16 +13,13 @@
                             <thead>
                                 <tr>
                                     <th>Id Pesan</th>
-                                    <th>pelanggan</th>
-                                    <th>barang</th>
-                                    <th>jumlah pesan</th>
-                                    <th>total harga</th>
-                                    <th>alamat pengiriman</th>
-                                    <th>tanggal pesan</th>
+                                    <th>Pelanggan</th>
+                                    <th>Tanggal Pesan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($pemesanan as $data_pemesanan) {
+                                    $data_pemesanan->tgl_pesan_indo = date('d/m/Y', strtotime($data_pemesanan->tgl_pesan));
                                     echo json_encode($data_pemesanan);
                                     $data_pemesanan->total_harga_barangText    = "Rp. ".number_format($data_pemesanan->total_harga_barang);
                                     ?>
@@ -34,19 +31,7 @@
                                             <h5><?= $data_pemesanan->nama_pel; ?></h5>
                                         </td>
                                         <td class="cart_product_desc">
-                                            <h5><?= $data_pemesanan->merek; ?></h5>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5><?= $data_pemesanan->jumlah_pesan; ?></h5>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5><?= $data_pemesanan->total_harga_barangText; ?></h5>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5><?= $data_pemesanan->alamat_lengkap; ?></h5>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5><?= $data_pemesanan->tgl_pesan ?></h5>
+                                            <h5><?= $data_pemesanan->tgl_pesan_indo ?></h5>
                                         </td>
                                     </tr>
                                 <?php } ?>
