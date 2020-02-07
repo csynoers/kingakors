@@ -129,7 +129,7 @@
                     <li><a href="<?= base_url('Adm/Ckota'); ?>">Kabupaten/Kota</a></li>
                     <li><a href="<?= base_url('Adm/ckecamatan'); ?>">Kecamatan</a></li>
                     <li><a href="<?= base_url("Adm/Cpemesanan"); ?>">Pemesanan</a></li>
-                    <li><a href="<?= base_url("Adm/Cpembayaran"); ?>">Pembayaran</a></li>
+                    <!-- <li><a href="<?= base_url("Adm/Cpembayaran"); ?>">Pembayaran</a></li> -->
                     <li><a href="<?= base_url("Adm/Clap_barang"); ?>">Laporan Barang</a></li>
                     <li><a href="<?= base_url("Adm/Clap_penjualan"); ?>">Laporan Penjualan</a></li>
                     <li><a href="<?= base_url("Adm/Clap_pelanggan"); ?>">Laporan Pelanggan</a></li>
