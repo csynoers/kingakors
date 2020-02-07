@@ -31,6 +31,7 @@ class Cpemesanan extends CI_Controller
         $pesanan                = $this->Mpemesanan->get_pesanan_where($id);
 
         $data                   = [];
+        $data['pesanan']        = $pesanan[0];
         $data['thead'] = "
             <th>Nama</th>
             <th>Harga Satuan</th>
@@ -80,32 +81,7 @@ class Cpemesanan extends CI_Controller
             </tr>
         ";
         $data['tbody'] = implode('',$data['tbody']);
-    /* $out .= "
-    </table>
-    </div>
-    <div class='col-12 col-md-4'>
-        <div class='card' style='background-color:#f5f7fa!important'>
-        <div class='card-body '>
-            <div class='card-title' style='font-size:20px;text-align:center'><span>Cart Total</span></div>
-            <table class='table'>
-            <tr class=''>
-                <td>Harga Barang</td>
-                <td>: Rp." . number_format($hargaBrg) . "</td>
-            </tr>
-            <tr class=''>
-                <td>Harga OngKir</td>
-                <td>: Rp." . number_format($ongKir) . "</td>
-            </tr>
-            <tr class=''>
-                <td>Harga Total</td>
-                <td>: Rp." . number_format($hargaBrg + $ongKir) . "</td>
-            </tr>
-            </table>
-        </div>
-        </div>
-    </div>
-    </div>
-    ";
+    /*
     $out .= '<hr>
     <div class="row">
         <div class="col-12">
