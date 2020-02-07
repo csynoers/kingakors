@@ -127,7 +127,7 @@ class Cpemesanan extends CI_Controller
     $data['statusPemesanan'] = "
         <tr>
             <td>Status Pesanan</td>
-            <td style='width: 100% !important;max-width: none;flex: none;'>: ".ucwords($data['pesanan']->verifikasi)."</td>
+            <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)."</td>
         </tr>
     ";
     $this->load->view('template/Header');
