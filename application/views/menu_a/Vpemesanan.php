@@ -16,6 +16,7 @@
                                     <th>Nama Pelanggan</th>
                                     <th>Tanggal Pesan</th>
                                     <th>Status Pesanan</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,6 +40,10 @@
                                         </td>
                                         <td class="cart_product_desc">
                                             <h5><?= $data_pemesanan->status_pesanan ?></h5>
+                                        </td>
+                                        <td class="cart_product_desc">
+                                            <a href="javascript:void(0)">Detail Pesanan</a>
+                                            <a href="javascript:void(0)">Update Status</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
