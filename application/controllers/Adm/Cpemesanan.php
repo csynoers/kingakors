@@ -53,7 +53,7 @@ class Cpemesanan extends CI_Controller
     $hargaBrg = "";
     $ongKir = "";
     foreach ($getDetailRiwayat->result_array() as $list) {
-        $out .= "
+        $data['tbody'][] .= "
             <tr>
                 <td>{$i}</td>
                 <td class='cart_product_img'>
@@ -77,6 +77,7 @@ class Cpemesanan extends CI_Controller
         $hargaBrg = $list['total_harga_barang'];
         $ongKir = $list['ongkir'];
     }
+    $data['tbody'] = implode('',$data['tbody']);
     $out .= "
     </table>
     </div>
