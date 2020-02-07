@@ -53,7 +53,7 @@ class Cpemesanan extends CI_Controller
     $hargaBrg = "";
     $ongKir = "";
     foreach ($getDetailRiwayat->result_array() as $list) {
-        $data['tbody'][] .= "
+        $data['tbody'][] = "
             <tr>
                 <td>{$i}</td>
                 <td class='cart_product_img'>
