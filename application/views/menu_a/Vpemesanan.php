@@ -42,7 +42,7 @@
                                             <h5><?= $data_pemesanan->status_pesanan ?></h5>
                                         </td>
                                         <td class="cart_product_desc">
-                                            <a href="<?= base_url("{$data_pemesanan->id_pesan}") ?>" class="detail-pesanan border p-2 btn-outline-info" title="Lihat Detail Pesanan">Detail Pesanan</a>
+                                            <a href="<?= base_url("Adm/Cpemesanan/detail-pesanan/{$data_pemesanan->id_pesan}") ?>" class="detail-pesanan border p-2 btn-outline-info" title="Lihat Detail Pesanan">Detail Pesanan</a>
                                             <a href="javascript:void(0)" data-id="<?= $data_pemesanan->id_pesan ?>" class="update-pesanan border p-2 btn-outline-primary" title="Update Status Pesanan Ini">Update Status</a>
                                         </td>
                                     </tr>
