@@ -130,6 +130,15 @@ class Cpemesanan extends CI_Controller
             <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)."</td>
         </tr>
     ";
+    $statusPembayaran = ['belum bayar','kadaluarsa'];
+    if ( ! in_array($data['pesanan']->verifikasi,$statusPembayaran) ) {
+        $data['statusPemesanan'] = "
+        <tr>
+            <td>Status Pesanan</td>
+            <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)." <a>Update Status Pesanan</a></td>
+        </tr>
+    ";
+    }
     $this->load->view('template/Header');
     $this->load->view('menu_a/Vdetailpemesanan', $data);
     $this->load->view('template/Footer');
