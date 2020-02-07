@@ -135,15 +135,15 @@ class Cpemesanan extends CI_Controller
         $statusPesanan = ['pengemasan','dikirim','selesai'];
         $optionsStatusPesanan = [];
         foreach ($statusPesanan as $key => $value) {
-            $optionsStatusPesanan[] = "<option>{$value}</option>";
+            $optionsStatusPesanan[] = "<option value='{$value}'>{$value}</option>";
         }
         $optionsStatusPesanan = implode('',$optionsStatusPesanan);
         $data['statusPemesanan'] = "
         <tr>
             <td>Status Pesanan</td>
-            <td style='width: 100% !important;max-width: none;flex: none;'>: ".strtoupper($data['pesanan']->verifikasi)." 
-            <select class='tes'>{$optionsStatusPesanan}</select>
-            <a>Update Status Pesanan</a>
+            <td style='width: 100% !important;max-width: none;flex: none;'>:  
+                <select>{$optionsStatusPesanan}</select>
+                <a>Update Status Pesanan</a>
             </td>
         </tr>
     ";
