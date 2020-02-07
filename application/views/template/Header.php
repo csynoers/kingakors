@@ -1,4 +1,4 @@
-<?= $this->session ?>
+<?= print_r($this->session) ?>
 <!DOCTYPE html>
 <html lang="en">
 
