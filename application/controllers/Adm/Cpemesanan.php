@@ -55,21 +55,12 @@ class Cpemesanan extends CI_Controller
     foreach ($getDetailRiwayat->result_array() as $list) {
         $data['tbody'][] = "
             <tr>
-                <td>{$i}</td>
-                <td class='cart_product_img'>
-                    <a href='#'><img style='height:81px;max-width:100%;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'></a>
-                </td>
-                <td class='cart_product_desc'>
+                <td>
+                    <img style='height:80px;' src='" . base_url() . "assets/uploads/{$list['gambar']}' alt='Product'>
                     <h5>{$list['merek']}</h5>
                 </td>
-                <td class='price'>
-                    <span>Rp." . number_format($list['harga']) . "</span>
-                </td>
-                <td class='qty'>
-                    <div class='qty-btn d-flex'>
-                        <p>{$list['jumlah_pesan']}</p>
-                    </div>
-                </td>
+                <td>Rp." . number_format($list['harga']) . "</td>
+                <td>{$list['jumlah_pesan']}</td>
             </tr>
         ";
         $jml = $i;
