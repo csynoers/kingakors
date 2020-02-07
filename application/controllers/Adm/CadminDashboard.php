@@ -12,6 +12,7 @@ class CadminDashboard extends CI_Controller {
      $this->load->model('Mkecamatan');
      $this->load->model('Mpelanggan');
      $this->load->model('Mpembayaran');
+     $_SESSION['pesananBelumDikirim'] = 0;
    }
 	public function index()
 	{

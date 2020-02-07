@@ -1,3 +1,4 @@
+<?= $this->session ?>
 <!DOCTYPE html>
 <html lang="en">
 
