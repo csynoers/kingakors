@@ -135,7 +135,8 @@ class Cpemesanan extends CI_Controller
         $statusPesanan = ['pengemasan','dikirim','selesai'];
         $optionsStatusPesanan = [];
         foreach ($statusPesanan as $key => $value) {
-            $optionsStatusPesanan[] = "<option value='{$value}'>{$value}</option>";
+            $selected = ($data['pesanan']->verifikasi==$value) ? 'selected disabled' : NULL ;
+            $optionsStatusPesanan[] = "<option value='{$value}' {$selected}>".strtoupper($value)."</option>";
         }
         $optionsStatusPesanan = implode('',$optionsStatusPesanan);
         $data['statusPemesanan'] = "
@@ -143,7 +144,7 @@ class Cpemesanan extends CI_Controller
             <td>Status Pesanan</td>
             <td style='width: 100% !important;max-width: none;flex: none;'>  
                 <select>{$optionsStatusPesanan}</select>
-                <span>(* Update status pesanan disini)</span>
+                <span class='badge badge-warning ml-3'>(* Update status pesanan disini)</span>
             </td>
         </tr>
     ";
