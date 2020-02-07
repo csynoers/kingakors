@@ -63,10 +63,10 @@
             let href = $(this).attr('href');
 
             $.get(href,function(data){
-                console.log(data)
+                $('#myModal').find('.modal-body').html(data);
+                // Show the Modal on load
+                $("#myModal").modal("show");
             });
-            // Show the Modal on load
-            // $("#myModal").modal("show");
         });
         j(document).on('click','.update-pesanan',function(e){
             e.preventDefault();
