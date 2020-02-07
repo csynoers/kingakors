@@ -169,7 +169,7 @@ class Cpemesanan extends CI_Controller
     {
         //data yang akan di ubah dimasukkan ke array
         $data = array(
-            'verifikasi' => $this->input->post('pesanan')
+            'verifikasi' => $this->input->post('status')
         );
 
         // mengirimkan data primary key dan data yang akan di ubah
