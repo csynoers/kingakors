@@ -63,7 +63,7 @@
             
         });
         j(document).on('click','.update-pesanan',function(e){
-            alert('update pesanan');
+            
         });
     })(jQuery)
 </script>
