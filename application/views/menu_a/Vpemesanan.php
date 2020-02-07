@@ -12,6 +12,7 @@
                         <table class="table table-responsive" id="dataTable">
                             <thead>
                                 <tr>
+                                    <th>Id Pesan</th>
                                     <th>pelanggan</th>
                                     <th>barang</th>
                                     <th>jumlah pesan</th>
@@ -26,6 +27,9 @@
                                     $data_pemesanan->total_harga_barangText    = "Rp. ".number_format($data_pemesanan->total_harga_barang);
                                     ?>
                                     <tr>
+                                        <td class="cart_product_desc">
+                                            <h5><?= $data_pemesanan->id_pesan; ?></h5>
+                                        </td>
                                         <td class="cart_product_desc">
                                             <h5><?= $data_pemesanan->nama_pel; ?></h5>
                                         </td>
