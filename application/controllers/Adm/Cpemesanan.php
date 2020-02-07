@@ -63,6 +63,8 @@ class Cpemesanan extends CI_Controller
             <tr>
                 <td colspan='4'>Harga Total</td>
                 <td>{$data['total']}</td>
+            </tr>
+            <tr>
                 <td colspan='4'>Harga Ongkir</td>
                 <td>{$data['ongkir']}</td>
             </tr>
