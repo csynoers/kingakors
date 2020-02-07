@@ -8,7 +8,7 @@
         <div class="col-12 col-lg-12">
                 <?= json_encode($pesanan) ?>
             <div class="table-responsive">
-                <table>
+                <table class="table">
                     <tr>
                         <td>No Pemesanan</td>
                         <td>: <?= $pesanan->id_pesan ?></td>
@@ -16,6 +16,10 @@
                     <tr>
                         <td>Nama Pembeli</td>
                         <td>: <?= $pesanan->nama_pel ?></td>
+                    </tr>
+                    <tr>
+                        <td>Alamat Pembeli</td>
+                        <td>: <?= $pesanan->alamat_lengkap ?></td>
                     </tr>
                     <!-- <th>Nama Pembeli</th>
                     <th>Alamat Pembeli</th>
