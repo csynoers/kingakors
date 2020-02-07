@@ -42,7 +42,7 @@
                                             <h5><?= $data_pemesanan->status_pesanan ?></h5>
                                         </td>
                                         <td class="cart_product_desc">
-                                            <a href="javascript:void(0)" data-id="<?= $data_pemesanan->id_pesan ?>" class="detail-pesanan border p-2 btn-outline-info" title="Lihat Detail Pesanan">Detail Pesanan</a>
+                                            <a href="<?php base_url("{$data_pemesanan->id_pesan}") ?>" class="detail-pesanan border p-2 btn-outline-info" title="Lihat Detail Pesanan">Detail Pesanan</a>
                                             <a href="javascript:void(0)" data-id="<?= $data_pemesanan->id_pesan ?>" class="update-pesanan border p-2 btn-outline-primary" title="Update Status Pesanan Ini">Update Status</a>
                                         </td>
                                     </tr>
@@ -59,10 +59,10 @@
 
 <script>
     (function(j){
-        j(document).on('click','.detail-pesanan',function(){
-            alert('detail pesanan');
+        j(document).on('click','.detail-pesanan',function(e){
+            
         });
-        j(document).on('click','.update-pesanan',function(){
+        j(document).on('click','.update-pesanan',function(e){
             alert('update pesanan');
         });
     })(jQuery)
