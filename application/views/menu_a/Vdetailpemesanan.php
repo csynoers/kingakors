@@ -21,6 +21,10 @@
                         <td>Alamat Pembeli</td>
                         <td style="width: 100% !important;max-width: none;flex: none;">: <?= $pesanan->alamat_lengkap ?></td>
                     </tr>
+                    <tr>
+                        <td>Tanggal Pembelian</td>
+                        <td style="width: 100% !important;max-width: none;flex: none;">: <?= date('d/m/Y', strtotime($pesanan->tgl_pesan) ) ?></td>
+                    </tr>
                     <!-- <th>Nama Pembeli</th>
                     <th>Alamat Pembeli</th>
                     <th>Total Pembelian</th>
