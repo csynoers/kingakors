@@ -119,7 +119,7 @@ date_default_timezone_set('Asia/jakarta');
                 ';
         foreach ($pesanan as $key) {
             $metodePembayaran= "-";
-            if ( $key->verifikasi=='pengemasan' ) {
+            if ( $key->verifikasi=='pengemasan' || $key->verifikasi=='dikirim' || $key->verifikasi=='selesai' ) {
                 $metodePembayaran = $this->get_from_invoice( $this->getInvoice($key->external_id) );
             }
             if ( $key->verifikasi=='belum bayar' ) {
