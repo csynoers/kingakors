@@ -120,17 +120,17 @@ class cprofil extends CI_Controller
      	}
 
       	public function update_action1(){
-          echo '<pre>';
-          print_r($this->input->post() );
-          echo '</pre>';
-          die();
+          // echo '<pre>';
+          // print_r($this->input->post() );
+          // echo '</pre>';
+          // die();
       		$data_update = array(
          		"id_pelanggan" => $this->session->userdata('id_pelanggan'),
             "nama" => $this->input->post('nama'),
       			"no_tlpn" => $this->input->post('no_tlpn'),
   					"id_prov" => $this->input->post('id_prov'),
   					"kota" => $this->input->post('id_kota'),
-  					"kecamatan" => $this->input->post('id_kecamatan'),
+  					"kecamatan" => $this->input->post('id_kec'),
   					"alamat_lengkap" => $this->input->post('alamat_lengkap'),
 
       		);
