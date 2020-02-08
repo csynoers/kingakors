@@ -14,7 +14,7 @@
             </div>
               <div class="col-12 col-lg-9">
                   <div class="cart-table clearfix">
-                      <table class="table table-responsive table-hover">
+                      <table class="table table-responsiveXXX table-hover">
                           <thead class="thead-default">
                               <tr>
                                   <th></th>
