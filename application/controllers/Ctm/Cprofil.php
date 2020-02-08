@@ -114,9 +114,9 @@ class cprofil extends CI_Controller
         $data['kecamatan'] = $this->Mkecamatan->get_all();
         $data['alamat_pengiriman'] = $this->Malamatpen->get_all_by_id($this->session->userdata('id_pelanggan'));
         $data['pelanggan'] = $this->Mpelanggan->get_all_by_id($this->session->userdata('id_pelanggan'));
-        $this->load->view('kerangka/header');
+        $this->load->view('kerangka/Header');
         $this->load->view('menu_p/Vprofil', $data);
-        $this->load->view('kerangka/footer');
+        $this->load->view('kerangka/Footer');
      	}
 
       	public function update_action1(){
