@@ -3,9 +3,9 @@
     </div>
     <!-- end Update data-->
       <div class="container-fluidXXX container py-5">
-        <div class="row">
+        <div class="row border">
           <div class="col-12 col-lg-12">
-          <div class="cart-title mt-50XXX">
+          <div class="cart-title mt-50XXX mt-3">
               <h2>Detail Pembayaran</h2>
           </div>
             <div class="cart-table clearfix" >
