@@ -46,9 +46,7 @@
                         <td class="cart_product_desc">
                             <label for="">: <?php echo @$alamat_pengiriman->alamat_lengkap ?> </label>
                             <input type="hidden" id="id_al_peng" name="id_al_peng" value="<?php echo @$alamat_pengiriman->id_al_peng ?>">
-                            <button style="background-color: #2f82e4; color: white" class="btn btn-primary">
-                            <a class="fa fa-eye" href="<?php echo base_url("Ctm/Cprofil"); ?>"> Ubah Alamat Pengiriman
-                            </a></button>
+                            <a class="fa fa-eye" href="<?php echo base_url("Ctm/Cprofil"); ?>"> Ubah Alamat Pengiriman</a>
                         </td>
                     </tr>
                     <tr>
