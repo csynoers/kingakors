@@ -1,16 +1,18 @@
-<div class="main-content-wrapper d-flex clearfix">
-  <div class="cart-table-area section-padding-50">
-      <div class="container-fluid">
+<div class="main-content-wrapperXXX d-flexXXX clearfixXXX">
+  <div class="cart-table-areaXXX section-padding-50XXX">
+      <div class="container-fluid py-5">
           <div class="row">
+            <div class="col-12">
+              <div class="cart-title mt-0"><br>
+                <h2>Shopping Cart</h2>
+              </div>
+              <a name="selesaikan" href="<?php echo base_url('Ctm/Cbarang'); ?>">
+                <div class="btn btn-success" style="margin-bottom:10px">
+                  <i class="fa fa-plus"></i> Tambah
+                </div>
+              </a>
+            </div>
               <div class="col-12 col-lg-9">
-                  <div class="cart-title mt-0"><br>
-                      <h2>Shopping Cart</h2>
-                  </div>
-                  <a name="selesaikan" href="<?php echo base_url('Ctm/Cbarang'); ?>">
-                    <div class="btn btn-success" style="margin-bottom:10px">
-                      <i class="fa fa-plus"></i> Tambah
-                    </div>
-                  </a>
                   <div class="cart-table clearfix">
                       <table class="table table-responsive table-hover">
                           <thead class="thead-default">
@@ -26,7 +28,7 @@
                             <?php foreach ($keranjang as $list) { ?>
                               <tr>
                                   <td>
-                                      <a href="#"><img src="<?= base_url("assets/uploads/".$list->gambar) ?>" alt="Product"></a>
+                                      <a href="#"><img style="width:5rem" src="<?= base_url("assets/uploads/".$list->gambar) ?>" alt="Product"></a>
                                   </td>
                                   <td>
                                       <h5><?= $list->merek ?></h5>
