@@ -69,7 +69,7 @@
               <form action="" method="post">
               </form>
               <!-- selesai pemaanggilan form Insert data-->
-              <div class="cart-table clearfix">
+              <div class="cart-table clearfix border p-3">
                 <table class="table table-responsiveXXX">
                   <thead>
                     <tr>
@@ -326,7 +326,7 @@
                         <br>
                         <!-- selesai pemaanggilan form Insert data-->
 
-                        <div class="cart-table clearfix">
+                        <div class="cart-table clearfix border p-3 mb-5">
                           <table class="table table-responsiveXXX">
                                 <thead>
                                     <tr>
