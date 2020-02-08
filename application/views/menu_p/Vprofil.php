@@ -308,7 +308,7 @@
 
             <!-- end Insert data-->
 
-              <div class="main-content-wrapperXXX d-flex clearfixXXX">
+              <div class="main-content-wrapperXXX d-flexXXX clearfixXXX">
                 <div class="cart-table-areaXXX section-padding-50XXX">
                   <div class="container-fluid">
                     <div class="row">
