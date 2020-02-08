@@ -1,18 +1,17 @@
-<div class="main-content-wrapper d-flex clearfix">
-  <div class="cart-table-area section-padding-50">
+<div class="main-content-wrapperXXX d-flexXXX clearfixXXX">
+  <div class="cart-table-areaXXX section-padding-50XXX">
     </div>
     <!-- end Update data-->
-      <div class="container-fluid">
+      <div class="container-fluidXXX container py-5">
         <div class="row">
           <div class="col-12 col-lg-12">
-          <div class="cart-title mt-50">
-            <center>
+          <div class="cart-title mt-50XXX">
               <h2>Detail Pembayaran</h2>
           </div>
             <div class="cart-table clearfix" >
             <form id="checkout">
             <hr>
-            <table class="table table-responsive">
+            <table class="table table-responsiveXXX">
                 <tbody>
                     <input type="hidden" id="id_det_pem" name="id_det_pem" value="<?php echo $data_update->id_det_pem ?>">
                     <tr>
