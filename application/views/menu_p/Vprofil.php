@@ -196,7 +196,7 @@
 
                               <div class="col-md-12">
                                 <div class="form-group">
-                                <label for="">Alamat Lengkap</label>
+                                <br><label for="">Alamat Lengkap</label><br>
                                 <input type="text" class="form-control" name="alamat_lengkap" value="<?= $data_update->alamat_lengkap ?>" id="alamat_lengkap">
                               </div>
                               </div>
