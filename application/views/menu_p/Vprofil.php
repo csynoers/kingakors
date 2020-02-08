@@ -121,8 +121,8 @@
               <!-- Update data-->
               <?php if (isset($update1)) { ?>
                 <div class="row">
-                  <div class="col-md-8" style="margin:0 auto; float:none;"><br><br>
-                    <h3 align="center">Update Alamat Pengiriman</h3><hr><br>
+                  <div class="col-md-8 border p-3 mt-5" style="margin:0 auto; float:none;"><br><br>
+                    <h3 class="pt-3" align="center">Update Alamat Pengiriman</h3><hr>
 
                     <!-- body -->
                     <div class="box-body">
