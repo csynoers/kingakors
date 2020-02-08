@@ -1,4 +1,4 @@
-<div class="cart-table-area section-padding-50">
+<div class="cart-table-areaXXX section-padding-50XXX">
   <div class="container-fluid">
 
     <!-- Update data -->
@@ -57,8 +57,8 @@
     <?php } ?>
     <!-- end Update data-->
 
-    <div class="main-content-wrapper d-flex clearfix">
-      <div class="cart-table-area section-padding-50">
+    <div class="main-content-wrapperXXX d-flexXXX clearfixXXX">
+      <div class="cart-table-areaXXX section-padding-50XXX">
         <div class="container-fluid">
           <div class="row">
             <div class="col-12 col-lg-12">
@@ -70,7 +70,7 @@
               </form>
               <!-- selesai pemaanggilan form Insert data-->
               <div class="cart-table clearfix">
-                <table class="table table-responsive">
+                <table class="table table-responsiveXXX">
                   <thead>
                     <tr>
                       <th>Nama</th>
@@ -308,8 +308,8 @@
 
             <!-- end Insert data-->
 
-              <div class="main-content-wrapper d-flex clearfix">
-                <div class="cart-table-area section-padding-50">
+              <div class="main-content-wrapperXXX d-flex clearfixXXX">
+                <div class="cart-table-areaXXX section-padding-50XXX">
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-12 col-lg-12">
@@ -327,7 +327,7 @@
                         <!-- selesai pemaanggilan form Insert data-->
 
                         <div class="cart-table clearfix">
-                          <table class="table table-responsive">
+                          <table class="table table-responsiveXXX">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
