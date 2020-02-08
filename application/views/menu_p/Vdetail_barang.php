@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid py-5">
   <div class="row">
     <div class="col-12">
 
@@ -10,7 +10,7 @@
                   <div class="row">
                       <div class="col-12">
                           <nav aria-label="breadcrumb">
-                              <ol class="breadcrumb mt-50">
+                              <ol class="breadcrumb mt-50XXX">
                                   <li class="breadcrumb-item"><a href="#">Home</a></li>
                                   <li class="breadcrumb-item"><a href="#">Product</a></li>
                                   <li class="breadcrumb-item active"><a href="#">Details</a></li>
