@@ -47,6 +47,11 @@
                             <label for="">: <?php echo @$alamat_pengiriman->alamat_lengkap ?> </label>
                             <input type="hidden" id="id_al_peng" name="id_al_peng" value="<?php echo @$alamat_pengiriman->id_al_peng ?>">
                             <a class="fa fa-eye border btn-outline-primary fa fa-eye ml-3 p-2" href="<?php echo base_url("Ctm/Cprofil"); ?>"> Ubah Alamat Pengiriman</a>
+                            <style>
+                                a:hover{
+                                    font-size: unset;
+                                }
+                            </style>
                         </td>
                     </tr>
                     <tr>
