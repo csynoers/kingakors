@@ -310,7 +310,7 @@
 
               <div class="main-content-wrapperXXX d-flexXXX clearfixXXX">
                 <div class="cart-table-areaXXX section-padding-50XXX">
-                  <div class="container-fluid">
+                  <div class="container-fluidXXX">
                     <div class="row">
                       <div class="col-12 col-lg-12">
                         <div class="cart-title mt-50"><hr><br>
