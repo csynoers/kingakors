@@ -13,7 +13,7 @@
               </a>
             </div>
               <div class="col-12 col-lg-9">
-                  <div class="cart-table clearfix">
+                  <div class="cart-table clearfix border p-3">
                       <table class="table table-responsiveXXX table-hover">
                           <thead class="thead-default">
                               <tr>
@@ -64,7 +64,7 @@
                   </div>
               </div>
               <div class="col-12 col-lg-3">
-                  <div class="cart-summary">
+                  <div class="cart-summary border p-3">
                       <h5>Cart Total</h5>
                       <?php
                         $sTotalBarang = 0;
