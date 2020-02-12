@@ -9,7 +9,7 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="<?= base_url('assets/img/a/3.jpg')?>" alt="First slide">
+              <img class="d-block w-100" src="<?= base_url('assets/img/a/slide2.jpeg')?>" alt="First slide">
               <div class="carousel-caption">
                 <h3 class="text-white">KING AKOR'S</h3>
                 <p class="text-white">Kami menciptakan desain furniture yang luar biasa, dengan cara memperluas jangkauan produk</p>

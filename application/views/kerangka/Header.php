@@ -37,7 +37,7 @@
                     <div class="single_widget_area">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a href="<?= base_url(); ?>"><img src="<?= base_url("assets/img/a/16.jPG") ?> " alt=""></a>
+                            <a href="<?= base_url(); ?>"><img src="<?= base_url("assets/img/a/16.jpg?v=0.1") ?> " alt=""></a>
                         </div>
 
                     </div>
