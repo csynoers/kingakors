@@ -36,7 +36,7 @@ class Clap_penjualan extends CI_Controller
     $this->load->library('pdf');
     $this->pdf->setPaper('A4', 'landscape');
     $this->pdf->filename = "Struct-Pembelian.pdf";
-    $this->pdf->load_view('print/Struct_pemesanan', $data);
+    $this->pdf->load_view('print/struct_pemesanan', $data);
   }
 
 }
