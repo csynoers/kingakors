@@ -63,7 +63,7 @@
                                     <td><?= $data_penjualan->tgl_bayar ?></td>
                                   </div>
                                   <td>
-                                    <form action="<?= base_url('adm/Clap_penjualan/print_struct') ?>" method="POST" target="_blank">
+                                    <form action="<?= base_url('Adm/Clap_penjualan/print_struct') ?>" method="POST" target="_blank">
                                       <input type="hidden" id="id_pesan" name="id_pesan" value="<?= $data_penjualan->id_pesan ?>">
                                       <button type="submit" class="btn btn-primary"><i class="fa fa-print"></i> Print Struct</button>
                                     </td>

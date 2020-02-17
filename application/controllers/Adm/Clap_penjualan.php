@@ -28,8 +28,8 @@ class Clap_penjualan extends CI_Controller
 
   public function print_struct()
   {
-    print_r($this->input->post());
-    die();
+    // print_r($this->input->post());
+    // die();
     $id = $this->input->post('id_pesan');
     $data['det_pesanan'] = $this->Mpemesanan->getDetailRiwayat($id);
     $data['pembayaran'] = $this->Mpemesanan->get_pesanan_where($id);
