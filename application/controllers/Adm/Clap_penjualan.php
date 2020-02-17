@@ -33,11 +33,11 @@ class Clap_penjualan extends CI_Controller
     $id = $this->input->post('id_pesan');
     $data['det_pesanan'] = $this->Mpemesanan->getDetailRiwayat($id);
     $data['pembayaran'] = $this->Mpemesanan->get_pesanan_where($id);
-    print_r($data);
     $this->load->library('pdf');
     $this->pdf->setPaper('A4', 'landscape');
     $this->pdf->filename = "Struct-Pembelian.pdf";
-    $this->pdf->load_view('print/struct_pemesanan', $data);
+    $this->load->view('print/struct_pemesanan', $data);
+    // $this->pdf->load_view('print/struct_pemesanan', $data);
   }
 
 }
