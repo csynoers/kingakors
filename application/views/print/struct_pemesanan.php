@@ -42,7 +42,7 @@
                         </tr>
                         <tr>
                             <td>Alamat</td>
-                            <td>: <?= $list->alamat ?></td>
+                            <td>: <?= $list->alamat_lengkap ?></td>
                         </tr>
                     </table>
                 <?php endforeach ?>
