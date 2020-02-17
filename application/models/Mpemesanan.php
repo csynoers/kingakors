@@ -70,8 +70,10 @@ class Mpemesanan extends CI_Model
     $this->db->from('pembayaran');
     $this->db->join('pemesanan', 'pembayaran.id_pesan = pemesanan.id_pesan');
     $this->db->join('pelanggan', 'pemesanan.id_pelanggan = pelanggan.id_pelanggan');
+    $this->db->join('alamat_pengiriman', 'alamat_pengiriman.id_pelanggan = pelanggan.id_pelanggan');
     // $this->db->join('metode_pembayaran', 'pembayaran.id_met_pem = metode_pembayaran.id_met_pem');
     $this->db->where('verifikasi', 'selesai');
+    $this->db->where('alamat_pengiriman.status', 'ready');
     if ($from != "0" && $to != "0") {
       $this->db->where('tgl_bayar >=', $from);
       $this->db->where('tgl_bayar <=', $to);
