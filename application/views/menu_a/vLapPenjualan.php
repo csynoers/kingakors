@@ -46,7 +46,7 @@
                         </thead>
                         <tbody>
                             <?php foreach ($penjualan as $data_penjualan) : ?>
-                                <!-- <?php var_dump($data_penjualan); ?> -->
+                                <!-- <?php print_r($data_penjualan); ?> -->
                                 <tr>
                                     <td><?= $data_penjualan->id_pesan ?></td>
                                     <td><?= $data_penjualan->nama_pel ?></td>
