@@ -150,7 +150,7 @@
     </div>
 
     <script type="text/javascript">
-    (function( j ){
+    /* (function( j ){
         j( document ).on('change', '#id_prov_input', function(){
             cariKota( j( this ).val() )
         })
@@ -206,6 +206,6 @@
             html.push(`<option value="" disabled> Maaf anda belum memilih kota </option>`)
             j("#id_kecamatan_input").html( html.join('') )
         }
-    })(jQuery)
+    })(jQuery) */
 
     </script>

@@ -62,6 +62,63 @@
         <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
 
         <script>
+        (function( j ){
+            j( document ).on('change', '#id_prov_input', function(){
+                cariKota( j( this ).val() )
+            })
+
+            function cariKota(id_prov){
+                let url     = ('<?= base_url('Ctm/Cprofil/cari_kota_ajax?provinsi=') ?>'+id_prov)
+                
+                j.get(url, function( d ){
+                    if ( d.length > 0 ) {
+                        let html = []
+                        html.push(`<option value="" selected disabled> -- Pilih kota -- </option>`)
+                        j.each(d, function (a,b) {
+                            html.push(`<option value="${b.id_kota}">${b.nm_kota}</option>`)
+                        });
+                        j("#id_kota_input").html( html.join('') )
+
+                        j( document ).on('change', '#id_kota_input', function(){
+                            cariKecamatan( j( this ).val() )
+                        })
+
+                    } else {
+                        j("#id_kota_input").append('<option value="" selected disabled>Kota Tidak ditemukan</option>')
+
+                    }
+                    resetKecamatan()
+
+                }, 'json')
+            }
+
+            function cariKecamatan(id_kota){
+                let url     = ('<?= base_url('Ctm/Cprofil/cari_kecamatan_ajax?kota=') ?>'+id_kota)
+                
+                j.get(url, function( d ){
+                    if ( d.length > 0 ) {
+                        let html = []
+                        html.push(`<option value="" selected disabled> -- Pilih Kecamatan -- </option>`)
+                        j.each(d, function (a,b) {
+                            html.push(`<option value="${b.id_kec}">${b.nm_kec}</option>`)
+                        });
+                        j("#id_kecamatan_input").html( html.join('') )
+
+                    } else {
+                        j("#id_kecamatan_input").append('<option value="" selected disabled>Kota Tidak ditemukan</option>')
+
+                    }
+
+                }, 'json')
+            }
+
+            function resetKecamatan(){
+                let html = []
+                html.push(`<option value="" selected disabled> -- Pilih Kecamatan -- </option>`)
+                html.push(`<option value="" disabled> Maaf anda belum memilih kota </option>`)
+                j("#id_kecamatan_input").html( html.join('') )
+            }
+        })(jQuery)
         // $(document).ready(function() {
         //   $('#dTable').DataTable();
         // });
