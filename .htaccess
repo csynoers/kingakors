@@ -2,7 +2,7 @@ RewriteEngine On
 
 #add ssl
 RewriteCond %{SERVER_PORT} 80 
-RewriteRule ^(.*)$ https://www.kingakors.com/$1 [R,L]
+# RewriteRule ^(.*)$ https://www.kingakors.com/$1 [R,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

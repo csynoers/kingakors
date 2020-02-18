@@ -101,29 +101,31 @@
                                     <div class="form-group">
                                         <label for="">Provinsi</label><br>
                                         <select class="form-control" name="id_prov" id="id_prov_input">
-                                        <option value="">Pilih Provinsi</option>
-                                        <?php foreach ($provinsi as $data_provinsi) {?>
-                                        <option value="<?="$data_provinsi->id_prov";?>"><?="$data_provinsi->nama_prov";?></option><?php } ?>
+                                            <option value="" selected disabled> -- Pilih Provinsi -- </option>
+                                            <?php foreach ($provinsi as $data_provinsi) {?>
+                                            <option value="<?="$data_provinsi->id_prov";?>"><?="$data_provinsi->nama_prov";?></option><?php } ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="" class="d-block">Kota</label>
-                                        <select onblur="cari_kota()" class="form-control" name="id_kota" id="id_kota_input">
-                                        <option value="">Pilih kota</option>
-                                        <?php foreach ($kota as $data_provinsi) {?>
-                                        <option value="<?="$data_provinsi->id_kota";?>"><?="$data_provinsi->nm_kota";?></option><?php } ?>
+                                        <select class="form-control" name="id_kota" id="id_kota_input">
+                                        <option value="" selected disabled> -- Pilih kota -- </option>
+                                        <option value="" disabled> Maaf anda belum memilih provinsi </option>
+                                        <!-- <?php foreach ($kota as $data_provinsi) {?>
+                                        <option value="<?="$data_provinsi->id_kota";?>"><?="$data_provinsi->nm_kota";?></option><?php } ?> -->
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Kecamatan</label>
-                                        <select onblur="cari_kecamatan()" class="form-control" name="id_kecamatan" id="id_kecamatan_input">
-                                        <option value="">Pilih Kecamatan</option>
-                                        <?php foreach ($kecamatan as $data_provinsi) {?>
-                                        <option value="<?="$data_provinsi->id_kec";?>"><?="$data_provinsi->nm_kec";?></option><?php } ?>
+                                        <select class="form-control" name="id_kecamatan" id="id_kecamatan_input">
+                                        <option value="" selected disabled> -- Pilih Kecamatan -- </option>
+                                        <option value="" disabled> Maaf anda belum memilih kota </option>
+                                        <!-- <?php foreach ($kecamatan as $data_provinsi) {?>
+                                        <option value="<?="$data_provinsi->id_kec";?>"><?="$data_provinsi->nm_kec";?></option><?php } ?> -->
                                         </select>
                                     </div>
                                 </div>
@@ -148,59 +150,62 @@
     </div>
 
     <script type="text/javascript">
-    function cari_kota(){
-        var id_prov = $('#id_prov_input').val();
-        var url = "<?= base_url('Ctm/Cprofil/cari_kota_ajax')?>";
-        url += "?provinsi=" + id_prov;
-        console.log(url);
+    (function( j ){
+        j( document ).on('change', '#id_prov_input', function(){
+            cariKota( j( this ).val() )
+        })
 
-        $.ajax({
-            url : url,
-            dataType : 'json',
-            success : function (data) {
-            console.log(data);
-            $('#id_kota_input').empty();
-            $("#id_kota_input").append('<option value="">Pilihlah</option>');
-            if (data.length > 0) {
-                $.each(data, function (index, value) {
-                var nama_kota = value.nm_kota;
-                var id_kota = value.id_kota;
-                $("#id_kota_input").append('<option value="' + id_kota + '">' + nama_kota + '</option>');
-                console.log(id_kota);
-                });
-            } else {
-                $("#id_kota_input").append('<option value="">Tidak ditemukan</option>');
-            }
-            }
-        });
-    }
+        function cariKota(id_prov){
+            let url     = ('<?= base_url('Ctm/Cprofil/cari_kota_ajax?provinsi=') ?>'+id_prov)
+            
+            j.get(url, function( d ){
+                if ( d.length > 0 ) {
+                    let html = []
+                    html.push(`<option value="" selected disabled> -- Pilih kota -- </option>`)
+                    j.each(d, function (a,b) {
+                        html.push(`<option value="${b.id_kota}">${b.nm_kota}</option>`)
+                    });
+                    j("#id_kota_input").html( html.join('') )
 
-    function cari_kecamatan(){
-        var id_kota = $('#id_kota_input').val();
-        var url = "<?= base_url('Ctm/Cprofil/cari_kecamatan_ajax')?>";
-        url += "?kota=" + id_kota;
-        console.log(url);
+                    j( document ).on('change', '#id_kota_input', function(){
+                        cariKecamatan( j( this ).val() )
+                    })
 
-        $.ajax({
-            url : url,
-            dataType : 'json',
-            success : function (data) {
-            console.log(data);
-            $('#id_kecamatan_input').empty();
-            $("#id_kecamatan_input").append('<option value="">Pilihlah</option>');
-            if (data.length > 0) {
-                $.each(data, function (index, value) {
-                var nama_kec = value.nm_kec;
-                var id_kec = value.id_kec;
-                $("#id_kecamatan_input").append('<option value="' + id_kec + '">' + nama_kec + '</option>');
-                console.log(id_kec);
+                } else {
+                    j("#id_kota_input").append('<option value="" selected disabled>Kota Tidak ditemukan</option>')
 
-                });
-            } else {
-                $("#id_kecamatan_input").append('<option value="">Tidak ditemukan</option>');
-            }
-            }
-        });
-    }
+                }
+                resetKecamatan()
+
+            }, 'json')
+        }
+
+        function cariKecamatan(id_kota){
+            let url     = ('<?= base_url('Ctm/Cprofil/cari_kecamatan_ajax?kota=') ?>'+id_kota)
+            
+            j.get(url, function( d ){
+                if ( d.length > 0 ) {
+                    let html = []
+                    html.push(`<option value="" selected disabled> -- Pilih Kecamatan -- </option>`)
+                    j.each(d, function (a,b) {
+                        html.push(`<option value="${b.id_kec}">${b.nm_kec}</option>`)
+                    });
+                    j("#id_kecamatan_input").html( html.join('') )
+
+                } else {
+                    j("#id_kecamatan_input").append('<option value="" selected disabled>Kota Tidak ditemukan</option>')
+
+                }
+
+            }, 'json')
+        }
+
+        function resetKecamatan(){
+            let html = []
+            html.push(`<option value="" selected disabled> -- Pilih Kecamatan -- </option>`)
+            html.push(`<option value="" disabled> Maaf anda belum memilih kota </option>`)
+            j("#id_kecamatan_input").html( html.join('') )
+        }
+    })(jQuery)
 
     </script>

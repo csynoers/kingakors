@@ -77,7 +77,7 @@
         <script src="<?= base_url("assets/amado/js/plugins.js") ?>"></script>
         <?php } ?>
         <!-- Active js -->
-        <script src="<?= base_url("assets/amado/js/active.js") ?>"></script>
+        <script src="<?= base_url("assets/amado/js/active.js?v=0.1") ?>"></script>
 
 
         <!-- Page level plugins -->
@@ -86,7 +86,7 @@
 
         <!-- Page level custom scripts -->
         <script src="<?= base_url('assets') ?>/datatables/demo/datatables-demo.js"></script>
-        <script src="<?= base_url(); ?>assets/js/sweetalert2.all.min.js></script"></script>
+        <script src="<?= base_url(); ?>assets/js/sweetalert2.all.min.js"></script>
         <script src="<?= base_url(); ?>assets/js/myscript.js?v=0.1"></script>
         <!-- </footer> -->
     </body>

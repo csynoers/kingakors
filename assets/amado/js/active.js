@@ -64,7 +64,7 @@
 
     // :: 5.0 Nice Select Active Code
     if ($.fn.niceSelect) {
-        $('select').niceSelect();
+        // $('select').niceSelect();
     }
 
     // :: 6.0 Magnific Active Code
