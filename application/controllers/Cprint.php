@@ -43,10 +43,11 @@ class Cprint extends CI_Controller
         }
         // var_dump($data['penjualan']);
         // die;
-        $this->load->library('pdf');
-        $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "laporan-barang.pdf";
-        $this->pdf->load_view('print/laporan_penjualan', $data);
+        $this->load->view('print/laporan_penjualan', $data);
+        // $this->load->library('pdf');
+        // $this->pdf->setPaper('A4', 'potrait');
+        // $this->pdf->filename = "laporan-barang.pdf";
+        // $this->pdf->load_view('print/laporan_penjualan', $data);
     }
 
     public function print_struct()
