@@ -47,7 +47,7 @@
                         <div class="newsletter-text mb-50 mt-3">
                             <h4 class="text-white text-center">Customer Support</h4>
                             <hr style="border-color:white">
-                            <p>Klik Untuk : <a href="<?= base_url('auth/lkonsumen') ?>" class="text-white">Pembayaran & Pembelian</a></p>
+                            <p>Klik Untuk : <a href="<?= base_url('auth/lKonsumen') ?>" class="text-white">Pembayaran & Pembelian</a></p>
                         </div>
                     </div>
                 </div>

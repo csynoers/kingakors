@@ -109,7 +109,7 @@ class Auth extends CI_Controller
   public function lKonsumen()
   {
     $this->load->view('kerangka/Header');
-    $this->load->view('LKonsumen');
+    $this->load->view('lKonsumen');
     $this->load->view('kerangka/Footer');
   }
 
