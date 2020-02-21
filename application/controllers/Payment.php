@@ -12,7 +12,7 @@
 
             /* config PAYMENT API */
             $this->server_domain = 'https://api.xendit.co';
-            $this->secret_api_key = 'xnd_development_41Bf6WsBwmDg802BKdtNIQ0Vg0wLie3ZaRWxMSgQ3GnVojeH1uQYPITTuJaR4gU';
+            $this->secret_api_key = 'xnd_production_xc2NVAeNio0YeMAWOWE1yXqcfZiMHfG0VfW0GCi4Q7TyW7fihjTegcl1yCTAVZ9';
         }
 
         function internet_check(){
