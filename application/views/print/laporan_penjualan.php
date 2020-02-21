@@ -39,6 +39,7 @@
         </thead>
         <tbody>
             <?php foreach ($penjualan as $data_penjualan) : ?>
+            <? print_r($data_penjualan) ?>
                 <tr>
                     <td style="text-align:center"><?= $data_penjualan->id_pesan ?></td>
                     <td style="padding-left: 10px"><?= $data_penjualan->nama_pel ?></td>
