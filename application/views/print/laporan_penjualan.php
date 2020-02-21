@@ -43,7 +43,7 @@
                 <tr>
                     <td style="text-align:center"><?= $data_penjualan->id_pesan ?></td>
                     <td style="padding-left: 10px"><?= $data_penjualan->nama_pel ?></td>
-                    <td style="padding-left: 10px"><?= $data_penjualan->alamat ?></td>
+                    <td style="padding-left: 10px"><?= $data_penjualan->alamat_lengkap ?></td>
                     <td style="text-align:center">
                         <?php
                         $res = $this->db->query("SELECT COUNT(id_det_pem) as j FROM `detail_pemesanan` WHERE id_pesan='{$data_penjualan->id_pesan}'")->result();
