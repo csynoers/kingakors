@@ -99,6 +99,7 @@ class cprofil extends CI_Controller
           "kota" => $this->input->post('id_kota'),
           "kecamatan" => $this->input->post('id_kecamatan'),
   				"alamat_lengkap" => $this->input->post('alamat_lengkap'),
+  				"status" => $this->input->post('status'),
         );
         $this->Malamatpen->insert($data);
         redirect(base_url("Ctm/Cprofil"));
@@ -131,7 +132,8 @@ class cprofil extends CI_Controller
   					"id_prov" => $this->input->post('id_prov'),
   					"kota" => $this->input->post('id_kota'),
   					"kecamatan" => $this->input->post('id_kec'),
-  					"alamat_lengkap" => $this->input->post('alamat_lengkap'),
+            "alamat_lengkap" => $this->input->post('alamat_lengkap'),
+            "status" => $this->input->post('status'),
 
       		);
       		// var_dump($data_update);
