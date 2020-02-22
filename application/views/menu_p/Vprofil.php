@@ -206,7 +206,7 @@
                            <td>:</td>
                            <td>
                             <input type="radio" name="status" <?php if($data_update == 'ready'){ echo 'checked';} ?> value="ready">Ready
-                            <input type="radio" name="status" <?php if($data_update == 'no ready'){ echo 'checked';} ?> value="no_ready">No Ready
+                            <input type="radio" name="status" <?php if($data_update == 'no ready'){ echo 'checked';} ?> value="no ready">No Ready
                           </td><?= form_error('Status'); ?>
                           </tr>
                         </div>
